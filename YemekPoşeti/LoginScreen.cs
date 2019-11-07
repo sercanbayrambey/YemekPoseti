@@ -25,8 +25,9 @@ namespace YemekPoşeti
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
 			MainScreen mainScreen = new MainScreen();
-			mainScreen.Show();
 			this.Hide();
+			mainScreen.ShowDialog();
+			this.Close();
 		}
 	}
 }
