@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data;
+using MySql.Data.MySqlClient;
 namespace YemekPoşeti
 {
 	public partial class LoginScreen : MetroFramework.Forms.MetroForm
@@ -19,8 +20,20 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-            //txtUserName.Select(); Form açıldığı an kullanıcı adı textboxunu seçsin
-		}
+            MySqlConnection con = new MySqlConnection("Server=sql290.main-hosting.eu;Database=u247404070_yemekposeti;Uid=u247404070_sercan;Pwd='yemekposeti123';");
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = con;
+            con.Open();
+            cmd.CommandText = "SELECT LocationName FROM Locations";
+            MySqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                MessageBox.Show(dr["LocationName"].ToString());
+            }
+            con.Close();
+
+        }
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
@@ -49,6 +62,8 @@ namespace YemekPoşeti
                 txtPass.ForeColor = Color.Black;
                 txtPass.PasswordChar = '*';
             }
+
+            
         }
 
         private void metroLabel1_Click(object sender, EventArgs e)
