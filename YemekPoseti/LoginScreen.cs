@@ -22,8 +22,8 @@ namespace YemekPoşeti
 		{
             MySqlConnection con = new MySqlConnection("Server=sql290.main-hosting.eu;Database=u247404070_yemekposeti;Uid=u247404070_sercan;Pwd='yemekposeti123';");
             MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = con;
             con.Open();
+            cmd.Connection = con;
             cmd.CommandText = "SELECT LocationName FROM Locations";
             MySqlDataReader dr = cmd.ExecuteReader();
 
