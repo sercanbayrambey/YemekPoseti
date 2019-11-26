@@ -44,7 +44,11 @@ namespace YemekPoşeti
                 MessageBox.Show("Giriş başarılı.");
             }
             else
+            {
+                txtPass.Clear();
+                txtPass.Select();
                 MessageBox.Show("Giriş başarısız!");
+            }
 		}
 
         private bool CheckLogin(string username,string pass)
