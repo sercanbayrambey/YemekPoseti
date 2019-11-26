@@ -46,7 +46,7 @@
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(160, 55);
-            this.btnRegister.TabIndex = 3;
+            this.btnRegister.TabIndex = 0;
             this.btnRegister.Text = "Kayıt Ol!";
             this.btnRegister.UseCustomBackColor = true;
             this.btnRegister.UseSelectable = true;
@@ -60,7 +60,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(160, 55);
             this.btnLogin.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btnLogin.TabIndex = 2;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Giriş Yap!";
             this.btnLogin.UseCustomBackColor = true;
             this.btnLogin.UseSelectable = true;
@@ -96,7 +96,7 @@
             this.txtUserName.SelectionStart = 0;
             this.txtUserName.ShortcutsEnabled = true;
             this.txtUserName.Size = new System.Drawing.Size(333, 37);
-            this.txtUserName.TabIndex = 0;
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.Text = "Kullanıcı adınız..";
             this.txtUserName.UseCustomForeColor = true;
             this.txtUserName.UseSelectable = true;
@@ -134,7 +134,7 @@
             this.txtPass.SelectionStart = 0;
             this.txtPass.ShortcutsEnabled = true;
             this.txtPass.Size = new System.Drawing.Size(333, 37);
-            this.txtPass.TabIndex = 1;
+            this.txtPass.TabIndex = 2;
             this.txtPass.Text = "Şifrenizi giriniz..";
             this.txtPass.UseCustomForeColor = true;
             this.txtPass.UseSelectable = true;
@@ -160,7 +160,7 @@
             this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(107, 20);
-            this.metroLabel1.TabIndex = 3;
+            this.metroLabel1.TabIndex = 4;
             this.metroLabel1.Text = "Şifremi unuttum";
             this.metroLabel1.Click += new System.EventHandler(this.metroLabel1_Click);
             // 

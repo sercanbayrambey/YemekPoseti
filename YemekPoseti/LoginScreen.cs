@@ -23,21 +23,45 @@ namespace YemekPoşeti
 		{
 			db.Connect();
 			MySqlDataReader rd = db.GetQuery("SELECT LocationName FROM Locations");
-			while (rd.Read())
+		/*	while (rd.Read())
 			{
 				MessageBox.Show(rd["locationName"].ToString());
-			}
-
+			}*/
+            db.Close();
 
         }
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
-			MainScreen mainScreen = new MainScreen();
-			this.Hide();
-			mainScreen.ShowDialog();
-			this.Close();
+            string username = txtUserName.Text;
+            string pass = txtPass.Text;
+            if (CheckLogin(username, pass))
+            {
+                /*MainScreen mainScreen = new MainScreen();
+                this.Hide();
+                mainScreen.ShowDialog();
+                this.Close();*/
+                MessageBox.Show("Giriş başarılı.");
+            }
+            else
+                MessageBox.Show("Giriş başarısız!");
 		}
+
+        private bool CheckLogin(string username,string pass)
+        {
+            string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' and UserPassword = '{1}'", username.ToLower(), pass);
+            db.Connect();
+            MySqlDataReader dr = db.GetQuery(query);
+            if (dr.Read())
+            {
+                db.Close();
+                return true;
+            }
+            db.Close();
+            return false;
+        }
+
+
 
         private void txtUserName_Enter(object sender, EventArgs e)
         {
