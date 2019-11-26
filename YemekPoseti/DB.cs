@@ -12,13 +12,13 @@ namespace YemekPoşeti
 	{
 		private static Dictionary<string, string> config = new Dictionary<string, string>() {
 			{"host", "sql290.main-hosting.eu" },
-			{"user", "u247404070_yemekposeti" },
-			{"pass", "u247404070_sercan" },
-			{"db", "yemekposeti123" }
+			{"db", "u247404070_yemekposeti" },
+			{"user", "u247404070_sercan" },
+			{"pass", "yemekposeti123" }
 		};
-		private DB connect = null;
 		private MySqlConnection con;
-		private MySqlCommand cmd = new MySqlCommand();
+		private MySqlCommand cmd;
+		private MySqlDataReader rd;
 		/*
 		MySqlConnection con = new MySqlConnection("Server=sql290.main-hosting.eu;Database=u247404070_yemekposeti;Uid=u247404070_sercan;Pwd='yemekposeti123';");
 		MySqlCommand cmd = new MySqlCommand();
@@ -27,18 +27,60 @@ namespace YemekPoşeti
             cmd.CommandText = "SELECT LocationName FROM Locations";
             MySqlDataReader dr = cmd.ExecuteReader();
 		*/
-		public DB()
+		public void Connect()
 		{
-			con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");
+			this.con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");
+
+			try
+			{
+				this.con.Open();
+			}
+
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
 		}
 
-		public DB Connect()
+		public int SetQuery(string sql)
 		{
-			if (connect == null)
+
+			cmd = new MySqlCommand(sql, con);
+
+			try
 			{
-				this.connect = new DB();
+				return cmd.ExecuteNonQuery();
 			}
-			return this.connect;
+
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+				return 0;
+			}
+		}
+
+		public MySqlDataReader GetQuery(string sql)
+		{
+			try
+			{
+				cmd = new MySqlCommand(sql, con);
+				rd = cmd.ExecuteReader();
+			}
+
+			catch (Exception e)
+			{
+				Console.WriteLine(e.Message);
+			}
+
+			return rd;
+
+		}
+
+
+		public void Close()
+		{
+
+			con.Close();
 		}
 	}
 }

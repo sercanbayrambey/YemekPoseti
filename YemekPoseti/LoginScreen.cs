@@ -13,6 +13,7 @@ namespace YemekPoşeti
 {
 	public partial class LoginScreen : MetroFramework.Forms.MetroForm
 	{
+		private DB db = new DB();
 		public LoginScreen()
 		{
 			InitializeComponent();
@@ -20,18 +21,13 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-            MySqlConnection con = new MySqlConnection("Server=sql290.main-hosting.eu;Database=u247404070_yemekposeti;Uid=u247404070_sercan;Pwd='yemekposeti123';");
-            MySqlCommand cmd = new MySqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT LocationName FROM Locations";
-            MySqlDataReader dr = cmd.ExecuteReader();
+			db.Connect();
+			MySqlDataReader rd = db.GetQuery("SELECT LocationName FROM Locations");
+			while (rd.Read())
+			{
+				MessageBox.Show(rd["locationName"].ToString());
+			}
 
-            while (dr.Read())
-            {
-                MessageBox.Show(dr["LocationName"].ToString());
-            }
-            con.Close();
 
         }
 
