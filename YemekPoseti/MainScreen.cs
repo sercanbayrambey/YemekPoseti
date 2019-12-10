@@ -12,14 +12,17 @@ namespace YemekPoşeti
 {
     public partial class MainScreen : MetroFramework.Forms.MetroForm
     {
-        public MainScreen()
+		private User LoggedUser;
+
+        public MainScreen(User user)
         {
+			LoggedUser = user;
             InitializeComponent();
         }
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			this.BackColor = Color.Red;
+			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 		}
 	}
 }

@@ -29,13 +29,14 @@ namespace YemekPoşeti
 		{
             string username = txtUserName.Text;
             string pass = txtPass.Text;
-            if (CheckLogin(username, pass))
+			User user = new User();
+            if (user.Login(username, pass))
             {
-				/*MainScreen mainScreen = new MainScreen();
+				LoggedUser = user;
+				MainScreen mainScreen = new MainScreen(LoggedUser);
                 this.Hide();
-                mainScreen.ShowDialog();
-                this.Close();*/
-				MessageBox.Show(LoggedUser.ToString());
+				mainScreen.ShowDialog();
+                this.Close();
             }
             else
             {
@@ -45,7 +46,7 @@ namespace YemekPoşeti
             }
 		}
 
-        private bool CheckLogin(string username,string pass)
+  /*      private bool CheckLogin(string username,string pass)
         {
             string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' and UserPassword = '{1}'", username.ToLower(), pass);
             db.Connect();
@@ -59,7 +60,7 @@ namespace YemekPoşeti
 			db.Close();
             return false;
         }
-
+*/
 
 
         private void txtUserName_Enter(object sender, EventArgs e)
@@ -89,5 +90,14 @@ namespace YemekPoşeti
         {
 
         }
-    }
+
+		private void btnRegister_Click(object sender, EventArgs e)
+		{
+			RegisterScreen regscreen = new RegisterScreen();
+			this.Hide();
+			regscreen.ShowDialog();
+			this.BringToFront();
+			this.Show();
+		}
+	}
 }

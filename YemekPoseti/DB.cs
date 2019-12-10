@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
-	class DB
+	public class DB
 	{
 		private static Dictionary<string, string> config = new Dictionary<string, string>() {
 			{"host", "sql290.main-hosting.eu" },

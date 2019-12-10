@@ -27,40 +27,16 @@ namespace YemekPoşeti
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
-			string username = txtUserName.Text;
-			string pass = txtPass.Text;
-			if (CheckLogin(username, pass))
-			{
-				/*MainScreen mainScreen = new MainScreen();
-                this.Hide();
-                mainScreen.ShowDialog();
-                this.Close();*/
-				MessageBox.Show(LoggedUser.ToString());
-			}
-			else
-			{
-				txtPass.Clear();
-				txtPass.Select();
-				MessageBox.Show("Giriş başarısız!");
-			}
+			
 		}
 
-		private bool CheckLogin(string username, string pass)
+		
+
+
+		private void metroLabel1_Click(object sender, EventArgs e)
 		{
-			string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' and UserPassword = '{1}'", username.ToLower(), pass);
-			db.Connect();
-			MySqlDataReader dr = db.GetQuery(query);
-			if (dr.Read())
-			{
-				LoggedUser = new User(username, pass);
-				db.Close();
-				return true;
-			}
-			db.Close();
-			return false;
+
 		}
-
-
 
 		private void txtUserName_Enter(object sender, EventArgs e)
 		{
@@ -72,22 +48,51 @@ namespace YemekPoşeti
 			}
 		}
 
+		private void txtEmail_Enter(object sender, EventArgs e)
+		{
+			string defaultText = "E-Mail";
+			if (txtEmail.Text.Equals(defaultText))
+			{
+				txtEmail.Clear();
+				txtEmail.ForeColor = Color.Black;
+			}
+		}
+
 		private void txtPass_Enter(object sender, EventArgs e)
 		{
-			string defaultText = "Şifrenizi giriniz..";
+			string defaultText = "Şifre";
 			if (txtPass.Text.Equals(defaultText))
 			{
 				txtPass.Clear();
 				txtPass.ForeColor = Color.Black;
 				txtPass.PasswordChar = '*';
 			}
-
-
 		}
 
-		private void metroLabel1_Click(object sender, EventArgs e)
+		private void btnRegister_Click(object sender, EventArgs e)
 		{
+			User user = new User();
 
+			if(txtUserName.Text != string.Empty || txtPass.Text != string.Empty || txtEmail.Text != string.Empty)
+			{
+				if (user.Register(txtUserName.Text.ToLower(), txtPass.Text, txtEmail.Text))
+				{
+					MessageBox.Show("Kaydınız başarıyla tamamlandı.");
+					this.Close();
+				}
+				else
+					MessageBox.Show("Kayıt sırasında bir hata oluştu.");
+			}
+			else
+			{
+				MessageBox.Show("HER YERİ DOLDUR");
+			}
+			
+		}
+
+		private void lblBack_Click(object sender, EventArgs e)
+		{
+			this.Close();
 		}
 	}
 }

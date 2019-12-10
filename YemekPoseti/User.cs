@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
-	class User
+	public class User
 	{
 		public int UserID { get; set; }
 		public string UserName { get; set; }
@@ -19,35 +19,83 @@ namespace YemekPoşeti
 		public DateTime RegisterDate { get; set; }
 		public DB db { get; set; }
 
-		public User(string username,string pass)
+		
+		public User() // Login
 		{
-			this.UserName = username;
-			this.Pass = pass;
 			this.db = new DB();
-			GetUserInfo();
+		}
+
+		public bool Login(string username, string pass)
+		{
+			string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' AND UserPassword = '{1}'", username.ToLower(), pass);
+			db.Connect();
+			MySqlDataReader dr = db.GetQuery(query);
+			if (dr.Read())
+			{
+				//LOGIN TRUE
+				this.UserID = Convert.ToInt32(dr["UserID"]);
+				GetUserInfo();
+				db.Close();
+				return true;
+			}
+			db.Close();
+			return false;
+
+
+		}
+
+
+		public bool Register(string username,string pass, string email)
+		{
+
+			if (IsRegistered(username, email))
+				return false;
+
+			string query = string.Format("INSERT INTO Users(UserName,UserPassword,UserMail)" +
+				" VALUES ( '{0}','{1}','{2}' )", username.ToLower(), pass, email);
+			db.Connect();
+			if (db.SetQuery(query) > 0)
+			{
+				db.Close();
+				return true;
+			}
+			else
+			{
+				db.Close();
+				return false;
+			}
+		}
+
+		private bool IsRegistered(string username,string email)
+		{
+			string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' OR UserMail = '{1}' ", username, email);
+			db.Connect();
+			MySqlDataReader dr =  db.GetQuery(query);
+			if (dr.Read())
+			{
+				db.Close();
+				return true;
+			}
+			db.Close();
+			return false;
 		}
 
 		private void GetUserInfo()
 		{
-			string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' AND UserPassword = '{1}'", UserName.ToLower(), Pass);
+			string query = string.Format("SELECT * FROM Users U INNER JOIN Locations L ON U.LocationID = L.LocationID WHERE U.UserID = {0}", this.UserID);
 			db.Connect();
 			MySqlDataReader dr =  db.GetQuery(query);
 			if(dr.Read())
 			{
-				UserID = Convert.ToInt32(dr["UserID"]);
+				UserName = dr["UserName"].ToString();
+				Pass = dr["UserPassword"].ToString();
 				Mail = dr["UserMail"].ToString();
+				Location = dr["LocationName"].ToString();
 				RegisterDate = Convert.ToDateTime(dr["UserRegisterDate"]);
-				UserType = Convert.ToInt32(dr["UserID"]);
+				UserType = Convert.ToInt32(dr["UserType"]);
 				db.Close();
 			}
 
-			db.Connect();
-			query = string.Format("SELECT L.LocationName FROM Users U INNER JOIN Locations L ON U.LocationID = L.LocationID WHERE U.UserName = '{0}' AND U.UserPassword = '{1}'", UserName.ToLower(), Pass);
-			dr = db.GetQuery(query);
-
-			if(dr.Read())
-				Location = dr["LocationName"].ToString();
-			db.Close();
 		}
 
 
