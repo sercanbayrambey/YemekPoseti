@@ -19,14 +19,8 @@ namespace YemekPoşeti
 		private MySqlConnection con;
 		private MySqlCommand cmd;
 		private MySqlDataReader rd;
-		/*
-		MySqlConnection con = new MySqlConnection("Server=sql290.main-hosting.eu;Database=u247404070_yemekposeti;Uid=u247404070_sercan;Pwd='yemekposeti123';");
-		MySqlCommand cmd = new MySqlCommand();
-		cmd.Connection = con;
-            con.Open();
-            cmd.CommandText = "SELECT LocationName FROM Locations";
-            MySqlDataReader dr = cmd.ExecuteReader();
-		*/
+
+
 		public void Connect()
 		{
 			this.con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");
@@ -42,10 +36,10 @@ namespace YemekPoşeti
 			}
 		}
 
-		public int SetQuery(string sql)
+		public int SetQuery(string query)
 		{
 
-			cmd = new MySqlCommand(sql, con);
+			cmd = new MySqlCommand(query, con);
 
 			try
 			{
@@ -59,11 +53,11 @@ namespace YemekPoşeti
 			}
 		}
 
-		public MySqlDataReader GetQuery(string sql)
+		public MySqlDataReader GetQuery(string query)
 		{
 			try
 			{
-				cmd = new MySqlCommand(sql, con);
+				cmd = new MySqlCommand(query, con);
 				rd = cmd.ExecuteReader();
 			}
 

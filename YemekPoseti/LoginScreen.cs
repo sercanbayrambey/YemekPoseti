@@ -14,6 +14,7 @@ namespace YemekPoşeti
 	public partial class LoginScreen : MetroFramework.Forms.MetroForm
 	{
 		private DB db = new DB();
+		private User LoggedUser;
 		public LoginScreen()
 		{
 			InitializeComponent();
@@ -21,14 +22,7 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			db.Connect();
-			MySqlDataReader rd = db.GetQuery("SELECT LocationName FROM Locations");
-		/*	while (rd.Read())
-			{
-				MessageBox.Show(rd["locationName"].ToString());
-			}*/
-            db.Close();
-
+	
         }
 
 		private void btnLogin_Click(object sender, EventArgs e)
@@ -37,11 +31,11 @@ namespace YemekPoşeti
             string pass = txtPass.Text;
             if (CheckLogin(username, pass))
             {
-                /*MainScreen mainScreen = new MainScreen();
+				/*MainScreen mainScreen = new MainScreen();
                 this.Hide();
                 mainScreen.ShowDialog();
                 this.Close();*/
-                MessageBox.Show("Giriş başarılı.");
+				MessageBox.Show(LoggedUser.ToString());
             }
             else
             {
@@ -58,10 +52,11 @@ namespace YemekPoşeti
             MySqlDataReader dr = db.GetQuery(query);
             if (dr.Read())
             {
+				LoggedUser = new User(username,pass);
                 db.Close();
                 return true;
             }
-            db.Close();
+			db.Close();
             return false;
         }
 
