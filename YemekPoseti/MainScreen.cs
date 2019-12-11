@@ -23,6 +23,14 @@ namespace YemekPoşeti
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
+			LoadProfileData();
+		}
+
+		private void LoadProfileData()
+		{
+			lblUsername.Text = LoggedUser.UserName.ToUpper();
+			lblCity.Text = LoggedUser.Location;
+			lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
 		}
 	}
 }
