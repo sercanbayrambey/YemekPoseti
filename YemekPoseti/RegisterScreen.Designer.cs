@@ -35,6 +35,7 @@
 			this.txtPass = new MetroFramework.Controls.MetroTextBox();
 			this.txtEmail = new MetroFramework.Controls.MetroTextBox();
 			this.lblBack = new System.Windows.Forms.Label();
+			this.cboxCity = new MetroFramework.Controls.MetroComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -43,7 +44,7 @@
 			this.btnRegister.BackColor = System.Drawing.Color.Violet;
 			this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnRegister.FontSize = MetroFramework.MetroButtonSize.Medium;
-			this.btnRegister.Location = new System.Drawing.Point(122, 304);
+			this.btnRegister.Location = new System.Drawing.Point(122, 378);
 			this.btnRegister.Name = "btnRegister";
 			this.btnRegister.Size = new System.Drawing.Size(120, 45);
 			this.btnRegister.TabIndex = 0;
@@ -91,7 +92,7 @@
 			// pboxLogo
 			// 
 			this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
-			this.pboxLogo.Location = new System.Drawing.Point(82, 410);
+			this.pboxLogo.Location = new System.Drawing.Point(82, 484);
 			this.pboxLogo.Name = "pboxLogo";
 			this.pboxLogo.Size = new System.Drawing.Size(200, 87);
 			this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -176,12 +177,23 @@
 			this.lblBack.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.lblBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblBack.ForeColor = System.Drawing.SystemColors.Highlight;
-			this.lblBack.Location = new System.Drawing.Point(166, 352);
+			this.lblBack.Location = new System.Drawing.Point(166, 426);
 			this.lblBack.Name = "lblBack";
 			this.lblBack.Size = new System.Drawing.Size(33, 16);
 			this.lblBack.TabIndex = 4;
 			this.lblBack.Text = "Geri";
 			this.lblBack.Click += new System.EventHandler(this.lblBack_Click);
+			// 
+			// cboxCity
+			// 
+			this.cboxCity.FormattingEnabled = true;
+			this.cboxCity.ItemHeight = 23;
+			this.cboxCity.Location = new System.Drawing.Point(57, 292);
+			this.cboxCity.Name = "cboxCity";
+			this.cboxCity.Size = new System.Drawing.Size(250, 29);
+			this.cboxCity.TabIndex = 5;
+			this.cboxCity.UseSelectable = true;
+			this.cboxCity.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
 			// 
 			// RegisterScreen
 			// 
@@ -189,6 +201,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(365, 580);
+			this.Controls.Add(this.cboxCity);
 			this.Controls.Add(this.lblBack);
 			this.Controls.Add(this.pboxLogo);
 			this.Controls.Add(this.txtEmail);
@@ -217,6 +230,7 @@
 		private MetroFramework.Controls.MetroTextBox txtPass;
 		private MetroFramework.Controls.MetroTextBox txtEmail;
 		private System.Windows.Forms.Label lblBack;
+		private MetroFramework.Controls.MetroComboBox cboxCity;
 	}
 }
 

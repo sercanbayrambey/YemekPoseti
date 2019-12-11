@@ -22,7 +22,7 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-
+			cboxCity.DataSource = db.GetCities();
 		}
 
 		private void btnLogin_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace YemekPoşeti
 
 			if(txtUserName.Text != string.Empty || txtPass.Text != string.Empty || txtEmail.Text != string.Empty)
 			{
-				if (user.Register(txtUserName.Text.ToLower(), txtPass.Text, txtEmail.Text))
+				if (user.Register(txtUserName.Text.ToLower(), txtPass.Text, txtEmail.Text, cboxCity.SelectedItem.ToString()))
 				{
 					MessageBox.Show("Kaydınız başarıyla tamamlandı.");
 					this.Close();
@@ -94,5 +94,13 @@ namespace YemekPoşeti
 		{
 			this.Close();
 		}
+
+		private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			
+
+
+		}
+
 	}
 }

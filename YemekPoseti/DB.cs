@@ -70,6 +70,38 @@ namespace YemekPoşeti
 
 		}
 
+		public List<string> GetCities()
+		{
+			this.Connect();
+			List<string> cityList = new List<string>();
+			string query = "SELECT LocationName FROM Locations";
+			MySqlDataReader dr = this.GetQuery(query);
+			while (dr.Read())
+			{
+				cityList.Add(dr["LocationName"].ToString());
+			}
+			this.Close();
+			return cityList;
+		}
+
+
+		public int CityToLocationID(string city)
+		{
+			int cityID = 0;
+			string query = string.Format("SELECT LocationID From Locations WHERE LocationName = '{0}'",city);
+			this.Connect();
+			MySqlDataReader dr = this.GetQuery(query);
+			if(dr.Read())
+			{
+				cityID = Convert.ToInt32(dr["LocationID"]);
+			}
+			this.Close();
+			return cityID;
+		}
+
+		
+
+
 
 		public void Close()
 		{

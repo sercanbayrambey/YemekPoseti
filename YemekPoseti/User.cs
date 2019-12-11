@@ -45,14 +45,15 @@ namespace YemekPoşeti
 		}
 
 
-		public bool Register(string username,string pass, string email)
+		public bool Register(string username,string pass, string email,string city)
 		{
-
+			int cityID = 0;
 			if (IsRegistered(username, email))
 				return false;
 
-			string query = string.Format("INSERT INTO Users(UserName,UserPassword,UserMail)" +
-				" VALUES ( '{0}','{1}','{2}' )", username.ToLower(), pass, email);
+			cityID = db.CityToLocationID(city);
+			string query = string.Format("INSERT INTO Users(UserName,UserPassword,UserMail,LocationID)" +
+				" VALUES ( '{0}','{1}','{2}' , '{3}' )", username.ToLower(), pass, email,cityID);
 			db.Connect();
 			if (db.SetQuery(query) > 0)
 			{
@@ -65,6 +66,8 @@ namespace YemekPoşeti
 				return false;
 			}
 		}
+
+		
 
 		private bool IsRegistered(string username,string email)
 		{
@@ -95,7 +98,7 @@ namespace YemekPoşeti
 				UserType = Convert.ToInt32(dr["UserType"]);
 				db.Close();
 			}
-
+			db.Close();
 		}
 
 

@@ -13,7 +13,6 @@ namespace YemekPoşeti
 {
 	public partial class LoginScreen : MetroFramework.Forms.MetroForm
 	{
-		private DB db = new DB();
 		private User LoggedUser;
 		public LoginScreen()
 		{
