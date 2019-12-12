@@ -18,13 +18,11 @@ namespace YemekPoşeti
 		{
 			InitializeComponent();
 		}
-
-		private void Form1_Load(object sender, EventArgs e)
-		{
-			this.BringToFront();
-			this.AcceptButton = btnLogin;
-		}
-
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+            this.BringToFront();
+            this.AcceptButton = btnLogin;
+        }
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
             string username = txtUserName.Text;
@@ -75,5 +73,7 @@ namespace YemekPoşeti
 			this.BringToFront();
 			this.Show();
 		}
-	}
+
+     
+    }
 }
