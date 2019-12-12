@@ -45,24 +45,6 @@ namespace YemekPoşeti
 				lblErrorMsg.Text = "Giriş bilgileri hatalı!";
             }
 		}
-
-  /*      private bool CheckLogin(string username,string pass)
-        {
-            string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' and UserPassword = '{1}'", username.ToLower(), pass);
-            db.Connect();
-            MySqlDataReader dr = db.GetQuery(query);
-            if (dr.Read())
-            {
-				LoggedUser = new User(username,pass);
-                db.Close();
-                return true;
-            }
-			db.Close();
-            return false;
-        }
-*/
-
-
         private void txtUserName_Enter(object sender, EventArgs e)
         {
             string defaultText = "Kullanıcı adınız..";
@@ -85,12 +67,6 @@ namespace YemekPoşeti
 
             
         }
-
-        private void metroLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
 		private void btnRegister_Click(object sender, EventArgs e)
 		{
 			RegisterScreen regscreen = new RegisterScreen();

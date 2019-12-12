@@ -25,11 +25,10 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+            this.BringToFront();
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			LoadProfileData();
             AddRestaurantsToList();
-
-
         }
 
 		private void LoadProfileData()
