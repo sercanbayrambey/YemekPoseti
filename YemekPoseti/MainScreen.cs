@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
     public partial class MainScreen : MetroFramework.Forms.MetroForm
     {
-		private User LoggedUser;
-
+		private readonly User LoggedUser;
+        private readonly DB db;
         public MainScreen(User user)
         {
 			LoggedUser = user;
+            db = new DB();
             InitializeComponent();
         }
 
@@ -24,9 +27,10 @@ namespace YemekPoşeti
 		{
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			LoadProfileData();
-			AddTemplate(20);
-			
-		}
+            AddRestaurantsToList();
+
+
+        }
 
 		private void LoadProfileData()
 		{
@@ -40,19 +44,25 @@ namespace YemekPoşeti
 
 		}
 
-		private void AddTemplate(int i)
+		private void AddRestaurantsToList()
 		{
-
-			for (int j = 0; j < i; j++)
-			{
-				ucRestList ucTemp = new ucRestList();
-				if (j % 2 == 0)
-					ucTemp.BackColor = Color.FromArgb(255, 245, 255);
-				ucTemp.Dock = DockStyle.Top;
-				ucTemp.lblRestDesc.Text += j.ToString();
-				panelRestourant.Controls.Add(ucTemp);
-				/*ucTemp.Location = new Point(ucTemp.Location.X + 50, ucTemp.Location.Y + (j * ucTemp.Height) + 300); */// TODO: buna bi bak la
-			}
+            db.Connect();
+            int j = 0;
+            string query = string.Format("SELECT RestaurantName,RestaurantDesc FROM Restaurants WHERE LocationID = '{0}'",LoggedUser.LocationID);
+            MySqlDataReader dr = db.GetQuery(query);
+            while(dr.Read())
+            {
+                ucRestList ucTemp = new ucRestList();
+                if (j % 2 == 0)
+                    ucTemp.BackColor = Color.FromArgb(255, 245, 255);
+                ucTemp.Dock = DockStyle.Top;
+                ucTemp.lblRestDesc.Text = dr["RestaurantDesc"].ToString();
+                ucTemp.lblRestName.Text = dr["RestaurantName"].ToString();
+                panelRestourant.Controls.Add(ucTemp);
+                j++;
+            }
+            db.Close();
+   
 		}
 
 	}

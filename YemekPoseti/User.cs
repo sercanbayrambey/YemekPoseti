@@ -10,15 +10,16 @@ namespace YemekPoşeti
 {
 	public class User
 	{
-		public int UserID { get; set; }
-		public string UserName { get; set; }
-		public string Pass { get; set; }
-		public string Mail { get; set; }
-		public string Location { get; set; }
-		public int UserType { get; set; }
-		public DateTime RegisterDate { get; set; }
-		public DB db { get; set; }
+		public int UserID { get; private set; }
+		public string UserName { get; private set; }
+		public string Pass { get; private set; }
+		public string Mail { get; private set; }
+		public string Location { get; private set; }
+		public int UserType { get; private set; }
+		public DateTime RegisterDate { get; private set; }
+		private DB db { get;  set; }
 
+        public int LocationID { get; private set; }
 		
 		public User() // Login
 		{
@@ -52,13 +53,12 @@ namespace YemekPoşeti
 
 		public bool Register(string username,string pass, string email,string city)
 		{
-			int cityID = 0;
 			if (IsRegistered(username, email))
 				return false;
 
-			cityID = db.CityToLocationID(city);
+			this.LocationID = db.CityToLocationID(city);
 			string query = string.Format("INSERT INTO Users(UserName,UserPassword,UserMail,LocationID)" +
-				" VALUES ( '{0}','{1}','{2}','{3}' )", username.ToLower(), pass, email,cityID);
+				" VALUES ( '{0}','{1}','{2}','{3}' )", username.ToLower(), pass, email,this.LocationID);
 			db.Connect();
 			if (db.SetQuery(query) > 0)
 			{
@@ -99,6 +99,7 @@ namespace YemekPoşeti
 				Pass = dr["UserPassword"].ToString();
 				Mail = dr["UserMail"].ToString();
 				Location = dr["LocationName"].ToString();
+                LocationID = Convert.ToInt32(dr["LocationID"]);
 				RegisterDate = Convert.ToDateTime(dr["UserRegisterDate"]);
 				UserType = Convert.ToInt32(dr["UserType"]);
 				db.Close();

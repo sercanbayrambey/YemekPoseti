@@ -28,44 +28,48 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lblRestName = new System.Windows.Forms.Label();
-			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-			this.lblRestDesc = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// lblRestName
-			// 
-			this.lblRestName.AutoSize = true;
-			this.lblRestName.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblRestName.Location = new System.Drawing.Point(17, 15);
-			this.lblRestName.Name = "lblRestName";
-			this.lblRestName.Size = new System.Drawing.Size(128, 25);
-			this.lblRestName.TabIndex = 0;
-			this.lblRestName.Text = "Restoran Adı";
-			// 
-			// lblRestDesc
-			// 
-			this.lblRestDesc.AutoSize = true;
-			this.lblRestDesc.Font = new System.Drawing.Font("Malgun Gothic Semilight", 12F, System.Drawing.FontStyle.Italic);
-			this.lblRestDesc.Location = new System.Drawing.Point(31, 40);
-			this.lblRestDesc.Name = "lblRestDesc";
-			this.lblRestDesc.Size = new System.Drawing.Size(160, 21);
-			this.lblRestDesc.TabIndex = 1;
-			this.lblRestDesc.Text = "Restoran açıklaması...";
-			// 
-			// ucRestList
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.White;
-			this.Controls.Add(this.lblRestDesc);
-			this.Controls.Add(this.lblRestName);
-			this.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.Name = "ucRestList";
-			this.Size = new System.Drawing.Size(400, 125);
-			this.Load += new System.EventHandler(this.ucRestList_Load);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.lblRestName = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.lblRestDesc = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // lblRestName
+            // 
+            this.lblRestName.AutoSize = true;
+            this.lblRestName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblRestName.Location = new System.Drawing.Point(23, 18);
+            this.lblRestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRestName.Name = "lblRestName";
+            this.lblRestName.Size = new System.Drawing.Size(159, 28);
+            this.lblRestName.TabIndex = 0;
+            this.lblRestName.Text = "Restoran Adı";
+            // 
+            // lblRestDesc
+            // 
+            this.lblRestDesc.AutoSize = true;
+            this.lblRestDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic);
+            this.lblRestDesc.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lblRestDesc.Location = new System.Drawing.Point(41, 49);
+            this.lblRestDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRestDesc.Name = "lblRestDesc";
+            this.lblRestDesc.Size = new System.Drawing.Size(206, 25);
+            this.lblRestDesc.TabIndex = 1;
+            this.lblRestDesc.Text = "Restoran açıklaması... ";
+            // 
+            // ucRestList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblRestDesc);
+            this.Controls.Add(this.lblRestName);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "ucRestList";
+            this.Size = new System.Drawing.Size(533, 154);
+            this.Load += new System.EventHandler(this.ucRestList_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
