@@ -21,8 +21,9 @@ namespace YemekPoşeti
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-	
-        }
+			this.BringToFront();
+			this.AcceptButton = btnLogin;
+		}
 
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
@@ -41,7 +42,7 @@ namespace YemekPoşeti
             {
                 txtPass.Clear();
                 txtPass.Select();
-                MessageBox.Show("Giriş başarısız!");
+				lblErrorMsg.Text = "Giriş bilgileri hatalı!";
             }
 		}
 

@@ -21,18 +21,19 @@ namespace YemekPoşeti
 		private MySqlDataReader rd;
 
 
-		public void Connect()
+		public bool Connect()
 		{
 			this.con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");
 
 			try
 			{
 				this.con.Open();
+				return true;
 			}
 
 			catch (Exception e)
 			{
-				Console.WriteLine(e.Message);
+				return false;
 			}
 		}
 
@@ -99,13 +100,8 @@ namespace YemekPoşeti
 			return cityID;
 		}
 
-		
-
-
-
 		public void Close()
 		{
-
 			con.Close();
 		}
 	}

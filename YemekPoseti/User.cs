@@ -28,17 +28,22 @@ namespace YemekPoşeti
 		public bool Login(string username, string pass)
 		{
 			string query = string.Format("SELECT * FROM Users WHERE UserName = '{0}' AND UserPassword = '{1}'", username.ToLower(), pass);
-			db.Connect();
-			MySqlDataReader dr = db.GetQuery(query);
-			if (dr.Read())
+			
+			if(db.Connect())
 			{
-				//LOGIN TRUE
-				this.UserID = Convert.ToInt32(dr["UserID"]);
-				GetUserInfo();
+				MySqlDataReader dr = db.GetQuery(query);
+
+				if (dr.Read())
+				{
+					//LOGIN TRUE
+					this.UserID = Convert.ToInt32(dr["UserID"]);
+					GetUserInfo();
+					db.Close();
+					return true;
+				}
 				db.Close();
-				return true;
+				return false;
 			}
-			db.Close();
 			return false;
 
 
@@ -53,7 +58,7 @@ namespace YemekPoşeti
 
 			cityID = db.CityToLocationID(city);
 			string query = string.Format("INSERT INTO Users(UserName,UserPassword,UserMail,LocationID)" +
-				" VALUES ( '{0}','{1}','{2}' , '{3}' )", username.ToLower(), pass, email,cityID);
+				" VALUES ( '{0}','{1}','{2}','{3}' )", username.ToLower(), pass, email,cityID);
 			db.Connect();
 			if (db.SetQuery(query) > 0)
 			{

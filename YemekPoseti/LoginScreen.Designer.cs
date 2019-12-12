@@ -35,6 +35,7 @@
 			this.txtPass = new MetroFramework.Controls.MetroTextBox();
 			this.pboxLogo = new System.Windows.Forms.PictureBox();
 			this.lblForgetPass = new System.Windows.Forms.Label();
+			this.lblErrorMsg = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -161,12 +162,25 @@
 			this.lblForgetPass.TabIndex = 5;
 			this.lblForgetPass.Text = "Şifremi unuttum";
 			// 
+			// lblErrorMsg
+			// 
+			this.lblErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblErrorMsg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lblErrorMsg.ForeColor = System.Drawing.Color.Red;
+			this.lblErrorMsg.Location = new System.Drawing.Point(56, 470);
+			this.lblErrorMsg.Name = "lblErrorMsg";
+			this.lblErrorMsg.Size = new System.Drawing.Size(250, 25);
+			this.lblErrorMsg.TabIndex = 6;
+			this.lblErrorMsg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
 			// LoginScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
 			this.ClientSize = new System.Drawing.Size(365, 580);
+			this.Controls.Add(this.lblErrorMsg);
 			this.Controls.Add(this.lblForgetPass);
 			this.Controls.Add(this.pboxLogo);
 			this.Controls.Add(this.txtPass);
@@ -195,6 +209,7 @@
 		private MetroFramework.Controls.MetroTextBox txtPass;
 		private System.Windows.Forms.PictureBox pboxLogo;
 		private System.Windows.Forms.Label lblForgetPass;
+		private System.Windows.Forms.Label lblErrorMsg;
 	}
 }
 

@@ -24,6 +24,8 @@ namespace YemekPoşeti
 		{
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			LoadProfileData();
+			AddTemplate(20);
+			
 		}
 
 		private void LoadProfileData()
@@ -32,5 +34,27 @@ namespace YemekPoşeti
 			lblCity.Text = LoggedUser.Location;
 			lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
 		}
+
+		private void TabPageHome_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void AddTemplate(int i)
+		{
+
+			for (int j = 0; j < i; j++)
+			{
+				ucRestList ucTemp = new ucRestList();
+				if (j % 2 == 0)
+					ucTemp.BackColor = Color.FromArgb(255, 245, 255);
+				ucTemp.Dock = DockStyle.Top;
+				ucTemp.lblRestDesc.Text += j.ToString();
+				panelRestourant.Controls.Add(ucTemp);
+				/*ucTemp.Location = new Point(ucTemp.Location.X + 50, ucTemp.Location.Y + (j * ucTemp.Height) + 300); */// TODO: buna bi bak la
+			}
+		}
+
 	}
+	
 }
