@@ -21,7 +21,8 @@ namespace YemekPoşeti
 
 		private void ucRestList_Load(object sender, EventArgs e)
 		{
-		}
+            bgRestRating.FlatAppearance.BorderSize = 0;
+        }
 
 	}
 }

@@ -46,8 +46,12 @@ namespace YemekPoşeti
 		private void AddRestaurantsToList()
 		{
             db.Connect();
+            int r, g;
+            //Red = 180 - GREEN;
+            //Green = Rating*18;
+            int restaurantRating;
             int j = 0;
-            string query = string.Format("SELECT RestaurantName,RestaurantDesc FROM Restaurants WHERE LocationID = '{0}'",LoggedUser.LocationID);
+            string query = string.Format("SELECT RestaurantName,RestaurantDesc,RestaurantRating,MinSiparisTL FROM Restaurants WHERE LocationID = '{0}'",LoggedUser.LocationID);
             MySqlDataReader dr = db.GetQuery(query);
             while(dr.Read())
             {
@@ -55,8 +59,15 @@ namespace YemekPoşeti
                 if (j % 2 == 0)
                     ucTemp.BackColor = Color.FromArgb(255, 245, 255);
                 ucTemp.Dock = DockStyle.Top;
+                restaurantRating = Convert.ToInt32(dr["RestaurantRating"]);
+                g = restaurantRating * 18;
+                r = 180 - g;
+                ucTemp.bgRestRating.BackColor = Color.FromArgb(r, g, 0);
                 ucTemp.lblRestDesc.Text = dr["RestaurantDesc"].ToString();
                 ucTemp.lblRestName.Text = dr["RestaurantName"].ToString();
+                ucTemp.bgRestRating.Location = new Point(ucTemp.lblRestName.Location.X + 10 + ucTemp.lblRestName.Width, ucTemp.bgRestRating.Location.Y);
+                ucTemp.bgRestRating.Text = (Convert.ToSingle(dr["RestaurantRating"])).ToString("0.0");
+                ucTemp.lblMin.Text += " " + (Convert.ToSingle(dr["MinSiparisTL"])).ToString("0.00") + " TL"; 
                 panelRestourant.Controls.Add(ucTemp);
                 j++;
             }
