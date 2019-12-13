@@ -51,7 +51,7 @@ namespace YemekPoşeti
             //Green = Rating*18;
             int restaurantRating;
             int j = 0;
-            string query = string.Format("SELECT RestaurantName,RestaurantDesc,RestaurantRating,MinSiparisTL FROM Restaurants WHERE LocationID = '{0}'",LoggedUser.LocationID);
+            string query = string.Format("SELECT RestaurantName,RestaurantDesc,RestaurantRating,MinSiparisTL FROM Restaurants WHERE LocationID = '{0}' ORDER BY RestaurantRating ASC",LoggedUser.LocationID);
             MySqlDataReader dr = db.GetQuery(query);
             while(dr.Read())
             {
