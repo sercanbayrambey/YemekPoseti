@@ -70,6 +70,7 @@
             // 
             // bgRestRating
             // 
+            this.bgRestRating.BackColor = System.Drawing.Color.LimeGreen;
             this.bgRestRating.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bgRestRating.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bgRestRating.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -79,7 +80,7 @@
             this.bgRestRating.Name = "bgRestRating";
             this.bgRestRating.Size = new System.Drawing.Size(75, 27);
             this.bgRestRating.TabIndex = 3;
-            this.bgRestRating.Text = "sadsadasfas";
+            this.bgRestRating.Text = "10,00";
             this.bgRestRating.UseVisualStyleBackColor = false;
             // 
             // ucRestList
@@ -94,7 +95,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucRestList";
-            this.Size = new System.Drawing.Size(533, 154);
+            this.Size = new System.Drawing.Size(530, 155);
             this.Load += new System.EventHandler(this.ucRestList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

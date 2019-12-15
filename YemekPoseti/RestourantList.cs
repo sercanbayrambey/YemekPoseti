@@ -12,6 +12,11 @@ namespace YemekPoşeti
 {
 	public partial class ucRestList : UserControl
 	{
+        public int RestID { get; set; }
+        public int LocationID { get; set; }
+        public int OwnerID { get; set; }
+        public float MinOrderPrice { get; set; }
+
 
 		public ucRestList()
 		{

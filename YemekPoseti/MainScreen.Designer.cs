@@ -41,22 +41,28 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pBoxProfilePic = new System.Windows.Forms.PictureBox();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
+            this.TabPageOrder = new MetroFramework.Controls.MetroTabPage();
+            this.lblOrderTopDesc = new System.Windows.Forms.Label();
+            this.lblOrderRestName = new System.Windows.Forms.Label();
+            this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
+            this.TabPageOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabMain
             // 
             this.TabMain.Controls.Add(this.TabPageHome);
             this.TabMain.Controls.Add(this.TabPageProfile);
+            this.TabMain.Controls.Add(this.TabPageOrder);
             this.TabMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabMain.Location = new System.Drawing.Point(27, 74);
-            this.TabMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 0;
+            this.TabMain.SelectedIndex = 2;
             this.TabMain.Size = new System.Drawing.Size(1614, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
@@ -72,7 +78,7 @@
             this.TabPageHome.HorizontalScrollbarHighlightOnWheel = false;
             this.TabPageHome.HorizontalScrollbarSize = 12;
             this.TabPageHome.Location = new System.Drawing.Point(4, 38);
-            this.TabPageHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TabPageHome.Margin = new System.Windows.Forms.Padding(4);
             this.TabPageHome.Name = "TabPageHome";
             this.TabPageHome.Size = new System.Drawing.Size(1606, 925);
             this.TabPageHome.Style = MetroFramework.MetroColorStyle.Purple;
@@ -112,17 +118,15 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelRestourant.AutoScroll = true;
             this.panelRestourant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRestourant.HorizontalScrollbar = true;
-            this.panelRestourant.HorizontalScrollbarBarColor = true;
+            this.panelRestourant.HorizontalScrollbarBarColor = false;
             this.panelRestourant.HorizontalScrollbarHighlightOnWheel = false;
             this.panelRestourant.HorizontalScrollbarSize = 12;
             this.panelRestourant.Location = new System.Drawing.Point(9, 78);
-            this.panelRestourant.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelRestourant.Margin = new System.Windows.Forms.Padding(4);
             this.panelRestourant.Name = "panelRestourant";
             this.panelRestourant.Size = new System.Drawing.Size(906, 830);
             this.panelRestourant.TabIndex = 2;
-            this.panelRestourant.VerticalScrollbar = true;
-            this.panelRestourant.VerticalScrollbarBarColor = true;
+            this.panelRestourant.VerticalScrollbarBarColor = false;
             this.panelRestourant.VerticalScrollbarHighlightOnWheel = false;
             this.panelRestourant.VerticalScrollbarSize = 13;
             // 
@@ -137,9 +141,9 @@
             this.TabPageProfile.HorizontalScrollbarHighlightOnWheel = false;
             this.TabPageProfile.HorizontalScrollbarSize = 12;
             this.TabPageProfile.Location = new System.Drawing.Point(4, 38);
-            this.TabPageProfile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TabPageProfile.Margin = new System.Windows.Forms.Padding(4);
             this.TabPageProfile.Name = "TabPageProfile";
-            this.TabPageProfile.Size = new System.Drawing.Size(1607, 925);
+            this.TabPageProfile.Size = new System.Drawing.Size(1606, 925);
             this.TabPageProfile.TabIndex = 1;
             this.TabPageProfile.Text = "Profilim";
             this.TabPageProfile.VerticalScrollbarBarColor = true;
@@ -197,7 +201,7 @@
             // pBoxProfilePic
             // 
             this.pBoxProfilePic.Location = new System.Drawing.Point(4, 4);
-            this.pBoxProfilePic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pBoxProfilePic.Margin = new System.Windows.Forms.Padding(4);
             this.pBoxProfilePic.Name = "pBoxProfilePic";
             this.pBoxProfilePic.Size = new System.Drawing.Size(267, 246);
             this.pBoxProfilePic.TabIndex = 2;
@@ -208,12 +212,71 @@
             this.pboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
             this.pboxLogo.Location = new System.Drawing.Point(1375, 52);
-            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pboxLogo.Name = "pboxLogo";
             this.pboxLogo.Size = new System.Drawing.Size(267, 62);
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
+            // 
+            // TabPageOrder
+            // 
+            this.TabPageOrder.Controls.Add(this.lblOrderTopDesc);
+            this.TabPageOrder.Controls.Add(this.lblOrderRestName);
+            this.TabPageOrder.Controls.Add(this.panelFoodMenu);
+            this.TabPageOrder.HorizontalScrollbarBarColor = true;
+            this.TabPageOrder.HorizontalScrollbarHighlightOnWheel = false;
+            this.TabPageOrder.HorizontalScrollbarSize = 10;
+            this.TabPageOrder.Location = new System.Drawing.Point(4, 38);
+            this.TabPageOrder.Name = "TabPageOrder";
+            this.TabPageOrder.Size = new System.Drawing.Size(1606, 925);
+            this.TabPageOrder.TabIndex = 2;
+            this.TabPageOrder.Text = "Sipariş";
+            this.TabPageOrder.VerticalScrollbarBarColor = true;
+            this.TabPageOrder.VerticalScrollbarHighlightOnWheel = false;
+            this.TabPageOrder.VerticalScrollbarSize = 10;
+            // 
+            // lblOrderTopDesc
+            // 
+            this.lblOrderTopDesc.AutoSize = true;
+            this.lblOrderTopDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblOrderTopDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblOrderTopDesc.Location = new System.Drawing.Point(6, 38);
+            this.lblOrderTopDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOrderTopDesc.Name = "lblOrderTopDesc";
+            this.lblOrderTopDesc.Size = new System.Drawing.Size(180, 21);
+            this.lblOrderTopDesc.TabIndex = 7;
+            this.lblOrderTopDesc.Text = "Siparişlerinizi seçiniz..";
+            // 
+            // lblOrderRestName
+            // 
+            this.lblOrderRestName.AutoSize = true;
+            this.lblOrderRestName.BackColor = System.Drawing.Color.Transparent;
+            this.lblOrderRestName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblOrderRestName.Location = new System.Drawing.Point(4, 10);
+            this.lblOrderRestName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOrderRestName.Name = "lblOrderRestName";
+            this.lblOrderRestName.Size = new System.Drawing.Size(159, 28);
+            this.lblOrderRestName.TabIndex = 6;
+            this.lblOrderRestName.Text = "Restoran Adı";
+            // 
+            // panelFoodMenu
+            // 
+            this.panelFoodMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelFoodMenu.AutoScroll = true;
+            this.panelFoodMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFoodMenu.HorizontalScrollbarBarColor = false;
+            this.panelFoodMenu.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelFoodMenu.HorizontalScrollbarSize = 12;
+            this.panelFoodMenu.Location = new System.Drawing.Point(8, 67);
+            this.panelFoodMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.panelFoodMenu.Name = "panelFoodMenu";
+            this.panelFoodMenu.Size = new System.Drawing.Size(906, 830);
+            this.panelFoodMenu.TabIndex = 5;
+            this.panelFoodMenu.VerticalScrollbarBarColor = false;
+            this.panelFoodMenu.VerticalScrollbarHighlightOnWheel = false;
+            this.panelFoodMenu.VerticalScrollbarSize = 13;
             // 
             // MainScreen
             // 
@@ -224,7 +287,7 @@
             this.Controls.Add(this.pboxLogo);
             this.Controls.Add(this.TabMain);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainScreen";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.ShowIcon = false;
@@ -239,6 +302,8 @@
             this.TabPageProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
+            this.TabPageOrder.ResumeLayout(false);
+            this.TabPageOrder.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -257,6 +322,10 @@
 		private MetroFramework.Controls.MetroPanel panelRestourant;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblRestList;
-	}
+        private MetroFramework.Controls.MetroTabPage TabPageOrder;
+        private System.Windows.Forms.Label lblOrderTopDesc;
+        private System.Windows.Forms.Label lblOrderRestName;
+        private MetroFramework.Controls.MetroPanel panelFoodMenu;
+    }
 }
 
