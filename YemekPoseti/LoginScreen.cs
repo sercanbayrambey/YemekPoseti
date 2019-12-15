@@ -25,6 +25,10 @@ namespace YemekPoşeti
         }
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
+            txtPass.Enabled = false;
+            txtUserName.Enabled = false;
+            btnLogin.Enabled = false;
+            btnRegister.Enabled = false;
             string username = txtUserName.Text;
             string pass = txtPass.Text;
 			User user = new User();
@@ -38,6 +42,10 @@ namespace YemekPoşeti
             }
             else
             {
+                txtPass.Enabled = true;
+                txtUserName.Enabled = true;
+                btnLogin.Enabled = true;
+                btnRegister.Enabled = true; 
                 txtPass.Clear();
                 txtPass.Select();
 				lblErrorMsg.Text = "Giriş bilgileri hatalı!";
