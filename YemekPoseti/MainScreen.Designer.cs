@@ -40,17 +40,17 @@
             this.lblCity = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pBoxProfilePic = new System.Windows.Forms.PictureBox();
-            this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.TabPageOrder = new MetroFramework.Controls.MetroTabPage();
             this.lblOrderTopDesc = new System.Windows.Forms.Label();
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
+            this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.TabPageOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // TabMain
@@ -118,6 +118,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelRestourant.AutoScroll = true;
             this.panelRestourant.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRestourant.HorizontalScrollbar = true;
             this.panelRestourant.HorizontalScrollbarBarColor = false;
             this.panelRestourant.HorizontalScrollbarHighlightOnWheel = false;
             this.panelRestourant.HorizontalScrollbarSize = 12;
@@ -126,6 +127,7 @@
             this.panelRestourant.Name = "panelRestourant";
             this.panelRestourant.Size = new System.Drawing.Size(906, 830);
             this.panelRestourant.TabIndex = 2;
+            this.panelRestourant.VerticalScrollbar = true;
             this.panelRestourant.VerticalScrollbarBarColor = false;
             this.panelRestourant.VerticalScrollbarHighlightOnWheel = false;
             this.panelRestourant.VerticalScrollbarSize = 13;
@@ -207,18 +209,6 @@
             this.pBoxProfilePic.TabIndex = 2;
             this.pBoxProfilePic.TabStop = false;
             // 
-            // pboxLogo
-            // 
-            this.pboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
-            this.pboxLogo.Location = new System.Drawing.Point(1375, 52);
-            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4);
-            this.pboxLogo.Name = "pboxLogo";
-            this.pboxLogo.Size = new System.Drawing.Size(267, 62);
-            this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pboxLogo.TabIndex = 3;
-            this.pboxLogo.TabStop = false;
-            // 
             // TabPageOrder
             // 
             this.TabPageOrder.Controls.Add(this.lblOrderTopDesc);
@@ -266,6 +256,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelFoodMenu.AutoScroll = true;
             this.panelFoodMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFoodMenu.HorizontalScrollbar = true;
             this.panelFoodMenu.HorizontalScrollbarBarColor = false;
             this.panelFoodMenu.HorizontalScrollbarHighlightOnWheel = false;
             this.panelFoodMenu.HorizontalScrollbarSize = 12;
@@ -274,9 +265,22 @@
             this.panelFoodMenu.Name = "panelFoodMenu";
             this.panelFoodMenu.Size = new System.Drawing.Size(906, 830);
             this.panelFoodMenu.TabIndex = 5;
+            this.panelFoodMenu.VerticalScrollbar = true;
             this.panelFoodMenu.VerticalScrollbarBarColor = false;
             this.panelFoodMenu.VerticalScrollbarHighlightOnWheel = false;
             this.panelFoodMenu.VerticalScrollbarSize = 13;
+            // 
+            // pboxLogo
+            // 
+            this.pboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
+            this.pboxLogo.Location = new System.Drawing.Point(1375, 44);
+            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pboxLogo.Name = "pboxLogo";
+            this.pboxLogo.Size = new System.Drawing.Size(267, 62);
+            this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pboxLogo.TabIndex = 3;
+            this.pboxLogo.TabStop = false;
             // 
             // MainScreen
             // 
@@ -301,9 +305,9 @@
             this.TabPageProfile.ResumeLayout(false);
             this.TabPageProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.TabPageOrder.ResumeLayout(false);
             this.TabPageOrder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

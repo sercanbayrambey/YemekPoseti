@@ -88,16 +88,22 @@ namespace YemekPoşeti
 
         private void ShowFoodList()
         {
-            db.Connect();
-            int j = 0;
-            string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", SelectedRestaurant.ID);
-            MySqlDataReader dr = db.GetQuery(query);
-            while (dr.Read())
+            if(db.Connect())
             {
-                panelFoodMenu.Controls.Add(SelectedRestaurant.GetFoodList(dr,j));
-                j++;
+                int j = 0;
+                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", SelectedRestaurant.ID);
+                MySqlDataReader dr = db.GetQuery(query);
+                while (dr.Read())
+                {
+                    panelFoodMenu.Controls.Add(SelectedRestaurant.GetFoodList(dr,j));
+                    j++;
+                }
+                db.Close();
             }
-            db.Close();
+            else
+            {
+                MessageBox.Show("Uzak sunucuya bağlanılamadı.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
     }
 
         private void AddRestaurantsToList()
