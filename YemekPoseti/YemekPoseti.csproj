@@ -43,8 +43,11 @@
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +57,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
@@ -64,6 +68,7 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="RegisterScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +90,12 @@
     </Compile>
     <Compile Include="RestourantList.Designer.cs">
       <DependentUpon>RestourantList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucBasket.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucBasket.Designer.cs">
+      <DependentUpon>ucBasket.cs</DependentUpon>
     </Compile>
     <Compile Include="ucFoodList.cs">
       <SubType>UserControl</SubType>
@@ -113,6 +124,9 @@
     </Compile>
     <EmbeddedResource Include="RestourantList.resx">
       <DependentUpon>RestourantList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucBasket.resx">
+      <DependentUpon>ucBasket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucFoodList.resx">
       <DependentUpon>ucFoodList.cs</DependentUpon>

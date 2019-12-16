@@ -27,11 +27,7 @@ namespace YemekPoşeti
             
             ucFoodList ucTemp = new ucFoodList();
             /* Event Controls */
-            /*  ucTemp.Click += new EventHandler(Restaurant_Click);
-              foreach (Control c in ucTemp.Controls)
-              {
-                  c.Click += new EventHandler(Restaurant_Click);
-              }*/
+           
 
             /* BG Color */
             if (j % 2 == 0)
@@ -43,7 +39,9 @@ namespace YemekPoşeti
             /* Set */
             ucTemp.lblFoodName.Text = dr["FoodName"].ToString();
             ucTemp.lblFoodDesc.Text = dr["FoodName"].ToString();
-            ucTemp.lblFoodPrice.Text = (Convert.ToSingle(dr["FoodPrice"])).ToString("0.00") + " TL";
+			ucTemp.FoodID = Convert.ToInt32(dr["FoodID"]);
+			ucTemp.Price = (Convert.ToSingle(dr["FoodPrice"]));
+			ucTemp.lblFoodPrice.Text = ucTemp.Price.ToString("0.00") + " TL";
             return ucTemp;
         }
 

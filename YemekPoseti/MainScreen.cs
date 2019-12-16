@@ -17,7 +17,11 @@ namespace YemekPoşeti
 		private readonly User LoggedUser;
         private readonly DB db;
         private Restaurant SelectedRestaurant;
-        public MainScreen(User user)
+		public ucFoodList ucFood;
+		public Order CurrentOrder = new Order();
+		public List<int> foodIDList = new List<int>();
+
+		public MainScreen(User user)
         {
 			LoggedUser = user;
             db = new DB();
@@ -62,6 +66,32 @@ namespace YemekPoşeti
             ShowOrderScreen();
         }
 
+
+	
+		private void Food_Click(object sender, EventArgs e)
+		{
+			
+			if (sender is ucFoodList)
+			{
+				ucFood = (ucFoodList)sender;
+			}
+			else
+			{
+				Control control = (Control)sender;
+				ucFood = (ucFoodList)control.Parent;
+			}
+
+			var x = ucFood.AddFoodToBasket(this);
+			if (x != null)
+			{
+				x.ms = this;
+				panelBasket.Controls.Add(x);
+				CurrentOrder.FoodsInOrder.Add(x);
+			}
+			lblSumPrice.Text = CurrentOrder.GetSumPrice().ToString("0.00") + " TL";
+
+		}
+
         private void LoadSelectedRestaurant(ucRestList ucTemp)
         {
             SelectedRestaurant = null;
@@ -83,6 +113,8 @@ namespace YemekPoşeti
             TabMain.SelectedTab = TabPageOrder;
             lblOrderRestName.Text = SelectedRestaurant.Name;
             panelFoodMenu.Controls.Clear();
+			panelBasket.Controls.Clear();
+			lblSumPrice.Text = "0,00 TL";
             ShowFoodList();
         }
 
@@ -95,7 +127,14 @@ namespace YemekPoşeti
                 MySqlDataReader dr = db.GetQuery(query);
                 while (dr.Read())
                 {
-                    panelFoodMenu.Controls.Add(SelectedRestaurant.GetFoodList(dr,j));
+					ucFood = SelectedRestaurant.GetFoodList(dr, j);
+
+					ucFood.Click += new EventHandler(Food_Click);
+					foreach (Control c in ucFood.Controls)
+					{
+						c.Click += new EventHandler(Food_Click);
+					}
+					panelFoodMenu.Controls.Add(ucFood);
                     j++;
                 }
                 db.Close();
@@ -156,6 +195,20 @@ namespace YemekPoşeti
             db.Close();
 		}
 
+		private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void panelFoodMenu_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void panelBasket_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
 	}
 	
 }

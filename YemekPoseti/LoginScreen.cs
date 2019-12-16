@@ -37,8 +37,7 @@ namespace YemekPoşeti
 				LoggedUser = user;
 				MainScreen mainScreen = new MainScreen(LoggedUser);
                 this.Hide();
-				mainScreen.ShowDialog();
-                this.Close();
+				mainScreen.Show();
             }
             else
             {
