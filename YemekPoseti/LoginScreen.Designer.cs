@@ -46,7 +46,7 @@
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnRegister.Location = new System.Drawing.Point(75, 506);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(160, 55);
             this.btnRegister.TabIndex = 0;
@@ -61,7 +61,7 @@
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnLogin.Location = new System.Drawing.Point(248, 506);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(160, 55);
             this.btnLogin.Style = MetroFramework.MetroColorStyle.Purple;
@@ -77,10 +77,10 @@
             // 
             // 
             this.txtUserName.CustomButton.Image = null;
-            this.txtUserName.CustomButton.Location = new System.Drawing.Point(396, 1);
-            this.txtUserName.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.CustomButton.Location = new System.Drawing.Point(297, 1);
+            this.txtUserName.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.CustomButton.Name = "";
-            this.txtUserName.CustomButton.Size = new System.Drawing.Size(47, 43);
+            this.txtUserName.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtUserName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtUserName.CustomButton.TabIndex = 1;
             this.txtUserName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -91,7 +91,7 @@
             this.txtUserName.Lines = new string[] {
         "Kullanıcı adınız.."};
             this.txtUserName.Location = new System.Drawing.Point(75, 352);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.MaxLength = 32767;
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.PasswordChar = '\0';
@@ -116,10 +116,10 @@
             // 
             // 
             this.txtPass.CustomButton.Image = null;
-            this.txtPass.CustomButton.Location = new System.Drawing.Point(396, 1);
-            this.txtPass.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.CustomButton.Location = new System.Drawing.Point(297, 1);
+            this.txtPass.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.CustomButton.Name = "";
-            this.txtPass.CustomButton.Size = new System.Drawing.Size(47, 43);
+            this.txtPass.CustomButton.Size = new System.Drawing.Size(35, 35);
             this.txtPass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtPass.CustomButton.TabIndex = 1;
             this.txtPass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -130,7 +130,7 @@
             this.txtPass.Lines = new string[] {
         "Şifrenizi giriniz.."};
             this.txtPass.Location = new System.Drawing.Point(75, 416);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.MaxLength = 32767;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '\0';
@@ -153,7 +153,7 @@
             // 
             this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
             this.pboxLogo.Location = new System.Drawing.Point(109, 85);
-            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pboxLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pboxLogo.Name = "pboxLogo";
             this.pboxLogo.Size = new System.Drawing.Size(267, 246);
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,7 +191,7 @@
             this.cboxRememberMe.AutoSize = true;
             this.cboxRememberMe.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cboxRememberMe.Location = new System.Drawing.Point(296, 460);
-            this.cboxRememberMe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboxRememberMe.Margin = new System.Windows.Forms.Padding(4);
             this.cboxRememberMe.Name = "cboxRememberMe";
             this.cboxRememberMe.Size = new System.Drawing.Size(90, 17);
             this.cboxRememberMe.TabIndex = 7;
@@ -214,7 +214,7 @@
             this.Controls.Add(this.btnRegister);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(487, 714);
             this.MinimumSize = new System.Drawing.Size(487, 714);
