@@ -20,7 +20,6 @@ namespace YemekPoşeti
 		private MySqlCommand cmd;
 		private MySqlDataReader rd;
 
-
 		public bool Connect()
 		{
 			this.con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");

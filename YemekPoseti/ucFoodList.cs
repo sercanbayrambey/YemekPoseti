@@ -33,7 +33,7 @@ namespace YemekPoşeti
 			if (id == -1)
 			{
 				ucBasket ucBasket = new ucBasket();
-				MS.foodIDList.Add(this.FoodID);
+				MS.CurrentOrder.foodIDList.Add(this.FoodID);
 				ucBasket.Dock = DockStyle.Top;
 				ucBasket.FoodID = this.FoodID;
 				ucBasket.Price = this.Price;
@@ -65,7 +65,7 @@ namespace YemekPoşeti
 		private int CheckID(int id)
 		{
 			int foundId = -1;
-			foreach (int foodId in MS.foodIDList)
+			foreach (int foodId in MS.CurrentOrder.foodIDList)
 			{
 				if(foodId == id)
 				{

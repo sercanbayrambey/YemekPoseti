@@ -22,7 +22,25 @@ namespace YemekPoşeti
         {
             this.BringToFront();
             this.AcceptButton = btnLogin;
+			RememberUser();
         }
+
+
+		private void RememberUser()
+		{
+			if(Properties.Settings.Default.UserName != String.Empty || Properties.Settings.Default.Pass != String.Empty)
+			{
+				txtUserName.Text = Properties.Settings.Default.UserName;
+				txtPass.Text = Properties.Settings.Default.Pass;
+				txtPass.PasswordChar = '*';
+				txtUserName.ForeColor = Color.Black;
+				txtPass.ForeColor = Color.Black;
+				txtUserName.BackColor = Color.Thistle;
+				txtPass.BackColor = Color.Thistle;
+				cboxRememberMe.Checked = true;
+			}
+		}
+
 		private void btnLogin_Click(object sender, EventArgs e)
 		{
             txtPass.Enabled = false;
@@ -38,7 +56,19 @@ namespace YemekPoşeti
 				MainScreen mainScreen = new MainScreen(LoggedUser);
                 this.Hide();
 				mainScreen.Show();
-            }
+				if(cboxRememberMe.Checked)
+				{
+					Properties.Settings.Default.UserName = txtUserName.Text;
+					Properties.Settings.Default.Pass = txtPass.Text;
+					Properties.Settings.Default.Save();
+				}
+				else
+				{
+					Properties.Settings.Default.UserName = String.Empty;
+					Properties.Settings.Default.Pass = String.Empty;
+					Properties.Settings.Default.Save();
+				}
+			}
             else
             {
                 txtPass.Enabled = true;
@@ -58,7 +88,10 @@ namespace YemekPoşeti
                 txtUserName.Clear();
                 txtUserName.ForeColor = Color.Black;
             }
-        }
+
+			txtUserName.BackColor = Color.White;
+			txtPass.BackColor = Color.White;
+		}
 
         private void txtPass_Enter(object sender, EventArgs e)
         {
@@ -69,9 +102,11 @@ namespace YemekPoşeti
                 txtPass.ForeColor = Color.Black;
                 txtPass.PasswordChar = '*';
             }
+			txtUserName.BackColor = Color.White;
+			txtPass.BackColor = Color.White;
 
-            
-        }
+
+		}
 		private void btnRegister_Click(object sender, EventArgs e)
 		{
 			RegisterScreen regscreen = new RegisterScreen();

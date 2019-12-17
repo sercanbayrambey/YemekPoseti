@@ -19,8 +19,6 @@ namespace YemekPoşeti
         private Restaurant SelectedRestaurant;
 		public ucFoodList ucFood;
 		public Order CurrentOrder = new Order();
-		public List<int> foodIDList = new List<int>();
-
 		public MainScreen(User user)
         {
 			LoggedUser = user;
@@ -28,14 +26,14 @@ namespace YemekPoşeti
             InitializeComponent();
         }
 
-		private void Form1_Load(object sender, EventArgs e)
+		private void MainScreen_Load(object sender, EventArgs e)
 		{
-            this.BringToFront();
+			this.BringToFront();
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
-            TabMain.TabPages.Remove(TabPageOrder);
+			TabMain.TabPages.Remove(TabPageOrder);
 			LoadProfileData();
-            AddRestaurantsToList();
-        }
+			AddRestaurantsToList();
+		}
 
 		private void LoadProfileData()
 		{
@@ -70,25 +68,22 @@ namespace YemekPoşeti
 	
 		private void Food_Click(object sender, EventArgs e)
 		{
-			
-			if (sender is ucFoodList)
-			{
-				ucFood = (ucFoodList)sender;
-			}
-			else
+			if(!(sender is ucFoodList))
 			{
 				Control control = (Control)sender;
 				ucFood = (ucFoodList)control.Parent;
+				var x = ucFood.AddFoodToBasket(this);
+				if (x != null)
+				{
+					x.ms = this;
+					panelBasket.Controls.Add(x);
+					CurrentOrder.FoodsInOrder.Add(x);
+				}
+				CurrentOrder.GetSumPrice();
+				lblSumPrice.Text = CurrentOrder.SumPrice.ToString("0.00") + " TL";
+				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
 			}
-
-			var x = ucFood.AddFoodToBasket(this);
-			if (x != null)
-			{
-				x.ms = this;
-				panelBasket.Controls.Add(x);
-				CurrentOrder.FoodsInOrder.Add(x);
-			}
-			lblSumPrice.Text = CurrentOrder.GetSumPrice().ToString("0.00") + " TL";
 
 		}
 
@@ -115,6 +110,8 @@ namespace YemekPoşeti
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
 			lblSumPrice.Text = "0,00 TL";
+			lblFinalSumPrice.Text = "0,00 TL";
+			lblSumDiscount.Text = "0,00 TL";
             ShowFoodList();
         }
 
@@ -206,6 +203,11 @@ namespace YemekPoşeti
 		}
 
 		private void panelBasket_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
 		{
 
 		}

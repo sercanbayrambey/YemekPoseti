@@ -50,6 +50,11 @@
 			this.lblOrderRestName = new System.Windows.Forms.Label();
 			this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
 			this.pboxLogo = new System.Windows.Forms.PictureBox();
+			this.btnOrder = new MetroFramework.Controls.MetroButton();
+			this.lblFinalSumPrice = new System.Windows.Forms.Label();
+			this.lblFinalPrice = new System.Windows.Forms.Label();
+			this.lblDiscount = new System.Windows.Forms.Label();
+			this.lblSumDiscount = new System.Windows.Forms.Label();
 			this.TabMain.SuspendLayout();
 			this.TabPageHome.SuspendLayout();
 			this.TabPageProfile.SuspendLayout();
@@ -67,7 +72,7 @@
 			this.TabMain.Location = new System.Drawing.Point(20, 60);
 			this.TabMain.Name = "TabMain";
 			this.TabMain.SelectedIndex = 2;
-			this.TabMain.Size = new System.Drawing.Size(1211, 786);
+			this.TabMain.Size = new System.Drawing.Size(1867, 786);
 			this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
 			this.TabMain.TabIndex = 0;
 			this.TabMain.UseSelectable = true;
@@ -208,7 +213,12 @@
 			// 
 			// TabPageOrder
 			// 
+			this.TabPageOrder.Controls.Add(this.lblFinalSumPrice);
+			this.TabPageOrder.Controls.Add(this.lblFinalPrice);
+			this.TabPageOrder.Controls.Add(this.btnOrder);
+			this.TabPageOrder.Controls.Add(this.lblSumDiscount);
 			this.TabPageOrder.Controls.Add(this.lblSumPrice);
+			this.TabPageOrder.Controls.Add(this.lblDiscount);
 			this.TabPageOrder.Controls.Add(this.lblSum);
 			this.TabPageOrder.Controls.Add(this.lblBasketDesc);
 			this.TabPageOrder.Controls.Add(this.lblBasket);
@@ -222,7 +232,7 @@
 			this.TabPageOrder.Location = new System.Drawing.Point(4, 38);
 			this.TabPageOrder.Margin = new System.Windows.Forms.Padding(2);
 			this.TabPageOrder.Name = "TabPageOrder";
-			this.TabPageOrder.Size = new System.Drawing.Size(1203, 744);
+			this.TabPageOrder.Size = new System.Drawing.Size(1859, 744);
 			this.TabPageOrder.TabIndex = 2;
 			this.TabPageOrder.Text = "Sipariş";
 			this.TabPageOrder.VerticalScrollbarBarColor = true;
@@ -235,8 +245,8 @@
 			this.lblSumPrice.AutoSize = true;
 			this.lblSumPrice.BackColor = System.Drawing.Color.Transparent;
 			this.lblSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
-			this.lblSumPrice.ForeColor = System.Drawing.Color.DarkOrange;
-			this.lblSumPrice.Location = new System.Drawing.Point(820, 654);
+			this.lblSumPrice.ForeColor = System.Drawing.Color.DarkGray;
+			this.lblSumPrice.Location = new System.Drawing.Point(1141, 654);
 			this.lblSumPrice.Name = "lblSumPrice";
 			this.lblSumPrice.Size = new System.Drawing.Size(66, 22);
 			this.lblSumPrice.TabIndex = 12;
@@ -343,19 +353,85 @@
 			// 
 			this.pboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
-			this.pboxLogo.Location = new System.Drawing.Point(1031, 36);
+			this.pboxLogo.Location = new System.Drawing.Point(1687, 36);
 			this.pboxLogo.Name = "pboxLogo";
 			this.pboxLogo.Size = new System.Drawing.Size(200, 50);
 			this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.pboxLogo.TabIndex = 3;
 			this.pboxLogo.TabStop = false;
 			// 
+			// btnOrder
+			// 
+			this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Medium;
+			this.btnOrder.Location = new System.Drawing.Point(1401, 692);
+			this.btnOrder.Name = "btnOrder";
+			this.btnOrder.Size = new System.Drawing.Size(462, 37);
+			this.btnOrder.TabIndex = 13;
+			this.btnOrder.Text = "Siparişi Tamamla";
+			this.btnOrder.UseCustomBackColor = true;
+			this.btnOrder.UseCustomForeColor = true;
+			this.btnOrder.UseSelectable = true;
+			// 
+			// lblFinalSumPrice
+			// 
+			this.lblFinalSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblFinalSumPrice.AutoSize = true;
+			this.lblFinalSumPrice.BackColor = System.Drawing.Color.Transparent;
+			this.lblFinalSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+			this.lblFinalSumPrice.ForeColor = System.Drawing.Color.DarkOrange;
+			this.lblFinalSumPrice.Location = new System.Drawing.Point(1141, 706);
+			this.lblFinalSumPrice.Name = "lblFinalSumPrice";
+			this.lblFinalSumPrice.Size = new System.Drawing.Size(66, 22);
+			this.lblFinalSumPrice.TabIndex = 15;
+			this.lblFinalSumPrice.Text = "0,00 TL";
+			// 
+			// lblFinalPrice
+			// 
+			this.lblFinalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblFinalPrice.AutoSize = true;
+			this.lblFinalPrice.BackColor = System.Drawing.Color.Transparent;
+			this.lblFinalPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+			this.lblFinalPrice.ForeColor = System.Drawing.Color.DarkViolet;
+			this.lblFinalPrice.Location = new System.Drawing.Point(741, 706);
+			this.lblFinalPrice.Name = "lblFinalPrice";
+			this.lblFinalPrice.Size = new System.Drawing.Size(158, 22);
+			this.lblFinalPrice.TabIndex = 14;
+			this.lblFinalPrice.Text = "Ödenecek Tutar:";
+			// 
+			// lblDiscount
+			// 
+			this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblDiscount.AutoSize = true;
+			this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
+			this.lblDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+			this.lblDiscount.ForeColor = System.Drawing.Color.DarkViolet;
+			this.lblDiscount.Location = new System.Drawing.Point(741, 680);
+			this.lblDiscount.Name = "lblDiscount";
+			this.lblDiscount.Size = new System.Drawing.Size(212, 22);
+			this.lblDiscount.TabIndex = 11;
+			this.lblDiscount.Text = "Sepete Özel İndiriminiz:";
+			this.lblDiscount.Click += new System.EventHandler(this.label2_Click);
+			// 
+			// lblSumDiscount
+			// 
+			this.lblSumDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblSumDiscount.AutoSize = true;
+			this.lblSumDiscount.BackColor = System.Drawing.Color.Transparent;
+			this.lblSumDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+			this.lblSumDiscount.ForeColor = System.Drawing.Color.DarkGray;
+			this.lblSumDiscount.Location = new System.Drawing.Point(1141, 680);
+			this.lblSumDiscount.Name = "lblSumDiscount";
+			this.lblSumDiscount.Size = new System.Drawing.Size(66, 22);
+			this.lblSumDiscount.TabIndex = 12;
+			this.lblSumDiscount.Text = "0,00 TL";
+			// 
 			// MainScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-			this.ClientSize = new System.Drawing.Size(1251, 866);
+			this.ClientSize = new System.Drawing.Size(1907, 866);
 			this.Controls.Add(this.pboxLogo);
 			this.Controls.Add(this.TabMain);
 			this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -364,7 +440,7 @@
 			this.Text = "YemekPoşeti";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainScreen_FormClosing);
-			this.Load += new System.EventHandler(this.Form1_Load);
+			this.Load += new System.EventHandler(this.MainScreen_Load);
 			this.TabMain.ResumeLayout(false);
 			this.TabPageHome.ResumeLayout(false);
 			this.TabPageHome.PerformLayout();
@@ -401,6 +477,11 @@
 		private System.Windows.Forms.Label lblBasket;
 		private System.Windows.Forms.Label lblSum;
 		public System.Windows.Forms.Label lblSumPrice;
+		private MetroFramework.Controls.MetroButton btnOrder;
+		public System.Windows.Forms.Label lblFinalSumPrice;
+		private System.Windows.Forms.Label lblFinalPrice;
+		public System.Windows.Forms.Label lblSumDiscount;
+		private System.Windows.Forms.Label lblDiscount;
 	}
 }
 

@@ -45,12 +45,14 @@ namespace YemekPoşeti
 			this.Update();
 			if (this.QTY == 0)
 			{
-				ms.foodIDList.Remove(this.FoodID);
+				ms.CurrentOrder.foodIDList.Remove(this.FoodID);
 				ms.CurrentOrder.FoodsInOrder.Remove(this);
 				ms.panelBasket.Controls.Remove(this);
 			}
-
-			ms.lblSumPrice.Text = ms.CurrentOrder.GetSumPrice().ToString("0.00") + " TL";
+			ms.CurrentOrder.GetSumPrice();
+			ms.lblSumPrice.Text = ms.CurrentOrder.SumPrice.ToString("0.00") + " TL";
+			ms.lblSumDiscount.Text = ms.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+			ms.lblFinalSumPrice.Text = (ms.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
 		}
 	}
 }

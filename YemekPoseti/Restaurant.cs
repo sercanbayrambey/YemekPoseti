@@ -38,7 +38,7 @@ namespace YemekPoşeti
 
             /* Set */
             ucTemp.lblFoodName.Text = dr["FoodName"].ToString();
-            ucTemp.lblFoodDesc.Text = dr["FoodName"].ToString();
+            ucTemp.lblFoodDesc.Text = dr["FoodDesc"].ToString();
 			ucTemp.FoodID = Convert.ToInt32(dr["FoodID"]);
 			ucTemp.Price = (Convert.ToSingle(dr["FoodPrice"]));
 			ucTemp.lblFoodPrice.Text = ucTemp.Price.ToString("0.00") + " TL";
