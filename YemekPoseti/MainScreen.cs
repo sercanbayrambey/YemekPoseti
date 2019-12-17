@@ -110,6 +110,8 @@ namespace YemekPoşeti
             lblOrderRestName.Text = SelectedRestaurant.Name;
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
+            CurrentOrder = null;
+            CurrentOrder = new Order();
 			lblSumPrice.Text = "0,00 TL";
 			lblFinalSumPrice.Text = "0,00 TL";
 			lblSumDiscount.Text = "0,00 TL";
