@@ -54,8 +54,10 @@ namespace YemekPoşeti
             {
 				LoggedUser = user;
 				MainScreen mainScreen = new MainScreen(LoggedUser);
-                this.Hide();
 				mainScreen.Show();
+                this.Bounds = Screen.PrimaryScreen.WorkingArea;
+                this.Hide();
+
 				if(cboxRememberMe.Checked)
 				{
 					Properties.Settings.Default.UserName = txtUserName.Text;

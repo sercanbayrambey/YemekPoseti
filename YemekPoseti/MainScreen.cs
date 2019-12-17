@@ -28,7 +28,8 @@ namespace YemekPoşeti
 
 		private void MainScreen_Load(object sender, EventArgs e)
 		{
-			this.BringToFront();
+            this.Bounds = Screen.PrimaryScreen.WorkingArea;
+            this.BringToFront();
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			TabMain.TabPages.Remove(TabPageOrder);
 			LoadProfileData();
