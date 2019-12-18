@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace YemekPoşeti
 {
@@ -12,6 +13,7 @@ namespace YemekPoşeti
 		private float DiscountPercantage = 5;
 		public float DiscountPrice { get; set; }
 		public float FinalPrice;
+
 		public List<ucBasket> FoodsInOrder = new List<ucBasket>();
 		public List<int> foodIDList = new List<int>();
         public float MinOrderPrice { get; set; }
@@ -26,5 +28,16 @@ namespace YemekPoşeti
 			DiscountPrice = Convert.ToSingle(Math.Round((SumPrice * DiscountPercantage)/100,2));
 			FinalPrice = SumPrice - DiscountPrice;
 		}
+        
+        public void PrintFoods(ListBox lbox)
+        {
+            lbox.Items.Clear();
+            foreach(ucBasket food in FoodsInOrder)
+            {
+                if(food.QTY>0)
+                    lbox.Items.Add(food.FoodName + " (" + food.QTY + " Adet)");
+            }
+        }
+        
 	}
 }

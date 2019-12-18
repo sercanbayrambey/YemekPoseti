@@ -50,7 +50,9 @@ namespace YemekPoşeti
 				ucBasket.Price = this.Price;
 				ucBasket.FoodName = this.lblFoodName.Text;
 				ucBasket.FoodDesc = this.lblFoodDesc.Text;
+                ucBasket.ms = ms;
 				ucBasket.Update();
+
 				return ucBasket;
 			}
 			else

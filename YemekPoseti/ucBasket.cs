@@ -37,7 +37,9 @@ namespace YemekPoşeti
 			this.lblFoodName.Text = this.FoodName + " x" + this.QTY;
 			this.lblDeleteFood.Location = new Point(this.lblFoodName.Location.X + 5 + this.lblFoodName.Width, this.lblDeleteFood.Location.Y);
 			this.lblFoodDesc.Text = this.FoodDesc;
-		}
+            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
+
+        }
 
 		private void lblDeleteFood_Click(object sender, EventArgs e)
 		{

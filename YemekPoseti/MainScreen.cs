@@ -79,8 +79,9 @@ namespace YemekPoşeti
 					x.ms = this;
 					panelBasket.Controls.Add(x);
 					CurrentOrder.FoodsInOrder.Add(x);
-				}
-				CurrentOrder.GetSumPrice();
+                }
+                CurrentOrder.PrintFoods(lboxUrunler);
+                CurrentOrder.GetSumPrice();
 				lblSumPrice.Text = CurrentOrder.SumPrice.ToString("0.00") + " TL";
 				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
 				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
@@ -111,9 +112,11 @@ namespace YemekPoşeti
 			panelBasket.Controls.Clear();
             CurrentOrder = null;
             CurrentOrder = new Order();
+            CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
 			lblSumPrice.Text = "0,00 TL";
 			lblFinalSumPrice.Text = "0,00 TL";
 			lblSumDiscount.Text = "0,00 TL";
+            lblMin.Text = "Min. Sipariş Tutarı: " + CurrentOrder.MinOrderPrice.ToString("0.00") + " TL";
             ShowFoodList();
         }
 
