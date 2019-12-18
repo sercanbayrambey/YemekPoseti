@@ -14,6 +14,7 @@ namespace YemekPoşeti
 		public float FinalPrice;
 		public List<ucBasket> FoodsInOrder = new List<ucBasket>();
 		public List<int> foodIDList = new List<int>();
+        public float MinOrderPrice { get; set; }
 
 		public void GetSumPrice()
 		{

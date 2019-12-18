@@ -49,7 +49,7 @@
             this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(160, 55);
-            this.btnRegister.TabIndex = 0;
+            this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Kayıt Ol!";
             this.btnRegister.UseCustomBackColor = true;
             this.btnRegister.UseSelectable = true;
@@ -65,7 +65,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(160, 55);
             this.btnLogin.Style = MetroFramework.MetroColorStyle.Purple;
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Giriş Yap!";
             this.btnLogin.UseCustomBackColor = true;
             this.btnLogin.UseSelectable = true;
@@ -170,7 +170,7 @@
             this.lblForgetPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblForgetPass.Name = "lblForgetPass";
             this.lblForgetPass.Size = new System.Drawing.Size(127, 20);
-            this.lblForgetPass.TabIndex = 5;
+            this.lblForgetPass.TabIndex = 6;
             this.lblForgetPass.Text = "Şifremi unuttum";
             // 
             // lblErrorMsg
@@ -183,7 +183,7 @@
             this.lblErrorMsg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblErrorMsg.Name = "lblErrorMsg";
             this.lblErrorMsg.Size = new System.Drawing.Size(333, 31);
-            this.lblErrorMsg.TabIndex = 6;
+            this.lblErrorMsg.TabIndex = 1;
             this.lblErrorMsg.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cboxRememberMe
@@ -194,7 +194,7 @@
             this.cboxRememberMe.Margin = new System.Windows.Forms.Padding(4);
             this.cboxRememberMe.Name = "cboxRememberMe";
             this.cboxRememberMe.Size = new System.Drawing.Size(90, 17);
-            this.cboxRememberMe.TabIndex = 7;
+            this.cboxRememberMe.TabIndex = 3;
             this.cboxRememberMe.Text = "Beni Hatırla";
             this.cboxRememberMe.UseSelectable = true;
             // 

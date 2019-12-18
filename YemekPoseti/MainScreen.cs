@@ -85,7 +85,6 @@ namespace YemekPoşeti
 				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
 				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
 			}
-
 		}
 
         private void LoadSelectedRestaurant(ucRestList ucTemp)
@@ -128,7 +127,6 @@ namespace YemekPoşeti
                 while (dr.Read())
                 {
 					ucFood = SelectedRestaurant.GetFoodList(dr, j);
-
 					ucFood.Click += new EventHandler(Food_Click);
 					foreach (Control c in ucFood.Controls)
 					{
@@ -148,48 +146,22 @@ namespace YemekPoşeti
         private void AddRestaurantsToList()
 		{
             db.Connect();
-            int r, g;
-            //Red = 180 - GREEN;
-            //Green = Rating*18;
-            int restaurantRating;
             int j = 0;
             string query = string.Format("SELECT * FROM Restaurants WHERE LocationID = '{0}' ORDER BY RestaurantRating ASC",LoggedUser.LocationID);
             MySqlDataReader dr = db.GetQuery(query);
             while(dr.Read())
             {
-                ucRestList ucTemp = new ucRestList();
-
+                ucRestList ucTempRestList = new ucRestList(dr);
                 /* Event Controls */
-                ucTemp.Click += new EventHandler(Restaurant_Click);
-                foreach (Control c in ucTemp.Controls)
+                ucTempRestList.Click += new EventHandler(Restaurant_Click);
+                foreach (Control c in ucTempRestList.Controls)
                 {
                     c.Click += new EventHandler(Restaurant_Click);
                 }
-
                 /* BG Color */
                 if (j % 2 == 0)
-                    ucTemp.BackColor = Color.FromArgb(255, 245, 255);
-
-                /* Dock Setting */
-                ucTemp.Dock = DockStyle.Top;
-                
-                restaurantRating = Convert.ToInt32(dr["RestaurantRating"]);
-                /* Dynamic Rating Color */
-                g = restaurantRating * 18;
-                r = 180 - g;
-                ucTemp.bgRestRating.BackColor = Color.FromArgb(r, g, 0);
-
-                /* Set */
-                ucTemp.lblRestDesc.Text = dr["RestaurantDesc"].ToString();
-                ucTemp.lblRestName.Text = dr["RestaurantName"].ToString();
-                ucTemp.RestID = Convert.ToInt32(dr["RestaurantID"]);
-                ucTemp.LocationID = Convert.ToInt32(dr["LocationID"]);
-                ucTemp.OwnerID = Convert.ToInt32(dr["UserID"]);
-                ucTemp.bgRestRating.Location = new Point(ucTemp.lblRestName.Location.X + 10 + ucTemp.lblRestName.Width, ucTemp.bgRestRating.Location.Y);
-                ucTemp.bgRestRating.Text = (Convert.ToSingle(dr["RestaurantRating"])).ToString("0.0");
-                ucTemp.MinOrderPrice = Convert.ToSingle(dr["MinOrderPrice"]);
-                ucTemp.lblMin.Text += " " + (ucTemp.MinOrderPrice).ToString("0.00") + " TL"; 
-                panelRestourant.Controls.Add(ucTemp);
+                    ucTempRestList.BackColor = Color.FromArgb(255, 245, 255);
+                panelRestourant.Controls.Add(ucTempRestList);
                 j++;
             }
             db.Close();

@@ -22,6 +22,7 @@ namespace YemekPoşeti
         {
             this.BringToFront();
             this.AcceptButton = btnLogin;
+            btnLogin.Select();
 			RememberUser();
         }
 
