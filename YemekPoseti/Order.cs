@@ -13,11 +13,9 @@ namespace YemekPoşeti
 		private float DiscountPercantage = 5;
 		public float DiscountPrice { get; set; }
 		public float FinalPrice;
-
 		public List<ucBasket> FoodsInOrder = new List<ucBasket>();
 		public List<int> foodIDList = new List<int>();
         public float MinOrderPrice { get; set; }
-
 		public void GetSumPrice()
 		{
 			SumPrice = 0;
@@ -28,7 +26,6 @@ namespace YemekPoşeti
 			DiscountPrice = Convert.ToSingle(Math.Round((SumPrice * DiscountPercantage)/100,2));
 			FinalPrice = SumPrice - DiscountPrice;
 		}
-        
         public void PrintFoods(ListBox lbox)
         {
             lbox.Items.Clear();
@@ -37,7 +34,6 @@ namespace YemekPoşeti
                 if(food.QTY>0)
                     lbox.Items.Add(food.FoodName + " (" + food.QTY + " Adet)");
             }
-        }
-        
+        }  
 	}
 }

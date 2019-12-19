@@ -110,6 +110,7 @@ namespace YemekPoşeti
             lblOrderRestName.Text = SelectedRestaurant.Name;
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
+            lboxUrunler.Items.Clear();
             CurrentOrder = null;
             CurrentOrder = new Order();
             CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
