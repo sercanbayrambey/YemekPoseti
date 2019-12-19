@@ -30,9 +30,9 @@ namespace YemekPoşeti
 		{
             this.Bounds = Screen.PrimaryScreen.WorkingArea;
             this.BringToFront();
-			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			TabMain.TabPages.Remove(TabPageOrder);
 			LoadProfileData();
+			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			AddRestaurantsToList();
 		}
 
