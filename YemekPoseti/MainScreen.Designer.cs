@@ -41,9 +41,14 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pBoxProfilePic = new System.Windows.Forms.PictureBox();
             this.TabPageOrder = new MetroFramework.Controls.MetroTabPage();
+            this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
+            this.lblCompleteOrder = new System.Windows.Forms.Label();
+            this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
+            this.lboxUrunler = new System.Windows.Forms.ListBox();
+            this.btnOrder = new MetroFramework.Controls.MetroButton();
+            this.lblMin = new System.Windows.Forms.Label();
             this.lblFinalSumPrice = new System.Windows.Forms.Label();
             this.lblFinalPrice = new System.Windows.Forms.Label();
-            this.btnOrder = new MetroFramework.Controls.MetroButton();
             this.lblSumDiscount = new System.Windows.Forms.Label();
             this.lblSumPrice = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
@@ -55,18 +60,13 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.lblMin = new System.Windows.Forms.Label();
-            this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
-            this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
-            this.lblCompleteOrder = new System.Windows.Forms.Label();
-            this.lboxUrunler = new System.Windows.Forms.ListBox();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).BeginInit();
             this.TabPageOrder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.panelCompleteOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // TabMain
@@ -96,7 +96,7 @@
             this.TabPageHome.Location = new System.Drawing.Point(4, 38);
             this.TabPageHome.Margin = new System.Windows.Forms.Padding(4);
             this.TabPageHome.Name = "TabPageHome";
-            this.TabPageHome.Size = new System.Drawing.Size(1880, 925);
+            this.TabPageHome.Size = new System.Drawing.Size(1858, 925);
             this.TabPageHome.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabPageHome.TabIndex = 0;
             this.TabPageHome.Text = "Anasayfa";
@@ -161,7 +161,7 @@
             this.TabPageProfile.Location = new System.Drawing.Point(4, 38);
             this.TabPageProfile.Margin = new System.Windows.Forms.Padding(4);
             this.TabPageProfile.Name = "TabPageProfile";
-            this.TabPageProfile.Size = new System.Drawing.Size(1880, 925);
+            this.TabPageProfile.Size = new System.Drawing.Size(1858, 925);
             this.TabPageProfile.TabIndex = 1;
             this.TabPageProfile.Text = "Profilim";
             this.TabPageProfile.VerticalScrollbarBarColor = true;
@@ -256,9 +256,93 @@
             this.TabPageOrder.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageOrder.VerticalScrollbarSize = 11;
             // 
+            // lblCompleteOrderDesc
+            // 
+            this.lblCompleteOrderDesc.AutoSize = true;
+            this.lblCompleteOrderDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblCompleteOrderDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblCompleteOrderDesc.Location = new System.Drawing.Point(1389, 38);
+            this.lblCompleteOrderDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCompleteOrderDesc.Name = "lblCompleteOrderDesc";
+            this.lblCompleteOrderDesc.Size = new System.Drawing.Size(120, 21);
+            this.lblCompleteOrderDesc.TabIndex = 19;
+            this.lblCompleteOrderDesc.Text = "Afiyet olsun...";
+            // 
+            // lblCompleteOrder
+            // 
+            this.lblCompleteOrder.AutoSize = true;
+            this.lblCompleteOrder.BackColor = System.Drawing.Color.Transparent;
+            this.lblCompleteOrder.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblCompleteOrder.Location = new System.Drawing.Point(1388, 10);
+            this.lblCompleteOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCompleteOrder.Name = "lblCompleteOrder";
+            this.lblCompleteOrder.Size = new System.Drawing.Size(210, 28);
+            this.lblCompleteOrder.TabIndex = 18;
+            this.lblCompleteOrder.Text = "Siparişi Tamamla";
+            // 
+            // panelCompleteOrder
+            // 
+            this.panelCompleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelCompleteOrder.AutoScroll = true;
+            this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCompleteOrder.Controls.Add(this.lboxUrunler);
+            this.panelCompleteOrder.Controls.Add(this.btnOrder);
+            this.panelCompleteOrder.HorizontalScrollbar = true;
+            this.panelCompleteOrder.HorizontalScrollbarBarColor = false;
+            this.panelCompleteOrder.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelCompleteOrder.HorizontalScrollbarSize = 12;
+            this.panelCompleteOrder.Location = new System.Drawing.Point(1389, 66);
+            this.panelCompleteOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.panelCompleteOrder.Name = "panelCompleteOrder";
+            this.panelCompleteOrder.Size = new System.Drawing.Size(468, 830);
+            this.panelCompleteOrder.TabIndex = 17;
+            this.panelCompleteOrder.VerticalScrollbar = true;
+            this.panelCompleteOrder.VerticalScrollbarBarColor = false;
+            this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
+            this.panelCompleteOrder.VerticalScrollbarSize = 13;
+            // 
+            // lboxUrunler
+            // 
+            this.lboxUrunler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lboxUrunler.FormattingEnabled = true;
+            this.lboxUrunler.ItemHeight = 16;
+            this.lboxUrunler.Location = new System.Drawing.Point(0, 0);
+            this.lboxUrunler.Name = "lboxUrunler";
+            this.lboxUrunler.Size = new System.Drawing.Size(466, 180);
+            this.lboxUrunler.TabIndex = 14;
+            // 
+            // btnOrder
+            // 
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnOrder.Location = new System.Drawing.Point(96, 778);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(288, 46);
+            this.btnOrder.TabIndex = 13;
+            this.btnOrder.Text = "Siparişi Tamamla";
+            this.btnOrder.UseCustomBackColor = true;
+            this.btnOrder.UseCustomForeColor = true;
+            this.btnOrder.UseSelectable = true;
+            // 
+            // lblMin
+            // 
+            this.lblMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMin.AutoSize = true;
+            this.lblMin.BackColor = System.Drawing.Color.Transparent;
+            this.lblMin.ForeColor = System.Drawing.Color.Red;
+            this.lblMin.Location = new System.Drawing.Point(1202, 45);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(179, 17);
+            this.lblMin.TabIndex = 16;
+            this.lblMin.Text = "Min. Sipariş Tutarı: 0,00 TL";
+            this.lblMin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblFinalSumPrice
             // 
-            this.lblFinalSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFinalSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblFinalSumPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblFinalSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFinalSumPrice.ForeColor = System.Drawing.Color.DarkOrange;
@@ -284,23 +368,9 @@
             this.lblFinalPrice.TabIndex = 14;
             this.lblFinalPrice.Text = "Ödenecek Tutar:";
             // 
-            // btnOrder
-            // 
-            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnOrder.Location = new System.Drawing.Point(96, 778);
-            this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(288, 46);
-            this.btnOrder.TabIndex = 13;
-            this.btnOrder.Text = "Siparişi Tamamla";
-            this.btnOrder.UseCustomBackColor = true;
-            this.btnOrder.UseCustomForeColor = true;
-            this.btnOrder.UseSelectable = true;
-            // 
             // lblSumDiscount
             // 
-            this.lblSumDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSumDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSumDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblSumDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblSumDiscount.ForeColor = System.Drawing.Color.DarkGray;
@@ -314,7 +384,7 @@
             // 
             // lblSumPrice
             // 
-            this.lblSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSumPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblSumPrice.ForeColor = System.Drawing.Color.DarkGray;
@@ -457,74 +527,6 @@
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
             // 
-            // lblMin
-            // 
-            this.lblMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMin.AutoSize = true;
-            this.lblMin.BackColor = System.Drawing.Color.Transparent;
-            this.lblMin.ForeColor = System.Drawing.Color.Red;
-            this.lblMin.Location = new System.Drawing.Point(1202, 45);
-            this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(179, 17);
-            this.lblMin.TabIndex = 16;
-            this.lblMin.Text = "Min. Sipariş Tutarı: 0,00 TL";
-            this.lblMin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panelCompleteOrder
-            // 
-            this.panelCompleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelCompleteOrder.AutoScroll = true;
-            this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCompleteOrder.Controls.Add(this.lboxUrunler);
-            this.panelCompleteOrder.Controls.Add(this.btnOrder);
-            this.panelCompleteOrder.HorizontalScrollbarBarColor = false;
-            this.panelCompleteOrder.HorizontalScrollbarHighlightOnWheel = false;
-            this.panelCompleteOrder.HorizontalScrollbarSize = 12;
-            this.panelCompleteOrder.Location = new System.Drawing.Point(1389, 66);
-            this.panelCompleteOrder.Margin = new System.Windows.Forms.Padding(4);
-            this.panelCompleteOrder.Name = "panelCompleteOrder";
-            this.panelCompleteOrder.Size = new System.Drawing.Size(468, 830);
-            this.panelCompleteOrder.TabIndex = 17;
-            this.panelCompleteOrder.VerticalScrollbarBarColor = false;
-            this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
-            this.panelCompleteOrder.VerticalScrollbarSize = 13;
-            // 
-            // lblCompleteOrderDesc
-            // 
-            this.lblCompleteOrderDesc.AutoSize = true;
-            this.lblCompleteOrderDesc.BackColor = System.Drawing.Color.Transparent;
-            this.lblCompleteOrderDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.lblCompleteOrderDesc.Location = new System.Drawing.Point(1389, 38);
-            this.lblCompleteOrderDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCompleteOrderDesc.Name = "lblCompleteOrderDesc";
-            this.lblCompleteOrderDesc.Size = new System.Drawing.Size(120, 21);
-            this.lblCompleteOrderDesc.TabIndex = 19;
-            this.lblCompleteOrderDesc.Text = "Afiyet olsun...";
-            // 
-            // lblCompleteOrder
-            // 
-            this.lblCompleteOrder.AutoSize = true;
-            this.lblCompleteOrder.BackColor = System.Drawing.Color.Transparent;
-            this.lblCompleteOrder.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblCompleteOrder.Location = new System.Drawing.Point(1388, 10);
-            this.lblCompleteOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCompleteOrder.Name = "lblCompleteOrder";
-            this.lblCompleteOrder.Size = new System.Drawing.Size(210, 28);
-            this.lblCompleteOrder.TabIndex = 18;
-            this.lblCompleteOrder.Text = "Siparişi Tamamla";
-            // 
-            // lboxUrunler
-            // 
-            this.lboxUrunler.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lboxUrunler.FormattingEnabled = true;
-            this.lboxUrunler.ItemHeight = 16;
-            this.lboxUrunler.Location = new System.Drawing.Point(0, 0);
-            this.lboxUrunler.Name = "lboxUrunler";
-            this.lboxUrunler.Size = new System.Drawing.Size(466, 180);
-            this.lboxUrunler.TabIndex = 14;
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -550,8 +552,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).EndInit();
             this.TabPageOrder.ResumeLayout(false);
             this.TabPageOrder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.panelCompleteOrder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
