@@ -107,7 +107,7 @@ namespace YemekPoşeti
             if(!TabMain.TabPages.Contains(TabPageOrder))
                 TabMain.TabPages.Add(TabPageOrder);
             TabMain.SelectedTab = TabPageOrder;
-            lblOrderRestName.Text = SelectedRestaurant.Name;
+            lblOrderRestName.Text = SelectedRestaurant.Name + ", " + LoggedUser.Location ;
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
             lboxUrunler.Items.Clear();
@@ -149,6 +149,7 @@ namespace YemekPoşeti
 
         private void AddRestaurantsToList()
 		{
+            lblRestList.Text = "Restoran Listesi" + " (" + LoggedUser.Location + ")";
             db.Connect();
             int j = 0;
             string query = string.Format("SELECT * FROM Restaurants WHERE LocationID = '{0}' ORDER BY RestaurantRating ASC",LoggedUser.LocationID);
