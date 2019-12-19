@@ -71,6 +71,7 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basket.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="RegisterScreen.cs">
       <SubType>Form</SubType>
@@ -88,23 +89,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="RestaurantOwner.cs" />
-    <Compile Include="RestourantList.cs">
+    <Compile Include="ucRestourantItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="RestourantList.Designer.cs">
-      <DependentUpon>RestourantList.cs</DependentUpon>
+    <Compile Include="ucRestourantItem.Designer.cs">
+      <DependentUpon>ucRestourantItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucBasket.cs">
+    <Compile Include="ucBasketItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucBasket.Designer.cs">
-      <DependentUpon>ucBasket.cs</DependentUpon>
+    <Compile Include="ucBasketItem.Designer.cs">
+      <DependentUpon>ucBasketItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucFoodList.cs">
+    <Compile Include="ucFoodItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucFoodList.Designer.cs">
-      <DependentUpon>ucFoodList.cs</DependentUpon>
+    <Compile Include="ucFoodItem.Designer.cs">
+      <DependentUpon>ucFoodItem.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="LoginScreen.resx">
@@ -126,14 +127,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RestourantList.resx">
-      <DependentUpon>RestourantList.cs</DependentUpon>
+    <EmbeddedResource Include="ucRestourantItem.resx">
+      <DependentUpon>ucRestourantItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucBasket.resx">
-      <DependentUpon>ucBasket.cs</DependentUpon>
+    <EmbeddedResource Include="ucBasketItem.resx">
+      <DependentUpon>ucBasketItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucFoodList.resx">
-      <DependentUpon>ucFoodList.cs</DependentUpon>
+    <EmbeddedResource Include="ucFoodItem.resx">
+      <DependentUpon>ucFoodItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

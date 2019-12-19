@@ -1,6 +1,6 @@
 ﻿namespace YemekPoşeti
 {
-	partial class ucBasket
+	partial class ucBasketItem
 	{
 		/// <summary> 
 		/// Required designer variable.

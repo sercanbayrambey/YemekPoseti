@@ -112,17 +112,5 @@ namespace YemekPoşeti
 		{
 			return this.Mail + " " + this.Location + " " + this.UserName + " " + this.UserType + " " + this.UserID;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 }

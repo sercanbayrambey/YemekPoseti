@@ -43,7 +43,8 @@ namespace YemekPoşeti
 
 			try
 			{
-				return cmd.ExecuteNonQuery();
+                return cmd.ExecuteNonQuery();
+                
 			}
 
 			catch (Exception e)
@@ -65,9 +66,7 @@ namespace YemekPoşeti
 			{
 				Console.WriteLine(e.Message);
 			}
-
 			return rd;
-
 		}
 
 		public List<string> GetCities()

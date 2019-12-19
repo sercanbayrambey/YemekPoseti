@@ -44,6 +44,8 @@
             this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
             this.lblCompleteOrder = new System.Windows.Forms.Label();
             this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
+            this.tboxAdress = new MetroFramework.Controls.MetroTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lboxUrunler = new System.Windows.Forms.ListBox();
             this.btnOrder = new MetroFramework.Controls.MetroButton();
             this.lblMin = new System.Windows.Forms.Label();
@@ -104,7 +106,6 @@
             this.TabPageHome.VerticalScrollbarBarColor = true;
             this.TabPageHome.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageHome.VerticalScrollbarSize = 13;
-            this.TabPageHome.Click += new System.EventHandler(this.TabPageHome_Click);
             // 
             // label1
             // 
@@ -286,6 +287,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCompleteOrder.AutoScroll = true;
             this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCompleteOrder.Controls.Add(this.tboxAdress);
+            this.panelCompleteOrder.Controls.Add(this.label2);
             this.panelCompleteOrder.Controls.Add(this.lboxUrunler);
             this.panelCompleteOrder.Controls.Add(this.btnOrder);
             this.panelCompleteOrder.HorizontalScrollbar = true;
@@ -302,6 +305,53 @@
             this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
             this.panelCompleteOrder.VerticalScrollbarSize = 13;
             // 
+            // tboxAdress
+            // 
+            // 
+            // 
+            // 
+            this.tboxAdress.CustomButton.Image = null;
+            this.tboxAdress.CustomButton.Location = new System.Drawing.Point(336, 2);
+            this.tboxAdress.CustomButton.Name = "";
+            this.tboxAdress.CustomButton.Size = new System.Drawing.Size(121, 121);
+            this.tboxAdress.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tboxAdress.CustomButton.TabIndex = 1;
+            this.tboxAdress.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tboxAdress.CustomButton.UseSelectable = true;
+            this.tboxAdress.CustomButton.Visible = false;
+            this.tboxAdress.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.tboxAdress.Lines = new string[] {
+        "Adresinizi giriniz..."};
+            this.tboxAdress.Location = new System.Drawing.Point(3, 236);
+            this.tboxAdress.MaxLength = 32767;
+            this.tboxAdress.Multiline = true;
+            this.tboxAdress.Name = "tboxAdress";
+            this.tboxAdress.PasswordChar = '\0';
+            this.tboxAdress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tboxAdress.SelectedText = "";
+            this.tboxAdress.SelectionLength = 0;
+            this.tboxAdress.SelectionStart = 0;
+            this.tboxAdress.ShortcutsEnabled = true;
+            this.tboxAdress.Size = new System.Drawing.Size(460, 126);
+            this.tboxAdress.TabIndex = 20;
+            this.tboxAdress.Text = "Adresinizi giriniz...";
+            this.tboxAdress.UseSelectable = true;
+            this.tboxAdress.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tboxAdress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.tboxAdress.Enter += new System.EventHandler(this.tboxAdress_Enter);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(-1, 210);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 23);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Sipariş Adresiniz:";
+            // 
             // lboxUrunler
             // 
             this.lboxUrunler.Dock = System.Windows.Forms.DockStyle.Top;
@@ -316,7 +366,7 @@
             // 
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnOrder.Location = new System.Drawing.Point(96, 778);
+            this.btnOrder.Location = new System.Drawing.Point(103, 778);
             this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(288, 46);
@@ -325,6 +375,7 @@
             this.btnOrder.UseCustomBackColor = true;
             this.btnOrder.UseCustomForeColor = true;
             this.btnOrder.UseSelectable = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
             // 
             // lblMin
             // 
@@ -409,7 +460,6 @@
             this.lblDiscount.Size = new System.Drawing.Size(257, 26);
             this.lblDiscount.TabIndex = 11;
             this.lblDiscount.Text = "Sepete Özel İndiriminiz:";
-            this.lblDiscount.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblSum
             // 
@@ -468,7 +518,6 @@
             this.panelBasket.VerticalScrollbarBarColor = true;
             this.panelBasket.VerticalScrollbarHighlightOnWheel = false;
             this.panelBasket.VerticalScrollbarSize = 13;
-            this.panelBasket.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBasket_Paint);
             // 
             // lblOrderTopDesc
             // 
@@ -513,7 +562,6 @@
             this.panelFoodMenu.VerticalScrollbarBarColor = false;
             this.panelFoodMenu.VerticalScrollbarHighlightOnWheel = false;
             this.panelFoodMenu.VerticalScrollbarSize = 13;
-            this.panelFoodMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFoodMenu_Paint);
             // 
             // pboxLogo
             // 
@@ -553,6 +601,7 @@
             this.TabPageOrder.ResumeLayout(false);
             this.TabPageOrder.PerformLayout();
             this.panelCompleteOrder.ResumeLayout(false);
+            this.panelCompleteOrder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -591,6 +640,8 @@
         private System.Windows.Forms.Label lblCompleteOrder;
         public MetroFramework.Controls.MetroPanel panelCompleteOrder;
         public System.Windows.Forms.ListBox lboxUrunler;
+        private MetroFramework.Controls.MetroTextBox tboxAdress;
+        private System.Windows.Forms.Label label2;
     }
 }
 

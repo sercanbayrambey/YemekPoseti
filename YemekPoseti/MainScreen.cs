@@ -17,8 +17,8 @@ namespace YemekPoşeti
 		private readonly User LoggedUser;
         private readonly DB db;
         private Restaurant SelectedRestaurant;
-		public ucFoodList ucFood;
-		public Order CurrentOrder = new Order();
+		public ucFoodItem ucFood;
+		public Basket CurrentBasket = new Basket();
 		public MainScreen(User user)
         {
 			LoggedUser = user;
@@ -43,11 +43,6 @@ namespace YemekPoşeti
 			lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
 		}
 
-		private void TabPageHome_Click(object sender, EventArgs e)
-		{
-            
-		}
-
         private void Restaurant_Click(object sender, EventArgs e)
         {
             ucRestList ucTemp;
@@ -69,22 +64,22 @@ namespace YemekPoşeti
 	
 		private void Food_Click(object sender, EventArgs e)
 		{
-			if(!(sender is ucFoodList))
+			if(!(sender is ucFoodItem))
 			{
 				Control control = (Control)sender;
-				ucFood = (ucFoodList)control.Parent;
+				ucFood = (ucFoodItem)control.Parent;
 				var x = ucFood.AddFoodToBasket(this);
 				if (x != null)
 				{
 					x.ms = this;
 					panelBasket.Controls.Add(x);
-					CurrentOrder.FoodsInOrder.Add(x);
+					CurrentBasket.FoodsInOrder.Add(x);
                 }
-                CurrentOrder.PrintFoods(lboxUrunler);
-                CurrentOrder.GetSumPrice();
-				lblSumPrice.Text = CurrentOrder.SumPrice.ToString("0.00") + " TL";
-				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
-				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+                CurrentBasket.PrintFoods(lboxUrunler);
+                CurrentBasket.GetSumPrice();
+				lblSumPrice.Text = CurrentBasket.SumPrice.ToString("0.00") + " TL";
+				lblSumDiscount.Text = CurrentBasket.DiscountPrice.ToString("0.00") + " TL"; ;
+				lblFinalSumPrice.Text = (CurrentBasket.FinalPrice).ToString("0.00") + " TL";
 			}
 		}
 
@@ -101,7 +96,6 @@ namespace YemekPoşeti
             SelectedRestaurant.Description = ucTemp.lblRestDesc.Text;
         }
 
-
         private void ShowOrderScreen()
         {
             if(!TabMain.TabPages.Contains(TabPageOrder))
@@ -111,13 +105,13 @@ namespace YemekPoşeti
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
             lboxUrunler.Items.Clear();
-            CurrentOrder = null;
-            CurrentOrder = new Order();
-            CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
+            CurrentBasket = null;
+            CurrentBasket = new Basket();
+            CurrentBasket.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
 			lblSumPrice.Text = "0,00 TL";
 			lblFinalSumPrice.Text = "0,00 TL";
 			lblSumDiscount.Text = "0,00 TL";
-            lblMin.Text = "Min. Sipariş Tutarı: " + CurrentOrder.MinOrderPrice.ToString("0.00") + " TL";
+            lblMin.Text = "Min. Sipariş Tutarı: " + CurrentBasket.MinOrderPrice.ToString("0.00") + " TL";
             ShowFoodList();
         }
 
@@ -177,20 +171,32 @@ namespace YemekPoşeti
 			Application.Exit();
 		}
 
-		private void panelFoodMenu_Paint(object sender, PaintEventArgs e)
-		{
+        private void tboxAdress_Enter(object sender, EventArgs e)
+        {
+            string defaultText = "Adresinizi giriniz...";
+            if (tboxAdress.Text.Equals(defaultText))
+                tboxAdress.Clear();
+        }
 
-		}
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            btnOrder.Enabled = false;
+            Order order = new Order(CurrentBasket, LoggedUser,SelectedRestaurant,tboxAdress.Text);
 
-		private void panelBasket_Paint(object sender, PaintEventArgs e)
-		{
+            if (order.SendOrderToServer() && order.SendBasketToServer())
+            {
+                MessageBox.Show("Siparişiniz başarıyla alınmıştır.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnOrder.Enabled = true;
+            }
+            else
+            {
+                btnOrder.Enabled = true;
+                MessageBox.Show("Siparişiniz sırasında bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
-		}
+                    
+        }
 
-		private void label2_Click(object sender, EventArgs e)
-		{
-
-		}
-	}
+    }
 	
 }

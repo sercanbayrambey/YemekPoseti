@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace YemekPoşeti
 {
-	public partial class ucBasket : UserControl
+	public partial class ucBasketItem : UserControl
 	{
 		public int FoodID { get; set; }
 		public int QTY = 1;
@@ -18,9 +18,11 @@ namespace YemekPoşeti
 		public string FoodName { get; set; }
 		public string FoodDesc { get; set; }
 		public float SumPrice { get; set; }
+
+
 		public MainScreen ms;
 
-		public ucBasket()
+		public ucBasketItem()
 		{
 			InitializeComponent();
 		}
@@ -37,7 +39,7 @@ namespace YemekPoşeti
 			this.lblFoodName.Text = this.FoodName + " x" + this.QTY;
 			this.lblDeleteFood.Location = new Point(this.lblFoodName.Location.X + 5 + this.lblFoodName.Width, this.lblDeleteFood.Location.Y);
 			this.lblFoodDesc.Text = this.FoodDesc;
-            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
+            ms.CurrentBasket.PrintFoods(ms.lboxUrunler);
 
         }
 
@@ -47,14 +49,14 @@ namespace YemekPoşeti
 			this.Update();
 			if (this.QTY == 0)
 			{
-				ms.CurrentOrder.foodIDList.Remove(this.FoodID);
-				ms.CurrentOrder.FoodsInOrder.Remove(this);
+				ms.CurrentBasket.foodIDList.Remove(this.FoodID);
+				ms.CurrentBasket.FoodsInOrder.Remove(this);
 				ms.panelBasket.Controls.Remove(this);
 			}
-			ms.CurrentOrder.GetSumPrice();
-			ms.lblSumPrice.Text = ms.CurrentOrder.SumPrice.ToString("0.00") + " TL";
-			ms.lblSumDiscount.Text = ms.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
-			ms.lblFinalSumPrice.Text = (ms.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+			ms.CurrentBasket.GetSumPrice();
+			ms.lblSumPrice.Text = ms.CurrentBasket.SumPrice.ToString("0.00") + " TL";
+			ms.lblSumDiscount.Text = ms.CurrentBasket.DiscountPrice.ToString("0.00") + " TL"; ;
+			ms.lblFinalSumPrice.Text = (ms.CurrentBasket.FinalPrice).ToString("0.00") + " TL";
 		}
 	}
 }

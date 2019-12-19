@@ -13,13 +13,13 @@ using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
-    public partial class ucFoodList : UserControl
+    public partial class ucFoodItem : UserControl
 	{
 		public int FoodID { get; set; }
 		public float Price { get; set; }
 		private MainScreen MS;
 		
-        public ucFoodList(MySqlDataReader dr)
+        public ucFoodItem(MySqlDataReader dr)
         {
             InitializeComponent();
             /* Dock Setting */
@@ -37,14 +37,14 @@ namespace YemekPoşeti
 			
 		}
 
-		public ucBasket AddFoodToBasket(MainScreen ms)
+		public ucBasketItem AddFoodToBasket(MainScreen ms)
 		{
 			MS = ms;
 			int id = CheckID(FoodID);
 			if (id == -1)
 			{
-				ucBasket ucBasket = new ucBasket();
-				MS.CurrentOrder.foodIDList.Add(this.FoodID);
+				ucBasketItem ucBasket = new ucBasketItem();
+				MS.CurrentBasket.foodIDList.Add(this.FoodID);
 				ucBasket.Dock = DockStyle.Top;
 				ucBasket.FoodID = this.FoodID;
 				ucBasket.Price = this.Price;
@@ -59,12 +59,12 @@ namespace YemekPoşeti
 			{
 				foreach (Control c in ms.panelBasket.Controls)
 				{
-					if (c is ucBasket)
+					if (c is ucBasketItem)
 					{
-						if (((ucBasket)c).FoodID == id )
+						if (((ucBasketItem)c).FoodID == id )
 						{
-							((ucBasket)c).QTY++;
-							((ucBasket)c).Update();
+							((ucBasketItem)c).QTY++;
+							((ucBasketItem)c).Update();
 						}
 
 					}
@@ -78,7 +78,7 @@ namespace YemekPoşeti
 		private int CheckID(int id)
 		{
 			int foundId = -1;
-			foreach (int foodId in MS.CurrentOrder.foodIDList)
+			foreach (int foodId in MS.CurrentBasket.foodIDList)
 			{
 				if(foodId == id)
 				{

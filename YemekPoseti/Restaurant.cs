@@ -22,10 +22,10 @@ namespace YemekPoşeti
         public float MinOrderPrice { get; set; }
 
 
-        public ucFoodList GetFoodList(MySqlDataReader dr,int j)
+        public ucFoodItem GetFoodList(MySqlDataReader dr,int j)
         {
             
-            ucFoodList ucTempFoodList = new ucFoodList(dr);
+            ucFoodItem ucTempFoodList = new ucFoodItem(dr);
             /* Event Controls */
             /* BG Color */
             if (j % 2 == 0)
