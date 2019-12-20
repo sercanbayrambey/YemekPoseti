@@ -75,7 +75,7 @@ namespace YemekPoşeti
             int orderID = -1;
             int status;
             List<ucPastOrderItem> pastOrderList = new List<ucPastOrderItem>();
-            string query = string.Format("SELECT O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice FROM Orders O" +
+            string query = string.Format("SELECT O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice,B.QTY FROM Orders O" +
                                         " INNER JOIN Basket B ON B.OrderID = O.OrderID" +
                                         " INNER JOIN Restaurants R ON R.RestaurantID = O.RestaurantID" +
                                         " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
@@ -94,7 +94,7 @@ namespace YemekPoşeti
                     ucPastOrder.Dock = System.Windows.Forms.DockStyle.Top;
                     ucPastOrder.lblFoodPrice.Text = (Convert.ToSingle(dr["FinalPrice"])).ToString("0.00") + " TL"; 
                     ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]) + ")";
-                    ucPastOrder.lblFoods.Text = dr["FoodName"].ToString();
+                    ucPastOrder.lblFoods.Text = dr["FoodName"].ToString() +" (x" + dr["QTY"] +")";
                     status = Convert.ToInt32(dr["StatusID"]); 
                     ucPastOrder.lblStatus.Text = dr["Status"].ToString();
                     switch (status)
@@ -121,7 +121,7 @@ namespace YemekPoşeti
                 }
                 else
                 {
-                    ucPastOrder.lblFoods.Text += ", " + dr["FoodName"].ToString();
+                    ucPastOrder.lblFoods.Text += ", " + dr["FoodName"].ToString() + " (x" + dr["QTY"] + ")"; ;
                 }
             }
             db.Close();
