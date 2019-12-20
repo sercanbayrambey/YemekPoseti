@@ -74,13 +74,14 @@ namespace YemekPoşeti
             MySqlDataReader dr;
             int orderID = -1;
             int status;
+             Console.WriteLine(this.UserID);
             List<ucPastOrderItem> pastOrderList = new List<ucPastOrderItem>();
-            string query = string.Format("SELECT O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice,B.QTY FROM Orders O" +
+            string query = string.Format("SELECT O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice, B.QTY FROM Orders O" +
                                         " INNER JOIN Basket B ON B.OrderID = O.OrderID" +
                                         " INNER JOIN Restaurants R ON R.RestaurantID = O.RestaurantID" +
                                         " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
                                         " INNER JOIN Locations L ON L.LocationID = R.LocationID"+
-                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE O.UserID = {0}",this.UserID);
+                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE O.UserID = '{0}'",this.UserID);
             db.Connect();
             dr = db.GetQuery(query);
             ucPastOrderItem ucPastOrder = new ucPastOrderItem();
@@ -93,8 +94,8 @@ namespace YemekPoşeti
                     ucPastOrder = new ucPastOrderItem();
                     ucPastOrder.Dock = System.Windows.Forms.DockStyle.Top;
                     ucPastOrder.lblFoodPrice.Text = (Convert.ToSingle(dr["FinalPrice"])).ToString("0.00") + " TL"; 
-                    ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]).ToString("dd/MM/yyyy HH:mm")+ ")";
-                    ucPastOrder.lblFoods.Text = dr["FoodName"].ToString() +" (x" + dr["QTY"] +")";
+                    ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]).ToString("dd/MM/yyyy HH:mm") + ")";
+                    ucPastOrder.lblFoods.Text = dr["FoodName"].ToString() +" (x" + dr["QTY"].ToString() +")";
                     status = Convert.ToInt32(dr["StatusID"]); 
                     ucPastOrder.lblStatus.Text = dr["Status"].ToString();
                     switch (status)

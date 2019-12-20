@@ -132,7 +132,7 @@ namespace YemekPoşeti
             {
                 foreach (ucBasketItem item in this.Basket.FoodsInBasket)
                 {
-                    query = String.Format("INSERT INTO Basket (FoodID, OrderQTY, unitPrice,OrderID) VALUES('{0}', '{1}', '{2}','{3}' )", item.FoodID, item.QTY, item.Price,currentOrderID);
+                    query = String.Format("INSERT INTO Basket (FoodID, QTY, unitPrice,OrderID) VALUES('{0}', '{1}', '{2}','{3}' )", item.FoodID, item.QTY, item.Price,currentOrderID);
                     db.SetQuery(query);
                 }
             }
