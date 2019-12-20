@@ -7,33 +7,85 @@ using System.Windows.Forms;
 
 namespace YemekPoşeti
 {
-	public class Basket
+	class Basket
 	{
-		public float SumPrice { get; set; }
-		private float DiscountPercantage = 5;
-		public float DiscountPrice { get; set; }
-		public float FinalPrice;
 		public List<ucBasketItem> FoodsInBasket = new List<ucBasketItem>();
-		public List<int> foodIDList = new List<int>();
-        public float MinOrderPrice { get; set; }
-		public void GetSumPrice()
-		{
-			SumPrice = 0;
-			foreach(ucBasketItem ucbasket in FoodsInBasket )
-			{
-				SumPrice += (ucbasket.QTY * ucbasket.Price);
-			}
-			DiscountPrice = Convert.ToSingle(Math.Round((SumPrice * DiscountPercantage)/100,2));
-			FinalPrice = SumPrice - DiscountPrice;
-		}
-        public void PrintFoods(ListBox lbox)
+		public List<int> foodIDListInBasket = new List<int>();
+        private MainScreen ms;
+        public ucBasketItem AddFood(ucFoodItem ucFoodItem, MainScreen ms)
         {
-            lbox.Items.Clear();
-            foreach(ucBasketItem food in FoodsInBasket)
+            int id = CheckID(ucFoodItem.FoodID);
+            if (id == -1)
             {
-                if(food.QTY>0)
-                    lbox.Items.Add(food.FoodName + " (" + food.QTY + " Adet)");
+                ucBasketItem basketItem = new ucBasketItem();
+                this.foodIDListInBasket.Add(ucFoodItem.FoodID);
+                basketItem.Dock = DockStyle.Top;
+                basketItem.FoodID = ucFoodItem.FoodID;
+                basketItem.Price = ucFoodItem.Price;
+                basketItem.FoodName = ucFoodItem.lblFoodName.Text;
+                basketItem.FoodDesc = ucFoodItem.lblFoodDesc.Text;
+                basketItem.ms = ms;
+                basketItem.UpdateBasketItem();
+                this.ms = ms;
+                this.FoodsInBasket.Add(basketItem);
+                ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
+                ms.CurrentOrder.GetSumBasketPrice();
+                ms.CurrentOrder.CheckRestMinPriceStatus();
+                return basketItem;
             }
-        }  
-	}
+            else
+            {
+                foreach (Control c in ms.panelBasket.Controls)
+                {
+                    if (c is ucBasketItem)
+                    {
+                        if (((ucBasketItem)c).FoodID == id)
+                        {
+                            ((ucBasketItem)c).QTY++;
+                            ((ucBasketItem)c).UpdateBasketItem();
+                        }
+
+                    }
+                }
+
+            }
+            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
+            ms.CurrentOrder.GetSumBasketPrice();
+            ms.CurrentOrder.CheckRestMinPriceStatus();
+            return null;
+
+        }
+
+        private int CheckID(int id)
+        {
+            int foundId = -1;
+            foreach (int foodId in this.foodIDListInBasket)
+            {
+                if (foodId == id)
+                {
+                    foundId = foodId;
+                    break;
+                }
+            }
+            return foundId;
+        }
+
+        public void RemoveFood(ucBasketItem basketItem)
+        {
+            basketItem.QTY--;
+            basketItem.UpdateBasketItem();
+            if (basketItem.QTY == 0)
+            {
+                this.foodIDListInBasket.Remove(basketItem.FoodID);
+                this.FoodsInBasket.Remove(basketItem);
+                ms.panelBasket.Controls.Remove(basketItem);
+            }
+            this.ms.CurrentOrder.GetSumBasketPrice();
+            ms.CurrentOrder.CheckRestMinPriceStatus();
+            ms.lblSumPrice.Text = ms.CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
+            ms.lblSumDiscount.Text = ms.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+            ms.lblFinalSumPrice.Text = (ms.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+        }
+
+    }
 }

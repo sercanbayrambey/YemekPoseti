@@ -5,26 +5,72 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace YemekPoşeti
 {
-    class Order
+  class Order
     {
         public Basket Basket { get; private set; }
         public User LoggedUser { get; private set; }
         public Restaurant SelectedRestaurant { get; private set; }
-        public string Adress { get; private set; }
-        public int currentOrderID;
-        public int uniqueKey;
-        private DB db;
-        public Order(Basket basket, User loggedUser,Restaurant restaurant,string adress)
+        private readonly DB db;
+        private MainScreen ms;
+        public float SumBasketPrice { get; set; }
+        public float DiscountPrice { get; set; }
+        public float FinalPrice { get; set; }
+        public float MinOrderPrice { get; set; }
+        public string Adress { get;  set; }
+
+
+        private float DiscountPercantage = 5;
+        private int currentOrderID;
+        private int uniqueKey;
+        public Order(User loggedUser,Restaurant restaurant, MainScreen ms)
         {
-            this.Basket = basket;
+            this.Basket = new Basket();
             this.LoggedUser = loggedUser;
-            this.Adress = adress;
             this.SelectedRestaurant = restaurant;
-            db = new DB();
+            this.ms = ms;
+            this.db = new DB();
             GenerateUniqueKey();
+        }
+
+        public void GetSumBasketPrice()
+        {
+            SumBasketPrice = 0;
+            foreach (ucBasketItem ucbasket in this.Basket.FoodsInBasket)
+            {
+                SumBasketPrice += (ucbasket.QTY * ucbasket.Price);
+            }
+            DiscountPrice = Convert.ToSingle(Math.Round((SumBasketPrice * DiscountPercantage) / 100, 2));
+            FinalPrice = SumBasketPrice - DiscountPrice;
+        }
+
+
+        public void CheckRestMinPriceStatus()
+        {
+            if (this.FinalPrice >= this.MinOrderPrice)
+            {
+                ms.lblMinPriceWarn.Visible = false;
+                ms.btnOrder.Enabled = true;
+
+            }
+            else
+            {
+                ms.lblMinPriceWarn.Text = String.Format("Minimum sipariş tutarı {0} TL olmalıdır!", this.MinOrderPrice);
+                ms.lblMinPriceWarn.Visible = true;
+                ms.btnOrder.Enabled = false;
+            }
+        }
+        public void PrintFoods(ListBox lbox)
+        {
+            lbox.Items.Clear();
+            foreach (ucBasketItem food in this.Basket.FoodsInBasket)
+            {
+                if (food.QTY > 0)
+                    lbox.Items.Add(food.FoodName + " (" + food.QTY + " Adet)");
+            }
         }
         public bool GenerateUniqueKey()
         {
@@ -41,10 +87,9 @@ namespace YemekPoşeti
             db.Close();
             return true;
         }
-     
         public bool SendOrderToServer()
         {
-            string query = String.Format("INSERT INTO Orders(UserID, RestaurantID, OrderDate, Status, UniqueKey, Adress) VALUES('{0}', '{1}', '{2}','{3}','{4}','{5}')", LoggedUser.UserID, SelectedRestaurant.ID, DateTime.Now.ToString("yyyy-MM-dd H:mm:ss"),0,this.uniqueKey,this.Adress);
+            string query = String.Format("INSERT INTO Orders(UserID, RestaurantID, OrderDate, StatusID, UniqueKey, Adress,FinalPrice) VALUES('{0}', '{1}', '{2}','{3}','{4}','{5}','{6}')", LoggedUser.UserID, SelectedRestaurant.ID, DateTime.Now.ToString("yyyy-MM-dd H:mm:ss"), 1, this.uniqueKey, this.Adress, this.FinalPrice.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)); 
             if (db.Connect())
             {
         
@@ -62,7 +107,6 @@ namespace YemekPoşeti
             else
                 return false;
         }
-
         private bool GetOrderID()
         {
             MySqlDataReader dr;
@@ -80,7 +124,6 @@ namespace YemekPoşeti
                 db.Close();
                 return false;
             }
-
         }
         public bool SendBasketToServer()
         {
@@ -91,7 +134,6 @@ namespace YemekPoşeti
                 {
                     query = String.Format("INSERT INTO Basket (FoodID, OrderQTY, unitPrice,OrderID) VALUES('{0}', '{1}', '{2}','{3}' )", item.FoodID, item.QTY, item.Price,currentOrderID);
                     db.SetQuery(query);
-                        
                 }
             }
             else

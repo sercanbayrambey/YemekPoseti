@@ -12,13 +12,13 @@ using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
-    public partial class MainScreen : MetroFramework.Forms.MetroForm
+     partial class MainScreen : MetroFramework.Forms.MetroForm
     {
 		private readonly User LoggedUser;
         private readonly DB db;
         private Restaurant SelectedRestaurant;
-		public ucFoodItem ucFood;
-		public Basket CurrentBasket = new Basket();
+        public ucFoodItem ucFood;
+        public Order CurrentOrder;
 		public MainScreen(User user)
         {
 			LoggedUser = user;
@@ -34,7 +34,8 @@ namespace YemekPoşeti
 			LoadProfileData();
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			AddRestaurantsToList();
-		}
+            ShowPastOrders();
+        }
 
 		private void LoadProfileData()
 		{
@@ -45,18 +46,18 @@ namespace YemekPoşeti
 
         private void Restaurant_Click(object sender, EventArgs e)
         {
-            ucRestList ucTemp;
+            ucRestList ucTempRestourantItem;
             if (sender is ucRestList)
             {
-                ucTemp = (ucRestList)sender;
+                ucTempRestourantItem = (ucRestList)sender;
             }
             else
             {
                 Control control =(Control)sender;
-                ucTemp = (ucRestList)control.Parent;
+                ucTempRestourantItem = (ucRestList)control.Parent;
             }
 
-            LoadSelectedRestaurant(ucTemp);
+            LoadSelectedRestaurant(ucTempRestourantItem);
             ShowOrderScreen();
         }
 
@@ -64,39 +65,48 @@ namespace YemekPoşeti
 	
 		private void Food_Click(object sender, EventArgs e)
 		{
+
 			if(!(sender is ucFoodItem))
 			{
 				Control control = (Control)sender;
 				ucFood = (ucFoodItem)control.Parent;
-				var x = ucFood.AddFoodToBasket(this);
+				var x = CurrentOrder.Basket.AddFood(ucFood,this);
 				if (x != null)
-				{
-					x.ms = this;
 					panelBasket.Controls.Add(x);
-                }
-                CurrentBasket.PrintFoods(lboxUrunler);
-                CurrentBasket.GetSumPrice();
-				lblSumPrice.Text = CurrentBasket.SumPrice.ToString("0.00") + " TL";
-				lblSumDiscount.Text = CurrentBasket.DiscountPrice.ToString("0.00") + " TL"; ;
-				lblFinalSumPrice.Text = (CurrentBasket.FinalPrice).ToString("0.00") + " TL";
+
+                lblSumPrice.Text = CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
+				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
 			}
 		}
 
         private void LoadSelectedRestaurant(ucRestList ucTemp)
         {
-            SelectedRestaurant = null;
-            SelectedRestaurant = new Restaurant();
-            SelectedRestaurant.ID = ucTemp.RestID;
-            SelectedRestaurant.LocationID = ucTemp.LocationID;
-            SelectedRestaurant.Name = ucTemp.lblRestName.Text;
-            SelectedRestaurant.MinOrderPrice = ucTemp.MinOrderPrice;
-            SelectedRestaurant.OwnerID = ucTemp.OwnerID;
-            SelectedRestaurant.Rating = Convert.ToSingle(ucTemp.bgRestRating.Text);
-            SelectedRestaurant.Description = ucTemp.lblRestDesc.Text;
+            SelectedRestaurant = new Restaurant
+            {
+                ID = ucTemp.RestID,
+                LocationID = ucTemp.LocationID,
+                Name = ucTemp.lblRestName.Text,
+                MinOrderPrice = ucTemp.MinOrderPrice,
+                OwnerID = ucTemp.OwnerID,
+                Rating = Convert.ToSingle(ucTemp.bgRestRating.Text),
+                Description = ucTemp.lblRestDesc.Text
+            };
         }
 
+        private void ShowPastOrders()
+        {
+            panelPastOrders.Controls.Clear();
+            List<ucPastOrderItem> pastOrderItems = new List<ucPastOrderItem>();
+            pastOrderItems = LoggedUser.GetPastOrders();
+            foreach (ucPastOrderItem item in pastOrderItems)
+            {
+                panelPastOrders.Controls.Add(item);
+            }
+        }
         private void ShowOrderScreen()
         {
+            CurrentOrder = new Order(LoggedUser,SelectedRestaurant,this);
             if(!TabMain.TabPages.Contains(TabPageOrder))
                 TabMain.TabPages.Add(TabPageOrder);
             TabMain.SelectedTab = TabPageOrder;
@@ -104,12 +114,12 @@ namespace YemekPoşeti
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
             lboxUrunler.Items.Clear();
-            CurrentBasket = new Basket();
-            CurrentBasket.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
+            CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
 			lblSumPrice.Text = "0,00 TL";
 			lblFinalSumPrice.Text = "0,00 TL";
 			lblSumDiscount.Text = "0,00 TL";
-            lblMin.Text = "Min. Sipariş Tutarı: " + CurrentBasket.MinOrderPrice.ToString("0.00") + " TL";
+            lblMin.Text = "Min. Sipariş Tutarı: " + CurrentOrder.MinOrderPrice.ToString("0.00") + " TL";
+            CurrentOrder.CheckRestMinPriceStatus();
             ShowFoodList();
         }
 
@@ -142,6 +152,7 @@ namespace YemekPoşeti
         private void AddRestaurantsToList()
 		{
             lblRestList.Text = "Restoran Listesi" + " (" + LoggedUser.Location + ")";
+            panelRestourant.Controls.Clear();
             db.Connect();
             int j = 0;
             string query = string.Format("SELECT * FROM Restaurants WHERE LocationID = '{0}' ORDER BY RestaurantRating ASC",LoggedUser.LocationID);
@@ -178,13 +189,21 @@ namespace YemekPoşeti
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            string defaultAdressText = "Adresinizi giriniz...";
             btnOrder.Enabled = false;
-            Order order = new Order(CurrentBasket, LoggedUser,SelectedRestaurant,tboxAdress.Text);
+            CurrentOrder.Adress = tboxAdress.Text.ToLower();
+            if (tboxAdress.Text.Equals(defaultAdressText) || tboxAdress.Text.Length < 10)
+            {
+                btnOrder.Enabled = true;
+                MessageBox.Show("Adres bölümü bu kadar kısa olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            if (order.SendOrderToServer() && order.SendBasketToServer())
+            if (CurrentOrder.SendOrderToServer() && CurrentOrder.SendBasketToServer())
             {
                 MessageBox.Show("Siparişiniz başarıyla alınmıştır.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnOrder.Enabled = true;
+                ShowPastOrders();
             }
             else
             {
@@ -195,6 +214,11 @@ namespace YemekPoşeti
                     
         }
 
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ShowPastOrders();
+            AddRestaurantsToList();
+        }
     }
 	
 }

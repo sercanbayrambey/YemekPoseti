@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Drawing;
 
 namespace YemekPoşeti
 {
@@ -17,7 +18,7 @@ namespace YemekPoşeti
 		public string Location { get; private set; }
 		public int UserType { get; private set; }
 		public DateTime RegisterDate { get; private set; }
-		private DB db { get;  set; }
+        private DB db;
 
         public int LocationID { get; private set; }
 		
@@ -46,11 +47,7 @@ namespace YemekPoşeti
 				return false;
 			}
 			return false;
-
-
 		}
-
-
 		public bool Register(string username,string pass, string email,string city)
 		{
 			if (IsRegistered(username, email))
@@ -72,7 +69,67 @@ namespace YemekPoşeti
 			}
 		}
 
-		
+        public List<ucPastOrderItem> GetPastOrders()
+        {
+            MySqlDataReader dr;
+            int orderID = -1;
+            int status;
+            List<ucPastOrderItem> pastOrderList = new List<ucPastOrderItem>();
+            string query = string.Format("SELECT O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice FROM Orders O" +
+                                        " INNER JOIN Basket B ON B.OrderID = O.OrderID" +
+                                        " INNER JOIN Restaurants R ON R.RestaurantID = O.RestaurantID" +
+                                        " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
+                                        " INNER JOIN Locations L ON L.LocationID = R.LocationID"+
+                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE O.UserID = {0}",this.UserID);
+            db.Connect();
+            dr = db.GetQuery(query);
+            ucPastOrderItem ucPastOrder = new ucPastOrderItem();
+            while(dr.Read())
+            {
+                
+                if (orderID != Convert.ToInt32(dr["OrderID"]))
+                {
+                    orderID = Convert.ToInt32(dr["OrderID"]);
+                    ucPastOrder = new ucPastOrderItem();
+                    ucPastOrder.Dock = System.Windows.Forms.DockStyle.Top;
+                    ucPastOrder.lblFoodPrice.Text = (Convert.ToSingle(dr["FinalPrice"])).ToString("0.00") + " TL"; 
+                    ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]) + ")";
+                    ucPastOrder.lblFoods.Text = dr["FoodName"].ToString();
+                    status = Convert.ToInt32(dr["StatusID"]); 
+                    ucPastOrder.lblStatus.Text = dr["Status"].ToString();
+                    switch (status)
+                    {
+                        case 1:
+                            ucPastOrder.BackColor = Color.White;
+                            ucPastOrder.lblStatus.ForeColor = Color.DarkMagenta;
+                            break;
+                        case 2:
+                            ucPastOrder.BackColor = Color.White;
+                            ucPastOrder.lblStatus.ForeColor = Color.Green;
+                            break;
+                        case 3:
+                            ucPastOrder.BackColor = Color.LavenderBlush;
+                            ucPastOrder.lblStatus.ForeColor = Color.Black;
+                            break;
+                        case 4:
+                            ucPastOrder.BackColor = Color.Gainsboro;
+                            ucPastOrder.lblStatus.ForeColor = Color.Red;
+                            break;
+
+                    }
+                    pastOrderList.Add(ucPastOrder);
+                }
+                else
+                {
+                    ucPastOrder.lblFoods.Text += ", " + dr["FoodName"].ToString();
+                }
+            }
+            db.Close();
+            return pastOrderList;
+
+        }
+
+
 
 		private bool IsRegistered(string username,string email)
 		{

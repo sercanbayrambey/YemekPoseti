@@ -17,8 +17,6 @@ namespace YemekPoşeti
 	{
 		public int FoodID { get; set; }
 		public float Price { get; set; }
-		private MainScreen MS;
-		
         public ucFoodItem(MySqlDataReader dr)
         {
             InitializeComponent();
@@ -31,63 +29,5 @@ namespace YemekPoşeti
             this.Price = (Convert.ToSingle(dr["FoodPrice"]));
             this.lblFoodPrice.Text = this.Price.ToString("0.00") + " TL";
         }
-
-		private void ucFoodList_Load(object sender, EventArgs e)
-		{
-			
-		}
-
-		public ucBasketItem AddFoodToBasket(MainScreen ms)
-		{
-			MS = ms;
-			int id = CheckID(FoodID);
-			if (id == -1)
-			{
-				ucBasketItem ucBasket = new ucBasketItem();
-				MS.CurrentBasket.foodIDList.Add(this.FoodID);
-				ucBasket.Dock = DockStyle.Top;
-				ucBasket.FoodID = this.FoodID;
-				ucBasket.Price = this.Price;
-				ucBasket.FoodName = this.lblFoodName.Text;
-				ucBasket.FoodDesc = this.lblFoodDesc.Text;
-                ucBasket.ms = ms;
-				ucBasket.Update();
-                MS.CurrentBasket.FoodsInBasket.Add(ucBasket);
-
-				return ucBasket;
-			}
-			else
-			{
-				foreach (Control c in ms.panelBasket.Controls)
-				{
-					if (c is ucBasketItem)
-					{
-						if (((ucBasketItem)c).FoodID == id )
-						{
-							((ucBasketItem)c).QTY++;
-							((ucBasketItem)c).Update();
-						}
-
-					}
-				}
-
-			}
-			return null;
-
-		}
-
-		private int CheckID(int id)
-		{
-			int foundId = -1;
-			foreach (int foodId in MS.CurrentBasket.foodIDList)
-			{
-				if(foodId == id)
-				{
-					foundId = foodId;
-					break;
-				}
-			}
-			return foundId;
-		}
 	}
 }

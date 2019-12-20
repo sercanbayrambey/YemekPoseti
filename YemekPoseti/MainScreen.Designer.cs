@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.TabMain = new MetroFramework.Controls.MetroTabControl();
             this.TabPageHome = new MetroFramework.Controls.MetroTabPage();
+            this.panelPastOrders = new MetroFramework.Controls.MetroPanel();
+            this.lblUserOrdersDesc = new System.Windows.Forms.Label();
+            this.lblUserOrders = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblRestList = new System.Windows.Forms.Label();
             this.panelRestourant = new MetroFramework.Controls.MetroPanel();
@@ -44,16 +47,17 @@
             this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
             this.lblCompleteOrder = new System.Windows.Forms.Label();
             this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
+            this.lblMinPriceWarn = new System.Windows.Forms.Label();
             this.tboxAdress = new MetroFramework.Controls.MetroTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lboxUrunler = new System.Windows.Forms.ListBox();
             this.btnOrder = new MetroFramework.Controls.MetroButton();
             this.lblMin = new System.Windows.Forms.Label();
+            this.lblDiscount = new System.Windows.Forms.Label();
             this.lblFinalSumPrice = new System.Windows.Forms.Label();
             this.lblFinalPrice = new System.Windows.Forms.Label();
             this.lblSumDiscount = new System.Windows.Forms.Label();
             this.lblSumPrice = new System.Windows.Forms.Label();
-            this.lblDiscount = new System.Windows.Forms.Label();
             this.lblSum = new System.Windows.Forms.Label();
             this.lblBasketDesc = new System.Windows.Forms.Label();
             this.lblBasket = new System.Windows.Forms.Label();
@@ -62,9 +66,7 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.lblUserOrdersDesc = new System.Windows.Forms.Label();
-            this.lblUserOrders = new System.Windows.Forms.Label();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -92,7 +94,8 @@
             // TabPageHome
             // 
             this.TabPageHome.BackColor = System.Drawing.Color.White;
-            this.TabPageHome.Controls.Add(this.metroPanel1);
+            this.TabPageHome.Controls.Add(this.btnRefresh);
+            this.TabPageHome.Controls.Add(this.panelPastOrders);
             this.TabPageHome.Controls.Add(this.lblUserOrdersDesc);
             this.TabPageHome.Controls.Add(this.lblUserOrders);
             this.TabPageHome.Controls.Add(this.label1);
@@ -112,6 +115,48 @@
             this.TabPageHome.VerticalScrollbarBarColor = true;
             this.TabPageHome.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageHome.VerticalScrollbarSize = 13;
+            // 
+            // panelPastOrders
+            // 
+            this.panelPastOrders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelPastOrders.AutoScroll = true;
+            this.panelPastOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPastOrders.HorizontalScrollbar = true;
+            this.panelPastOrders.HorizontalScrollbarBarColor = false;
+            this.panelPastOrders.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelPastOrders.HorizontalScrollbarSize = 12;
+            this.panelPastOrders.Location = new System.Drawing.Point(930, 78);
+            this.panelPastOrders.Margin = new System.Windows.Forms.Padding(4);
+            this.panelPastOrders.Name = "panelPastOrders";
+            this.panelPastOrders.Size = new System.Drawing.Size(572, 830);
+            this.panelPastOrders.TabIndex = 7;
+            this.panelPastOrders.VerticalScrollbar = true;
+            this.panelPastOrders.VerticalScrollbarBarColor = false;
+            this.panelPastOrders.VerticalScrollbarHighlightOnWheel = false;
+            this.panelPastOrders.VerticalScrollbarSize = 13;
+            // 
+            // lblUserOrdersDesc
+            // 
+            this.lblUserOrdersDesc.AutoSize = true;
+            this.lblUserOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblUserOrdersDesc.Location = new System.Drawing.Point(926, 49);
+            this.lblUserOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserOrdersDesc.Name = "lblUserOrdersDesc";
+            this.lblUserOrdersDesc.Size = new System.Drawing.Size(418, 21);
+            this.lblUserOrdersDesc.TabIndex = 6;
+            this.lblUserOrdersDesc.Text = "Burada aktif ve geçmiş siparişlerinizi görebilirsiniz.";
+            // 
+            // lblUserOrders
+            // 
+            this.lblUserOrders.AutoSize = true;
+            this.lblUserOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblUserOrders.Location = new System.Drawing.Point(924, 21);
+            this.lblUserOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserOrders.Name = "lblUserOrders";
+            this.lblUserOrders.Size = new System.Drawing.Size(145, 28);
+            this.lblUserOrders.TabIndex = 5;
+            this.lblUserOrders.Text = "Siparişlerim";
             // 
             // label1
             // 
@@ -238,11 +283,11 @@
             this.TabPageOrder.Controls.Add(this.lblCompleteOrder);
             this.TabPageOrder.Controls.Add(this.panelCompleteOrder);
             this.TabPageOrder.Controls.Add(this.lblMin);
+            this.TabPageOrder.Controls.Add(this.lblDiscount);
             this.TabPageOrder.Controls.Add(this.lblFinalSumPrice);
             this.TabPageOrder.Controls.Add(this.lblFinalPrice);
             this.TabPageOrder.Controls.Add(this.lblSumDiscount);
             this.TabPageOrder.Controls.Add(this.lblSumPrice);
-            this.TabPageOrder.Controls.Add(this.lblDiscount);
             this.TabPageOrder.Controls.Add(this.lblSum);
             this.TabPageOrder.Controls.Add(this.lblBasketDesc);
             this.TabPageOrder.Controls.Add(this.lblBasket);
@@ -293,6 +338,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCompleteOrder.AutoScroll = true;
             this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCompleteOrder.Controls.Add(this.lblMinPriceWarn);
             this.panelCompleteOrder.Controls.Add(this.tboxAdress);
             this.panelCompleteOrder.Controls.Add(this.label2);
             this.panelCompleteOrder.Controls.Add(this.lboxUrunler);
@@ -310,6 +356,20 @@
             this.panelCompleteOrder.VerticalScrollbarBarColor = false;
             this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
             this.panelCompleteOrder.VerticalScrollbarSize = 13;
+            // 
+            // lblMinPriceWarn
+            // 
+            this.lblMinPriceWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMinPriceWarn.BackColor = System.Drawing.Color.Transparent;
+            this.lblMinPriceWarn.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+            this.lblMinPriceWarn.ForeColor = System.Drawing.Color.DarkViolet;
+            this.lblMinPriceWarn.Location = new System.Drawing.Point(16, 740);
+            this.lblMinPriceWarn.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMinPriceWarn.Name = "lblMinPriceWarn";
+            this.lblMinPriceWarn.Size = new System.Drawing.Size(432, 26);
+            this.lblMinPriceWarn.TabIndex = 21;
+            this.lblMinPriceWarn.Text = "Minimum sipariş tutarı 19.99 TL olmalıdır!";
+            this.lblMinPriceWarn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tboxAdress
             // 
@@ -371,13 +431,16 @@
             // btnOrder
             // 
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnOrder.Location = new System.Drawing.Point(103, 778);
+            this.btnOrder.BackColor = System.Drawing.Color.Thistle;
+            this.btnOrder.Enabled = false;
+            this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnOrder.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.btnOrder.Location = new System.Drawing.Point(-1, 770);
             this.btnOrder.Margin = new System.Windows.Forms.Padding(4);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(288, 46);
+            this.btnOrder.Size = new System.Drawing.Size(467, 58);
             this.btnOrder.TabIndex = 13;
-            this.btnOrder.Text = "Siparişi Tamamla";
+            this.btnOrder.Text = "Siparişi Tamamla!";
             this.btnOrder.UseCustomBackColor = true;
             this.btnOrder.UseCustomForeColor = true;
             this.btnOrder.UseSelectable = true;
@@ -396,6 +459,20 @@
             this.lblMin.TabIndex = 16;
             this.lblMin.Text = "Min. Sipariş Tutarı: 0,00 TL";
             this.lblMin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblDiscount
+            // 
+            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDiscount.AutoSize = true;
+            this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
+            this.lblDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+            this.lblDiscount.ForeColor = System.Drawing.Color.DarkViolet;
+            this.lblDiscount.Location = new System.Drawing.Point(761, 837);
+            this.lblDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Size = new System.Drawing.Size(257, 26);
+            this.lblDiscount.TabIndex = 11;
+            this.lblDiscount.Text = "Sepete Özel İndiriminiz:";
             // 
             // lblFinalSumPrice
             // 
@@ -452,20 +529,6 @@
             this.lblSumPrice.TabIndex = 12;
             this.lblSumPrice.Text = "0,00 TL";
             this.lblSumPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblDiscount
-            // 
-            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDiscount.AutoSize = true;
-            this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
-            this.lblDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
-            this.lblDiscount.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblDiscount.Location = new System.Drawing.Point(761, 837);
-            this.lblDiscount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(257, 26);
-            this.lblDiscount.TabIndex = 11;
-            this.lblDiscount.Text = "Sepete Özel İndiriminiz:";
             // 
             // lblSum
             // 
@@ -581,47 +644,15 @@
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
             // 
-            // lblUserOrdersDesc
+            // btnRefresh
             // 
-            this.lblUserOrdersDesc.AutoSize = true;
-            this.lblUserOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.lblUserOrdersDesc.Location = new System.Drawing.Point(926, 49);
-            this.lblUserOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserOrdersDesc.Name = "lblUserOrdersDesc";
-            this.lblUserOrdersDesc.Size = new System.Drawing.Size(418, 21);
-            this.lblUserOrdersDesc.TabIndex = 6;
-            this.lblUserOrdersDesc.Text = "Burada aktif ve geçmiş siparişlerinizi görebilirsiniz.";
-            // 
-            // lblUserOrders
-            // 
-            this.lblUserOrders.AutoSize = true;
-            this.lblUserOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblUserOrders.Location = new System.Drawing.Point(924, 21);
-            this.lblUserOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUserOrders.Name = "lblUserOrders";
-            this.lblUserOrders.Size = new System.Drawing.Size(145, 28);
-            this.lblUserOrders.TabIndex = 5;
-            this.lblUserOrders.Text = "Siparişlerim";
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.metroPanel1.AutoScroll = true;
-            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroPanel1.HorizontalScrollbar = true;
-            this.metroPanel1.HorizontalScrollbarBarColor = false;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 12;
-            this.metroPanel1.Location = new System.Drawing.Point(930, 78);
-            this.metroPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(572, 830);
-            this.metroPanel1.TabIndex = 7;
-            this.metroPanel1.VerticalScrollbar = true;
-            this.metroPanel1.VerticalScrollbarBarColor = false;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 13;
+            this.btnRefresh.Location = new System.Drawing.Point(1404, 49);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(98, 23);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Yenile";
+            this.btnRefresh.UseSelectable = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // MainScreen
             // 
@@ -678,7 +709,6 @@
 		private System.Windows.Forms.Label lblBasket;
 		private System.Windows.Forms.Label lblSum;
 		public System.Windows.Forms.Label lblSumPrice;
-		private MetroFramework.Controls.MetroButton btnOrder;
 		public System.Windows.Forms.Label lblFinalSumPrice;
 		private System.Windows.Forms.Label lblFinalPrice;
 		public System.Windows.Forms.Label lblSumDiscount;
@@ -692,7 +722,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblUserOrdersDesc;
         private System.Windows.Forms.Label lblUserOrders;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel panelPastOrders;
+        public MetroFramework.Controls.MetroButton btnOrder;
+        public System.Windows.Forms.Label lblMinPriceWarn;
+        private MetroFramework.Controls.MetroButton btnRefresh;
     }
 }
 

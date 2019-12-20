@@ -10,7 +10,7 @@ namespace YemekPoşeti
 {
 	public class DB
 	{
-		private static Dictionary<string, string> config = new Dictionary<string, string>() {
+		private static readonly Dictionary<string, string> config = new Dictionary<string, string>() {
 			{"host", "sql290.main-hosting.eu" },
 			{"db", "u247404070_yemekposeti" },
 			{"user", "u247404070_sercan" },

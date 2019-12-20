@@ -9,7 +9,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 namespace YemekPoşeti
 {
-    class Restaurant
+    public class Restaurant
     {
         public int ID{ get; set; }
 
