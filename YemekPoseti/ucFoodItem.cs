@@ -52,6 +52,7 @@ namespace YemekPoşeti
 				ucBasket.FoodDesc = this.lblFoodDesc.Text;
                 ucBasket.ms = ms;
 				ucBasket.Update();
+                MS.CurrentBasket.FoodsInBasket.Add(ucBasket);
 
 				return ucBasket;
 			}

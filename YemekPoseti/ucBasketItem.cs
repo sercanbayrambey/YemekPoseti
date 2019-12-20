@@ -50,7 +50,7 @@ namespace YemekPoşeti
 			if (this.QTY == 0)
 			{
 				ms.CurrentBasket.foodIDList.Remove(this.FoodID);
-				ms.CurrentBasket.FoodsInOrder.Remove(this);
+				ms.CurrentBasket.FoodsInBasket.Remove(this);
 				ms.panelBasket.Controls.Remove(this);
 			}
 			ms.CurrentBasket.GetSumPrice();

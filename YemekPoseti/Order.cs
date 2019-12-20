@@ -14,13 +14,18 @@ namespace YemekPoşeti
         public User LoggedUser { get; private set; }
         public Restaurant SelectedRestaurant { get; private set; }
         public string Adress { get; private set; }
-
         public int currentOrderID;
-
         public int uniqueKey;
-
-        private DB db = new DB();
-
+        private DB db;
+        public Order(Basket basket, User loggedUser,Restaurant restaurant,string adress)
+        {
+            this.Basket = basket;
+            this.LoggedUser = loggedUser;
+            this.Adress = adress;
+            this.SelectedRestaurant = restaurant;
+            db = new DB();
+            GenerateUniqueKey();
+        }
         public bool GenerateUniqueKey()
         {
             db.Connect();
@@ -36,20 +41,10 @@ namespace YemekPoşeti
             db.Close();
             return true;
         }
-
-        public Order(Basket basket, User loggedUser,Restaurant restaurant,string adress)
-        {
-            this.Basket = basket;
-            this.LoggedUser = loggedUser;
-            this.Adress = adress;
-            this.SelectedRestaurant = restaurant;
-            GenerateUniqueKey();
-        }
-
      
         public bool SendOrderToServer()
         {
-            string query = String.Format("INSERT INTO Orders(UserID, RestaurantID, OrderDate, Status, UniqueKey) VALUES('{0}', '{1}', '{2}','{3}','{4}')", LoggedUser.UserID, SelectedRestaurant.ID, DateTime.Now.ToString("yyyy-MM-dd H:mm:ss"),0,uniqueKey);
+            string query = String.Format("INSERT INTO Orders(UserID, RestaurantID, OrderDate, Status, UniqueKey, Adress) VALUES('{0}', '{1}', '{2}','{3}','{4}','{5}')", LoggedUser.UserID, SelectedRestaurant.ID, DateTime.Now.ToString("yyyy-MM-dd H:mm:ss"),0,this.uniqueKey,this.Adress);
             if (db.Connect())
             {
         
@@ -92,13 +87,12 @@ namespace YemekPoşeti
             string query;
             if(GetOrderID() && db.Connect())
             {
-                foreach (ucBasketItem item in this.Basket.FoodsInOrder)
+                foreach (ucBasketItem item in this.Basket.FoodsInBasket)
                 {
                     query = String.Format("INSERT INTO Basket (FoodID, OrderQTY, unitPrice,OrderID) VALUES('{0}', '{1}', '{2}','{3}' )", item.FoodID, item.QTY, item.Price,currentOrderID);
                     db.SetQuery(query);
                         
                 }
-
             }
             else
                 return false;

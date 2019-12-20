@@ -23,7 +23,6 @@ namespace YemekPoşeti
 		public bool Connect()
 		{
 			this.con = new MySqlConnection("Server=" + config["host"] + ";Database=" + config["db"] + ";Uid=" + config["user"] + ";Pwd=" + config["pass"] + ";");
-
 			try
 			{
 				this.con.Open();
@@ -38,15 +37,11 @@ namespace YemekPoşeti
 
 		public int SetQuery(string query)
 		{
-
 			cmd = new MySqlCommand(query, con);
-
 			try
 			{
                 return cmd.ExecuteNonQuery();
-                
 			}
-
 			catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
@@ -61,14 +56,12 @@ namespace YemekPoşeti
 				cmd = new MySqlCommand(query, con);
 				rd = cmd.ExecuteReader();
 			}
-
 			catch (Exception e)
 			{
 				Console.WriteLine(e.Message);
 			}
 			return rd;
 		}
-
 		public List<string> GetCities()
 		{
 			this.Connect();
@@ -82,8 +75,6 @@ namespace YemekPoşeti
 			this.Close();
 			return cityList;
 		}
-
-
 		public int CityToLocationID(string city)
 		{
 			int cityID = 0;

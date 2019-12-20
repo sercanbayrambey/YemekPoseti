@@ -73,7 +73,6 @@ namespace YemekPoşeti
 				{
 					x.ms = this;
 					panelBasket.Controls.Add(x);
-					CurrentBasket.FoodsInOrder.Add(x);
                 }
                 CurrentBasket.PrintFoods(lboxUrunler);
                 CurrentBasket.GetSumPrice();
@@ -105,7 +104,6 @@ namespace YemekPoşeti
             panelFoodMenu.Controls.Clear();
 			panelBasket.Controls.Clear();
             lboxUrunler.Items.Clear();
-            CurrentBasket = null;
             CurrentBasket = new Basket();
             CurrentBasket.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
 			lblSumPrice.Text = "0,00 TL";

@@ -62,6 +62,9 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
+            this.lblUserOrdersDesc = new System.Windows.Forms.Label();
+            this.lblUserOrders = new System.Windows.Forms.Label();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -80,7 +83,7 @@
             this.TabMain.Location = new System.Drawing.Point(27, 74);
             this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 2;
+            this.TabMain.SelectedIndex = 0;
             this.TabMain.Size = new System.Drawing.Size(1866, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
@@ -89,6 +92,9 @@
             // TabPageHome
             // 
             this.TabPageHome.BackColor = System.Drawing.Color.White;
+            this.TabPageHome.Controls.Add(this.metroPanel1);
+            this.TabPageHome.Controls.Add(this.lblUserOrdersDesc);
+            this.TabPageHome.Controls.Add(this.lblUserOrders);
             this.TabPageHome.Controls.Add(this.label1);
             this.TabPageHome.Controls.Add(this.lblRestList);
             this.TabPageHome.Controls.Add(this.panelRestourant);
@@ -575,6 +581,48 @@
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
             // 
+            // lblUserOrdersDesc
+            // 
+            this.lblUserOrdersDesc.AutoSize = true;
+            this.lblUserOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblUserOrdersDesc.Location = new System.Drawing.Point(926, 49);
+            this.lblUserOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserOrdersDesc.Name = "lblUserOrdersDesc";
+            this.lblUserOrdersDesc.Size = new System.Drawing.Size(418, 21);
+            this.lblUserOrdersDesc.TabIndex = 6;
+            this.lblUserOrdersDesc.Text = "Burada aktif ve geçmiş siparişlerinizi görebilirsiniz.";
+            // 
+            // lblUserOrders
+            // 
+            this.lblUserOrders.AutoSize = true;
+            this.lblUserOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblUserOrders.Location = new System.Drawing.Point(924, 21);
+            this.lblUserOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUserOrders.Name = "lblUserOrders";
+            this.lblUserOrders.Size = new System.Drawing.Size(145, 28);
+            this.lblUserOrders.TabIndex = 5;
+            this.lblUserOrders.Text = "Siparişlerim";
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.metroPanel1.AutoScroll = true;
+            this.metroPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel1.HorizontalScrollbar = true;
+            this.metroPanel1.HorizontalScrollbarBarColor = false;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 12;
+            this.metroPanel1.Location = new System.Drawing.Point(930, 78);
+            this.metroPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(572, 830);
+            this.metroPanel1.TabIndex = 7;
+            this.metroPanel1.VerticalScrollbar = true;
+            this.metroPanel1.VerticalScrollbarBarColor = false;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 13;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -642,6 +690,9 @@
         public System.Windows.Forms.ListBox lboxUrunler;
         private MetroFramework.Controls.MetroTextBox tboxAdress;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUserOrdersDesc;
+        private System.Windows.Forms.Label lblUserOrders;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
     }
 }
 
