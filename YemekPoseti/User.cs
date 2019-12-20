@@ -93,7 +93,7 @@ namespace YemekPoşeti
                     ucPastOrder = new ucPastOrderItem();
                     ucPastOrder.Dock = System.Windows.Forms.DockStyle.Top;
                     ucPastOrder.lblFoodPrice.Text = (Convert.ToSingle(dr["FinalPrice"])).ToString("0.00") + " TL"; 
-                    ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]) + ")";
+                    ucPastOrder.lblRestName.Text = dr["RestaurantName"].ToString() +" (" + dr["LocationName"].ToString() + ", " + Convert.ToDateTime(dr["OrderDate"]).ToString("dd/MM/yyyy HH:mm")+ ")";
                     ucPastOrder.lblFoods.Text = dr["FoodName"].ToString() +" (x" + dr["QTY"] +")";
                     status = Convert.ToInt32(dr["StatusID"]); 
                     ucPastOrder.lblStatus.Text = dr["Status"].ToString();
