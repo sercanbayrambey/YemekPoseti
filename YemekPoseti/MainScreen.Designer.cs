@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.TabMain = new MetroFramework.Controls.MetroTabControl();
             this.TabPageHome = new MetroFramework.Controls.MetroTabPage();
+            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.panelPastOrders = new MetroFramework.Controls.MetroPanel();
             this.lblUserOrdersDesc = new System.Windows.Forms.Label();
             this.lblUserOrders = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.btnRefresh = new MetroFramework.Controls.MetroButton();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -85,11 +85,12 @@
             this.TabMain.Location = new System.Drawing.Point(27, 74);
             this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 0;
+            this.TabMain.SelectedIndex = 1;
             this.TabMain.Size = new System.Drawing.Size(1866, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
             this.TabMain.UseSelectable = true;
+            this.TabMain.SelectedIndexChanged += new System.EventHandler(this.TabMain_SelectedIndexChanged);
             // 
             // TabPageHome
             // 
@@ -115,6 +116,16 @@
             this.TabPageHome.VerticalScrollbarBarColor = true;
             this.TabPageHome.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageHome.VerticalScrollbarSize = 13;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(1404, 49);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(98, 23);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Yenile";
+            this.btnRefresh.UseSelectable = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // panelPastOrders
             // 
@@ -202,6 +213,7 @@
             // 
             // TabPageProfile
             // 
+            this.TabPageProfile.BackColor = System.Drawing.Color.White;
             this.TabPageProfile.Controls.Add(this.lblDate);
             this.TabPageProfile.Controls.Add(this.lblRegister);
             this.TabPageProfile.Controls.Add(this.lblCity);
@@ -643,16 +655,6 @@
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Location = new System.Drawing.Point(1404, 49);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(98, 23);
-            this.btnRefresh.TabIndex = 8;
-            this.btnRefresh.Text = "Yenile";
-            this.btnRefresh.UseSelectable = true;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // MainScreen
             // 

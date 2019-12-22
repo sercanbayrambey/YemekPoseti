@@ -35,6 +35,7 @@ namespace YemekPoşeti
 			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
 			AddRestaurantsToList();
             ShowPastOrders();
+            TabMain.SelectedIndex = 0;
         }
 
 		private void LoadProfileData()
@@ -111,14 +112,14 @@ namespace YemekPoşeti
                 TabMain.TabPages.Add(TabPageOrder);
             TabMain.SelectedTab = TabPageOrder;
             lblOrderRestName.Text = SelectedRestaurant.Name + ", " + LoggedUser.Location ;
-            panelFoodMenu.Controls.Clear();
-			panelBasket.Controls.Clear();
-            lboxUrunler.Items.Clear();
             CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
-			lblSumPrice.Text = "0,00 TL";
-			lblFinalSumPrice.Text = "0,00 TL";
-			lblSumDiscount.Text = "0,00 TL";
+            lblSumPrice.Text = "0,00 TL";
+            lblFinalSumPrice.Text = "0,00 TL";
+            lblSumDiscount.Text = "0,00 TL";
             lblMin.Text = "Min. Sipariş Tutarı: " + CurrentOrder.MinOrderPrice.ToString("0.00") + " TL";
+            panelFoodMenu.Controls.Clear();
+            panelBasket.Controls.Clear();
+            lboxUrunler.Items.Clear();
             CurrentOrder.CheckRestMinPriceStatus();
             ShowFoodList();
         }
@@ -196,6 +197,7 @@ namespace YemekPoşeti
             {
                 btnOrder.Enabled = true;
                 MessageBox.Show("Adres bölümü bu kadar kısa olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tboxAdress.Select();
                 return;
             }
 
@@ -204,6 +206,8 @@ namespace YemekPoşeti
                 MessageBox.Show("Siparişiniz başarıyla alınmıştır.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 btnOrder.Enabled = true;
                 ShowPastOrders();
+                TabMain.TabPages.Remove(TabPageOrder);
+                TabMain.SelectedIndex = 0;
             }
             else
             {
@@ -218,6 +222,27 @@ namespace YemekPoşeti
         {
             ShowPastOrders();
             AddRestaurantsToList();
+        }
+
+
+
+        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabMain.SelectedIndex == 0)
+            {
+                TabPageHome.Controls.Add(panelPastOrders);
+                TabPageHome.Controls.Add(lblUserOrders);
+                TabPageHome.Controls.Add(lblUserOrdersDesc);
+                TabPageHome.Controls.Add(btnRefresh);
+            }
+            else if (TabMain.SelectedIndex == 1)
+            {
+                TabPageProfile.Controls.Add(panelPastOrders);
+                TabPageProfile.Controls.Add(panelPastOrders);
+                TabPageProfile.Controls.Add(lblUserOrders);
+                TabPageProfile.Controls.Add(lblUserOrdersDesc);
+                TabPageProfile.Controls.Add(btnRefresh);
+            }
         }
     }
 	

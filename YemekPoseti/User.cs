@@ -81,7 +81,8 @@ namespace YemekPoşeti
                                         " INNER JOIN Restaurants R ON R.RestaurantID = O.RestaurantID" +
                                         " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
                                         " INNER JOIN Locations L ON L.LocationID = R.LocationID"+
-                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE O.UserID = '{0}'",this.UserID);
+                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE O.UserID = '{0}'" +
+                                        " ORDER BY O.OrderID ASC",this.UserID);
             db.Connect();
             dr = db.GetQuery(query);
             ucPastOrderItem ucPastOrder = new ucPastOrderItem();
@@ -101,19 +102,21 @@ namespace YemekPoşeti
                     switch (status)
                     {
                         case 1:
-                            ucPastOrder.BackColor = Color.White;
+                            ucPastOrder.BackColor = Color.FromArgb(255, 245, 255);
                             ucPastOrder.lblStatus.ForeColor = Color.DarkMagenta;
                             break;
                         case 2:
-                            ucPastOrder.BackColor = Color.White;
+                            ucPastOrder.BackColor = Color.FromArgb(190, 255, 190);
                             ucPastOrder.lblStatus.ForeColor = Color.Green;
                             break;
                         case 3:
-                            ucPastOrder.BackColor = Color.LavenderBlush;
+                            ucPastOrder.BackColor = Color.White;
                             ucPastOrder.lblStatus.ForeColor = Color.Black;
+                            ucPastOrder.lblFoodPrice.ForeColor = Color.Black;
                             break;
                         case 4:
-                            ucPastOrder.BackColor = Color.Gainsboro;
+                            ucPastOrder.BackColor = Color.FromArgb(240, 240, 240);
+                            ucPastOrder.lblFoodPrice.ForeColor = Color.Gray;
                             ucPastOrder.lblStatus.ForeColor = Color.Red;
                             break;
 

@@ -72,7 +72,7 @@
             // 
             this.lblStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Green;
+            this.lblStatus.ForeColor = System.Drawing.Color.SeaGreen;
             this.lblStatus.Location = new System.Drawing.Point(11, 90);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(420, 26);
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblFoods);
