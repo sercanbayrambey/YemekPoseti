@@ -14,7 +14,6 @@ namespace YemekPoşeti
 	public partial class RegisterScreen : MetroFramework.Forms.MetroForm
 	{
 		private DB db = new DB();
-		private User LoggedUser;
 		public RegisterScreen()
 		{
 			InitializeComponent();

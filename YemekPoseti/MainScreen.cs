@@ -12,38 +12,43 @@ using MySql.Data.MySqlClient;
 
 namespace YemekPoşeti
 {
-     partial class MainScreen : MetroFramework.Forms.MetroForm
+    partial class MainScreen : MetroFramework.Forms.MetroForm
     {
-		private readonly User LoggedUser;
+        private readonly User LoggedUser;
         private readonly DB db;
         private Restaurant SelectedRestaurant;
+        private Restaurant ownedRestaurant;
         public ucFoodItem ucFood;
         public Order CurrentOrder;
-		public MainScreen(User user)
+        public MainScreen(User user)
         {
-			LoggedUser = user;
+            LoggedUser = user;
             db = new DB();
             InitializeComponent();
         }
 
-		private void MainScreen_Load(object sender, EventArgs e)
-		{
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
             this.Bounds = Screen.PrimaryScreen.WorkingArea;
             this.BringToFront();
-			TabMain.TabPages.Remove(TabPageOrder);
-			LoadProfileData();
-			this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
-			AddRestaurantsToList();
+            TabMain.TabPages.Remove(TabPageOrder);
+            LoadProfileData();
+            this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
+            AddRestaurantsToList();
             ShowPastOrders();
             TabMain.SelectedIndex = 0;
         }
 
-		private void LoadProfileData()
-		{
-			lblUsername.Text = LoggedUser.UserName.ToUpper();
-			lblCity.Text = LoggedUser.Location;
-			lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
-		}
+        private void LoadProfileData()
+        {
+            lblUsername.Text = LoggedUser.UserName.ToUpper();
+            lblCity.Text = LoggedUser.Location;
+            lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
+            TabMain.TabPages.Remove(TabPageRestManagement);
+            if (LoggedUser.UserType == 1)
+                TabMain.TabPages.Add(TabPageRestManagement);
+
+        }
 
         private void Restaurant_Click(object sender, EventArgs e)
         {
@@ -54,7 +59,7 @@ namespace YemekPoşeti
             }
             else
             {
-                Control control =(Control)sender;
+                Control control = (Control)sender;
                 ucTempRestourantItem = (ucRestList)control.Parent;
             }
 
@@ -63,23 +68,23 @@ namespace YemekPoşeti
         }
 
 
-	
-		private void Food_Click(object sender, EventArgs e)
-		{
 
-			if(!(sender is ucFoodItem))
-			{
-				Control control = (Control)sender;
-				ucFood = (ucFoodItem)control.Parent;
-				var x = CurrentOrder.Basket.AddFood(ucFood,this);
-				if (x != null)
-					panelBasket.Controls.Add(x);
+        private void Food_Click(object sender, EventArgs e)
+        {
+
+            if ((!(sender is ucFoodItem)) && TabMain.SelectedTab == TabPageOrder) // geçiçi TODO
+            {
+                Control control = (Control)sender;
+                ucFood = (ucFoodItem)control.Parent;
+                var x = CurrentOrder.Basket.AddFood(ucFood, this);
+                if (x != null)
+                    panelBasket.Controls.Add(x);
 
                 lblSumPrice.Text = CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
-				lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
-				lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
-			}
-		}
+                lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+                lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+            }
+        }
 
         private void LoadSelectedRestaurant(ucRestList ucTemp)
         {
@@ -107,11 +112,11 @@ namespace YemekPoşeti
         }
         private void ShowOrderScreen()
         {
-            CurrentOrder = new Order(LoggedUser,SelectedRestaurant,this);
-            if(!TabMain.TabPages.Contains(TabPageOrder))
+            CurrentOrder = new Order(LoggedUser, SelectedRestaurant, this);
+            if (!TabMain.TabPages.Contains(TabPageOrder))
                 TabMain.TabPages.Add(TabPageOrder);
             TabMain.SelectedTab = TabPageOrder;
-            lblOrderRestName.Text = SelectedRestaurant.Name + ", " + LoggedUser.Location ;
+            lblOrderRestName.Text = SelectedRestaurant.Name + ", " + LoggedUser.Location;
             CurrentOrder.MinOrderPrice = SelectedRestaurant.MinOrderPrice;
             lblSumPrice.Text = "0,00 TL";
             lblFinalSumPrice.Text = "0,00 TL";
@@ -126,20 +131,20 @@ namespace YemekPoşeti
 
         private void ShowFoodList()
         {
-            if(db.Connect())
+            if (db.Connect())
             {
                 int j = 0;
                 string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", SelectedRestaurant.ID);
                 MySqlDataReader dr = db.GetQuery(query);
                 while (dr.Read())
                 {
-					ucFood = SelectedRestaurant.GetFoodList(dr, j);
-					ucFood.Click += new EventHandler(Food_Click);
-					foreach (Control c in ucFood.Controls)
-					{
-						c.Click += new EventHandler(Food_Click);
-					}
-					panelFoodMenu.Controls.Add(ucFood);
+                    ucFood = SelectedRestaurant.GetFoodList(dr, j);
+                    ucFood.Click += new EventHandler(Food_Click);
+                    foreach (Control c in ucFood.Controls)
+                    {
+                        c.Click += new EventHandler(Food_Click);
+                    }
+                    panelFoodMenu.Controls.Add(ucFood);
                     j++;
                 }
                 db.Close();
@@ -148,7 +153,35 @@ namespace YemekPoşeti
             {
                 MessageBox.Show("Uzak sunucuya bağlanılamadı.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-    }
+        }
+
+        private void ShowOwnedRestFoodList()
+        {
+            if (db.Connect())
+            {
+                int j = 0;
+                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", ownedRestaurant.ID);
+                MySqlDataReader dr = db.GetQuery(query);
+                while (dr.Read())
+                {
+                    ucFood = ownedRestaurant.GetFoodList(dr, j);
+                    ucFood.Click += new EventHandler(Food_Click);
+                    foreach (Control c in ucFood.Controls)
+                    {
+                        c.Click += new EventHandler(Food_Click);
+                    }
+                    panelRMFoodMenu.Controls.Add(ucFood);
+                    j++;
+                }
+                db.Close();
+            }
+            else
+            {
+                MessageBox.Show("Uzak sunucuya bağlanılamadı.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+    
+
 
         private void AddRestaurantsToList()
 		{
@@ -225,6 +258,16 @@ namespace YemekPoşeti
         }
 
 
+        private void GetOwnedRestaurantInfo()
+        {
+            ownedRestaurant = new Restaurant();
+            ownedRestaurant.GetProperties(LoggedUser.UserID);
+            tboxRMRestName.Text = ownedRestaurant.Name;
+            tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
+            cboxRMCity.DataSource = db.GetCities();
+            ShowOwnedRestFoodList();
+        }
+
 
         private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -243,6 +286,49 @@ namespace YemekPoşeti
                 TabPageProfile.Controls.Add(lblUserOrdersDesc);
                 TabPageProfile.Controls.Add(btnRefresh);
             }
+            else if(TabMain.SelectedTab == TabPageRestManagement)
+            {
+                GetOwnedRestaurantInfo();
+            }
+        }
+
+        private void lblRMName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
+        {
+            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text, tboxRMMinOrderPrice.Text, db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            {
+               MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Restoran bilgileriniz kaydedilirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+        }
+
+        private void btnRMAddFood_Click(object sender, EventArgs e)
+        {
+            if (ownedRestaurant.AddFoodToMenu(tboxRMFoodName.Text,tboxRMFoodDesc.Text,tboxRMFoodPrice.Text))
+            {
+                ShowOwnedRestFoodList();
+                MessageBox.Show("Yemeğiniz menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Yemeğiniz menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void tbox_Enter(object sender, EventArgs e)
+        {
+            //MetroFramework.Controls.MetroTextBox tbox = (MetroFramework.Controls.MetroTextBox)sender;
+            //tbox.Clear();
+            
         }
     }
 	
