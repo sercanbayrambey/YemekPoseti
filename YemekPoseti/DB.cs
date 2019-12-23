@@ -11,10 +11,10 @@ namespace YemekPoşeti
 	public class DB
 	{
 		private static readonly Dictionary<string, string> config = new Dictionary<string, string>() {
-			{"host", "sql290.main-hosting.eu" },
-			{"db", "u247404070_yemekposeti" },
-			{"user", "u247404070_sercan" },
-			{"pass", "yemekposeti123" }
+			{"host", "" },
+			{"db", "" },
+			{"user", "" },
+			{"pass", "" }
 		};
 		private MySqlConnection con;
 		private MySqlCommand cmd;
