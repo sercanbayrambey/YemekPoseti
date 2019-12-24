@@ -157,6 +157,17 @@ namespace YemekPoşeti
                 panelRMFoodMenu.Controls.Add(ucFood);
             }   
         }
+
+        private void ShowOwnedRestOrders()
+        {
+            PanelRMOrders.Controls.Clear();
+            List<ucRMOrders> restOrders;
+            restOrders = ownedRestaurant.GetOrders();
+            foreach (ucRMOrders item in restOrders)
+            {
+                PanelRMOrders.Controls.Add(item);
+            }
+        }
         private void AddRestaurantsToList()
 		{
             lblRestList.Text = "Restoran Listesi" + " (" + LoggedUser.Location + ")";
@@ -241,6 +252,7 @@ namespace YemekPoşeti
             cboxRMCity.DataSource = db.GetCities();
             cboxRMCity.SelectedItem = LoggedUser.Location.ToUpper();
             ShowOwnedRestFoodList();
+            ShowOwnedRestOrders();
         }
 
 
@@ -274,7 +286,7 @@ namespace YemekPoşeti
 
         private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
         {
-            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text, tboxRMMinOrderPrice.Text, db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
             {
                MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -288,13 +300,13 @@ namespace YemekPoşeti
 
         private void btnRMAddFood_Click(object sender, EventArgs e)
         {
-            if (ownedRestaurant.AddFoodToMenu(tboxRMFoodName.Text,tboxRMFoodDesc.Text,tboxRMFoodPrice.Text))
+            if (ownedRestaurant.AddFoodToMenu(tboxRMFoodName.Text, tboxRMFoodDesc.Text, tboxRMFoodPrice.Text.Replace(',', '.')))
             {
                 ShowOwnedRestFoodList();
-                MessageBox.Show("Yemeğiniz menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ürün menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-                MessageBox.Show("Yemeğiniz menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ürün menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void tbox_Enter(object sender, EventArgs e)

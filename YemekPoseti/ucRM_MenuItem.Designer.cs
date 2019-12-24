@@ -39,7 +39,7 @@
             // 
             this.lblFoodPrice.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblFoodPrice.AutoSize = true;
-            this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
             this.lblFoodPrice.Location = new System.Drawing.Point(437, 42);
@@ -51,7 +51,7 @@
             // lblFoodDesc
             // 
             this.lblFoodDesc.AutoSize = true;
-            this.lblFoodDesc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFoodDesc.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic);
             this.lblFoodDesc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblFoodDesc.Location = new System.Drawing.Point(30, 40);
@@ -63,7 +63,7 @@
             // lblFoodName
             // 
             this.lblFoodName.AutoSize = true;
-            this.lblFoodName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFoodName.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodName.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodName.Location = new System.Drawing.Point(16, 14);
             this.lblFoodName.Name = "lblFoodName";

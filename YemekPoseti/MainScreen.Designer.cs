@@ -69,20 +69,20 @@
             this.TabPageRestManagement = new MetroFramework.Controls.MetroTabPage();
             this.btnRMRefresh = new MetroFramework.Controls.MetroButton();
             this.panelRMAddFood = new MetroFramework.Controls.MetroPanel();
+            this.tboxRMFoodPrice = new System.Windows.Forms.NumericUpDown();
             this.btnRMAddFood = new MetroFramework.Controls.MetroButton();
             this.tboxRMFoodName = new MetroFramework.Controls.MetroTextBox();
             this.tboxRMFoodDesc = new MetroFramework.Controls.MetroTextBox();
             this.lblRMFoodName = new System.Windows.Forms.Label();
             this.lblRMFoodPrice = new System.Windows.Forms.Label();
-            this.tboxRMFoodPrice = new MetroFramework.Controls.MetroTextBox();
             this.lblRMFoodDesc = new System.Windows.Forms.Label();
             this.lblRMAddFoodDesc = new System.Windows.Forms.Label();
             this.lblRMAddFood = new System.Windows.Forms.Label();
             this.panelRMRestSettings = new MetroFramework.Controls.MetroPanel();
+            this.tboxRMMinOrderPrice = new System.Windows.Forms.NumericUpDown();
             this.cboxRMCity = new MetroFramework.Controls.MetroComboBox();
             this.btnRMSaveRestInfo = new MetroFramework.Controls.MetroButton();
             this.tboxRMRestName = new MetroFramework.Controls.MetroTextBox();
-            this.tboxRMMinOrderPrice = new MetroFramework.Controls.MetroTextBox();
             this.lblRMRestName = new System.Windows.Forms.Label();
             this.lblRMCity = new System.Windows.Forms.Label();
             this.lblRMMinOrderPrice = new System.Windows.Forms.Label();
@@ -92,6 +92,9 @@
             this.lblRMEditMenu = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
+            this.PanelRMOrders = new MetroFramework.Controls.MetroPanel();
+            this.lblRMShowOrdersDesc = new System.Windows.Forms.Label();
+            this.lblRMShowOrders = new System.Windows.Forms.Label();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -100,7 +103,9 @@
             this.panelCompleteOrder.SuspendLayout();
             this.TabPageRestManagement.SuspendLayout();
             this.panelRMAddFood.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).BeginInit();
             this.panelRMRestSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxRMMinOrderPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -685,6 +690,9 @@
             // TabPageRestManagement
             // 
             this.TabPageRestManagement.BackColor = System.Drawing.Color.White;
+            this.TabPageRestManagement.Controls.Add(this.PanelRMOrders);
+            this.TabPageRestManagement.Controls.Add(this.lblRMShowOrdersDesc);
+            this.TabPageRestManagement.Controls.Add(this.lblRMShowOrders);
             this.TabPageRestManagement.Controls.Add(this.btnRMRefresh);
             this.TabPageRestManagement.Controls.Add(this.panelRMAddFood);
             this.TabPageRestManagement.Controls.Add(this.lblRMAddFoodDesc);
@@ -714,8 +722,8 @@
             // 
             // btnRMRefresh
             // 
-            this.btnRMRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnRMRefresh.Location = new System.Drawing.Point(1241, 38);
+            this.btnRMRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRMRefresh.Location = new System.Drawing.Point(1436, 38);
             this.btnRMRefresh.Name = "btnRMRefresh";
             this.btnRMRefresh.Size = new System.Drawing.Size(98, 23);
             this.btnRMRefresh.TabIndex = 18;
@@ -727,18 +735,18 @@
             // 
             this.panelRMAddFood.AutoScroll = true;
             this.panelRMAddFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRMAddFood.Controls.Add(this.tboxRMFoodPrice);
             this.panelRMAddFood.Controls.Add(this.btnRMAddFood);
             this.panelRMAddFood.Controls.Add(this.tboxRMFoodName);
             this.panelRMAddFood.Controls.Add(this.tboxRMFoodDesc);
             this.panelRMAddFood.Controls.Add(this.lblRMFoodName);
             this.panelRMAddFood.Controls.Add(this.lblRMFoodPrice);
-            this.panelRMAddFood.Controls.Add(this.tboxRMFoodPrice);
             this.panelRMAddFood.Controls.Add(this.lblRMFoodDesc);
             this.panelRMAddFood.HorizontalScrollbar = true;
             this.panelRMAddFood.HorizontalScrollbarBarColor = false;
             this.panelRMAddFood.HorizontalScrollbarHighlightOnWheel = false;
             this.panelRMAddFood.HorizontalScrollbarSize = 12;
-            this.panelRMAddFood.Location = new System.Drawing.Point(394, 63);
+            this.panelRMAddFood.Location = new System.Drawing.Point(9, 333);
             this.panelRMAddFood.Margin = new System.Windows.Forms.Padding(4);
             this.panelRMAddFood.Name = "panelRMAddFood";
             this.panelRMAddFood.Size = new System.Drawing.Size(376, 208);
@@ -748,13 +756,27 @@
             this.panelRMAddFood.VerticalScrollbarHighlightOnWheel = false;
             this.panelRMAddFood.VerticalScrollbarSize = 13;
             // 
+            // tboxRMFoodPrice
+            // 
+            this.tboxRMFoodPrice.DecimalPlaces = 2;
+            this.tboxRMFoodPrice.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.tboxRMFoodPrice.Location = new System.Drawing.Point(173, 93);
+            this.tboxRMFoodPrice.Name = "tboxRMFoodPrice";
+            this.tboxRMFoodPrice.Size = new System.Drawing.Size(188, 22);
+            this.tboxRMFoodPrice.TabIndex = 5;
+            this.tboxRMFoodPrice.ThousandsSeparator = true;
+            // 
             // btnRMAddFood
             // 
             this.btnRMAddFood.Location = new System.Drawing.Point(173, 121);
             this.btnRMAddFood.Name = "btnRMAddFood";
             this.btnRMAddFood.Size = new System.Drawing.Size(188, 40);
             this.btnRMAddFood.TabIndex = 4;
-            this.btnRMAddFood.Text = "Yemeği Ekle!";
+            this.btnRMAddFood.Text = "Yemeği Ekle";
             this.btnRMAddFood.UseSelectable = true;
             this.btnRMAddFood.Click += new System.EventHandler(this.btnRMAddFood_Click);
             // 
@@ -841,36 +863,6 @@
             this.lblRMFoodPrice.TabIndex = 1;
             this.lblRMFoodPrice.Text = "Yemeğin Fiyatı:";
             // 
-            // tboxRMFoodPrice
-            // 
-            // 
-            // 
-            // 
-            this.tboxRMFoodPrice.CustomButton.Image = null;
-            this.tboxRMFoodPrice.CustomButton.Location = new System.Drawing.Point(166, 1);
-            this.tboxRMFoodPrice.CustomButton.Name = "";
-            this.tboxRMFoodPrice.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tboxRMFoodPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tboxRMFoodPrice.CustomButton.TabIndex = 1;
-            this.tboxRMFoodPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tboxRMFoodPrice.CustomButton.UseSelectable = true;
-            this.tboxRMFoodPrice.CustomButton.Visible = false;
-            this.tboxRMFoodPrice.Lines = new string[0];
-            this.tboxRMFoodPrice.Location = new System.Drawing.Point(173, 92);
-            this.tboxRMFoodPrice.MaxLength = 32767;
-            this.tboxRMFoodPrice.Name = "tboxRMFoodPrice";
-            this.tboxRMFoodPrice.PasswordChar = '\0';
-            this.tboxRMFoodPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tboxRMFoodPrice.SelectedText = "";
-            this.tboxRMFoodPrice.SelectionLength = 0;
-            this.tboxRMFoodPrice.SelectionStart = 0;
-            this.tboxRMFoodPrice.ShortcutsEnabled = true;
-            this.tboxRMFoodPrice.Size = new System.Drawing.Size(188, 23);
-            this.tboxRMFoodPrice.TabIndex = 2;
-            this.tboxRMFoodPrice.UseSelectable = true;
-            this.tboxRMFoodPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tboxRMFoodPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // lblRMFoodDesc
             // 
             this.lblRMFoodDesc.AutoSize = true;
@@ -887,7 +879,7 @@
             this.lblRMAddFoodDesc.AutoSize = true;
             this.lblRMAddFoodDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblRMAddFoodDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.lblRMAddFoodDesc.Location = new System.Drawing.Point(390, 38);
+            this.lblRMAddFoodDesc.Location = new System.Drawing.Point(5, 308);
             this.lblRMAddFoodDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRMAddFoodDesc.Name = "lblRMAddFoodDesc";
             this.lblRMAddFoodDesc.Size = new System.Drawing.Size(356, 21);
@@ -899,7 +891,7 @@
             this.lblRMAddFood.AutoSize = true;
             this.lblRMAddFood.BackColor = System.Drawing.Color.Transparent;
             this.lblRMAddFood.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblRMAddFood.Location = new System.Drawing.Point(389, 10);
+            this.lblRMAddFood.Location = new System.Drawing.Point(4, 280);
             this.lblRMAddFood.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRMAddFood.Name = "lblRMAddFood";
             this.lblRMAddFood.Size = new System.Drawing.Size(148, 28);
@@ -910,10 +902,10 @@
             // 
             this.panelRMRestSettings.AutoScroll = true;
             this.panelRMRestSettings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRMRestSettings.Controls.Add(this.tboxRMMinOrderPrice);
             this.panelRMRestSettings.Controls.Add(this.cboxRMCity);
             this.panelRMRestSettings.Controls.Add(this.btnRMSaveRestInfo);
             this.panelRMRestSettings.Controls.Add(this.tboxRMRestName);
-            this.panelRMRestSettings.Controls.Add(this.tboxRMMinOrderPrice);
             this.panelRMRestSettings.Controls.Add(this.lblRMRestName);
             this.panelRMRestSettings.Controls.Add(this.lblRMCity);
             this.panelRMRestSettings.Controls.Add(this.lblRMMinOrderPrice);
@@ -930,6 +922,20 @@
             this.panelRMRestSettings.VerticalScrollbarBarColor = false;
             this.panelRMRestSettings.VerticalScrollbarHighlightOnWheel = false;
             this.panelRMRestSettings.VerticalScrollbarSize = 13;
+            // 
+            // tboxRMMinOrderPrice
+            // 
+            this.tboxRMMinOrderPrice.DecimalPlaces = 2;
+            this.tboxRMMinOrderPrice.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
+            this.tboxRMMinOrderPrice.Location = new System.Drawing.Point(173, 39);
+            this.tboxRMMinOrderPrice.Name = "tboxRMMinOrderPrice";
+            this.tboxRMMinOrderPrice.Size = new System.Drawing.Size(188, 22);
+            this.tboxRMMinOrderPrice.TabIndex = 7;
+            this.tboxRMMinOrderPrice.ThousandsSeparator = true;
             // 
             // cboxRMCity
             // 
@@ -949,7 +955,7 @@
             this.btnRMSaveRestInfo.Name = "btnRMSaveRestInfo";
             this.btnRMSaveRestInfo.Size = new System.Drawing.Size(188, 40);
             this.btnRMSaveRestInfo.TabIndex = 4;
-            this.btnRMSaveRestInfo.Text = "Değişiklikleri Kaydet!";
+            this.btnRMSaveRestInfo.Text = "Değişiklikleri Kaydet";
             this.btnRMSaveRestInfo.UseSelectable = true;
             this.btnRMSaveRestInfo.Click += new System.EventHandler(this.btnRMSaveRestInfo_Click);
             // 
@@ -984,38 +990,6 @@
             this.tboxRMRestName.UseSelectable = true;
             this.tboxRMRestName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tboxRMRestName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // tboxRMMinOrderPrice
-            // 
-            // 
-            // 
-            // 
-            this.tboxRMMinOrderPrice.CustomButton.Image = null;
-            this.tboxRMMinOrderPrice.CustomButton.Location = new System.Drawing.Point(166, 1);
-            this.tboxRMMinOrderPrice.CustomButton.Name = "";
-            this.tboxRMMinOrderPrice.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.tboxRMMinOrderPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.tboxRMMinOrderPrice.CustomButton.TabIndex = 1;
-            this.tboxRMMinOrderPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.tboxRMMinOrderPrice.CustomButton.UseSelectable = true;
-            this.tboxRMMinOrderPrice.CustomButton.Visible = false;
-            this.tboxRMMinOrderPrice.Lines = new string[] {
-        "0,00"};
-            this.tboxRMMinOrderPrice.Location = new System.Drawing.Point(173, 34);
-            this.tboxRMMinOrderPrice.MaxLength = 32767;
-            this.tboxRMMinOrderPrice.Name = "tboxRMMinOrderPrice";
-            this.tboxRMMinOrderPrice.PasswordChar = '\0';
-            this.tboxRMMinOrderPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tboxRMMinOrderPrice.SelectedText = "";
-            this.tboxRMMinOrderPrice.SelectionLength = 0;
-            this.tboxRMMinOrderPrice.SelectionStart = 0;
-            this.tboxRMMinOrderPrice.ShortcutsEnabled = true;
-            this.tboxRMMinOrderPrice.Size = new System.Drawing.Size(188, 23);
-            this.tboxRMMinOrderPrice.TabIndex = 1;
-            this.tboxRMMinOrderPrice.Text = "0,00";
-            this.tboxRMMinOrderPrice.UseSelectable = true;
-            this.tboxRMMinOrderPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.tboxRMMinOrderPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblRMRestName
             // 
@@ -1061,9 +1035,9 @@
             this.lblRMRestSettingsDesc.Location = new System.Drawing.Point(5, 38);
             this.lblRMRestSettingsDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRMRestSettingsDesc.Name = "lblRMRestSettingsDesc";
-            this.lblRMRestSettingsDesc.Size = new System.Drawing.Size(338, 21);
+            this.lblRMRestSettingsDesc.Size = new System.Drawing.Size(343, 21);
             this.lblRMRestSettingsDesc.TabIndex = 14;
-            this.lblRMRestSettingsDesc.Text = "Buradan restoranınızı düzenleyebilirsiniz..";
+            this.lblRMRestSettingsDesc.Text = "Buradan restoranınızı düzenleyebilirsiniz...";
             // 
             // lblRMRestSettings
             // 
@@ -1079,14 +1053,13 @@
             // 
             // panelRMFoodMenu
             // 
-            this.panelRMFoodMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelRMFoodMenu.AutoScroll = true;
             this.panelRMFoodMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRMFoodMenu.HorizontalScrollbar = true;
             this.panelRMFoodMenu.HorizontalScrollbarBarColor = false;
             this.panelRMFoodMenu.HorizontalScrollbarHighlightOnWheel = false;
             this.panelRMFoodMenu.HorizontalScrollbarSize = 12;
-            this.panelRMFoodMenu.Location = new System.Drawing.Point(778, 63);
+            this.panelRMFoodMenu.Location = new System.Drawing.Point(400, 63);
             this.panelRMFoodMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelRMFoodMenu.Name = "panelRMFoodMenu";
             this.panelRMFoodMenu.Size = new System.Drawing.Size(561, 663);
@@ -1098,24 +1071,22 @@
             // 
             // lblRMEditMenu
             // 
-            this.lblRMEditMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblRMEditMenu.AutoSize = true;
             this.lblRMEditMenu.BackColor = System.Drawing.Color.Transparent;
             this.lblRMEditMenu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.lblRMEditMenu.Location = new System.Drawing.Point(774, 38);
+            this.lblRMEditMenu.Location = new System.Drawing.Point(396, 38);
             this.lblRMEditMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRMEditMenu.Name = "lblRMEditMenu";
-            this.lblRMEditMenu.Size = new System.Drawing.Size(319, 21);
+            this.lblRMEditMenu.Size = new System.Drawing.Size(329, 21);
             this.lblRMEditMenu.TabIndex = 12;
-            this.lblRMEditMenu.Text = "Buradan menünüzü düzenleyebilirsiniz.";
+            this.lblRMEditMenu.Text = "Buradan menünüzü düzenleyebilirsiniz...\r\n";
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(773, 10);
+            this.label4.Location = new System.Drawing.Point(395, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(204, 28);
@@ -1133,6 +1104,51 @@
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
+            // 
+            // PanelRMOrders
+            // 
+            this.PanelRMOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelRMOrders.AutoScroll = true;
+            this.PanelRMOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelRMOrders.HorizontalScrollbar = true;
+            this.PanelRMOrders.HorizontalScrollbarBarColor = false;
+            this.PanelRMOrders.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelRMOrders.HorizontalScrollbarSize = 12;
+            this.PanelRMOrders.Location = new System.Drawing.Point(973, 63);
+            this.PanelRMOrders.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelRMOrders.Name = "PanelRMOrders";
+            this.PanelRMOrders.Size = new System.Drawing.Size(561, 663);
+            this.PanelRMOrders.TabIndex = 19;
+            this.PanelRMOrders.VerticalScrollbar = true;
+            this.PanelRMOrders.VerticalScrollbarBarColor = false;
+            this.PanelRMOrders.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelRMOrders.VerticalScrollbarSize = 13;
+            // 
+            // lblRMShowOrdersDesc
+            // 
+            this.lblRMShowOrdersDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRMShowOrdersDesc.AutoSize = true;
+            this.lblRMShowOrdersDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblRMShowOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblRMShowOrdersDesc.Location = new System.Drawing.Point(969, 38);
+            this.lblRMShowOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRMShowOrdersDesc.Name = "lblRMShowOrdersDesc";
+            this.lblRMShowOrdersDesc.Size = new System.Drawing.Size(324, 21);
+            this.lblRMShowOrdersDesc.TabIndex = 21;
+            this.lblRMShowOrdersDesc.Text = "Buradan siparişlerinizi yönetebilirsiniz...";
+            // 
+            // lblRMShowOrders
+            // 
+            this.lblRMShowOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRMShowOrders.AutoSize = true;
+            this.lblRMShowOrders.BackColor = System.Drawing.Color.Transparent;
+            this.lblRMShowOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblRMShowOrders.Location = new System.Drawing.Point(968, 10);
+            this.lblRMShowOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRMShowOrders.Name = "lblRMShowOrders";
+            this.lblRMShowOrders.Size = new System.Drawing.Size(116, 28);
+            this.lblRMShowOrders.TabIndex = 20;
+            this.lblRMShowOrders.Text = "Siparişler";
             // 
             // MainScreen
             // 
@@ -1165,8 +1181,10 @@
             this.TabPageRestManagement.PerformLayout();
             this.panelRMAddFood.ResumeLayout(false);
             this.panelRMAddFood.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).EndInit();
             this.panelRMRestSettings.ResumeLayout(false);
             this.panelRMRestSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tboxRMMinOrderPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -1214,7 +1232,6 @@
         private MetroFramework.Controls.MetroButton btnRefresh;
         private MetroFramework.Controls.MetroTabPage TabPageRestManagement;
         private MetroFramework.Controls.MetroTextBox tboxRMRestName;
-        private MetroFramework.Controls.MetroTextBox tboxRMMinOrderPrice;
         private System.Windows.Forms.Label lblRMMinOrderPrice;
         private System.Windows.Forms.Label lblRMRestName;
         private System.Windows.Forms.Label lblRMCity;
@@ -1226,7 +1243,6 @@
         private MetroFramework.Controls.MetroTextBox tboxRMFoodDesc;
         private System.Windows.Forms.Label lblRMFoodName;
         private System.Windows.Forms.Label lblRMFoodPrice;
-        private MetroFramework.Controls.MetroTextBox tboxRMFoodPrice;
         private System.Windows.Forms.Label lblRMFoodDesc;
         private System.Windows.Forms.Label lblRMAddFoodDesc;
         private System.Windows.Forms.Label lblRMAddFood;
@@ -1237,6 +1253,11 @@
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroComboBox cboxRMCity;
         private MetroFramework.Controls.MetroButton btnRMRefresh;
+        private System.Windows.Forms.NumericUpDown tboxRMFoodPrice;
+        private System.Windows.Forms.NumericUpDown tboxRMMinOrderPrice;
+        private MetroFramework.Controls.MetroPanel PanelRMOrders;
+        private System.Windows.Forms.Label lblRMShowOrdersDesc;
+        private System.Windows.Forms.Label lblRMShowOrders;
     }
 }
 

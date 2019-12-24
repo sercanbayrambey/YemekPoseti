@@ -101,20 +101,20 @@ namespace YemekPoşeti
                     ucPastOrder.lblStatus.Text = dr["Status"].ToString();
                     switch (status)
                     {
-                        case 1:
+                        case 1: // Delivered to restaurant
                             ucPastOrder.BackColor = Color.FromArgb(255, 245, 255);
                             ucPastOrder.lblStatus.ForeColor = Color.DarkMagenta;
                             break;
-                        case 2:
+                        case 2://Order is preparing
                             ucPastOrder.BackColor = Color.FromArgb(190, 255, 190);
                             ucPastOrder.lblStatus.ForeColor = Color.Green;
                             break;
-                        case 3:
+                        case 3://Order delivered to customer
                             ucPastOrder.BackColor = Color.White;
                             ucPastOrder.lblStatus.ForeColor = Color.Black;
                             ucPastOrder.lblFoodPrice.ForeColor = Color.Black;
                             break;
-                        case 4:
+                        case 4:// order canceled by restaurant
                             ucPastOrder.BackColor = Color.FromArgb(240, 240, 240);
                             ucPastOrder.lblFoodPrice.ForeColor = Color.Gray;
                             ucPastOrder.lblStatus.ForeColor = Color.Red;
