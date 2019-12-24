@@ -174,7 +174,7 @@
             this.Name = "EditFoodScreen";
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Purple;
-            this.Text = "*";
+            this.Text = "Ürün Düzenle";
             ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

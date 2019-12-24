@@ -327,6 +327,21 @@ namespace YemekPoşeti
         {
             GetOwnedRestaurantInfo();
         }
+
+        private void panelFoodMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblOrderTopDesc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblOrderRestName_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 	
 }

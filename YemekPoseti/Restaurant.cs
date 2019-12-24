@@ -208,19 +208,20 @@ namespace YemekPoşeti
                     switch (status)
                     {
                         case 1: // Delivered to restaurant
-                            ucOrderFood.BackColor = Color.FromArgb(255, 245, 255);
-                            ucOrderFood.lblStatus.ForeColor = Color.DarkMagenta;
+                            ucOrderFood.BackColor = Color.FromArgb(190, 255, 190);
+                            ucOrderFood.lblStatus.ForeColor = Color.Green;
                             ucOrderFood.btnPreparing.Enabled = true;
                             ucOrderFood.btnDelivered.Enabled = true;
                             ucOrderFood.btnCancelOrder.Enabled = true;
                             ucOrderFood.lblStatus.Text = "Yeni sipariş!";
                             break;
                         case 2://Order is preparing
-                            ucOrderFood.BackColor = Color.FromArgb(190, 255, 190);
-                            ucOrderFood.lblStatus.ForeColor = Color.Green;
+                            ucOrderFood.BackColor = Color.FromArgb(255, 245, 255);
+                            ucOrderFood.lblStatus.ForeColor = Color.DarkMagenta;
                             ucOrderFood.btnPreparing.Enabled = false;
                             ucOrderFood.btnDelivered.Enabled = true;
                             ucOrderFood.btnCancelOrder.Enabled = true;
+                            ucOrderFood.lblStatus.Text = "Hazırlanıyor...";
                             break;
                         case 3://Order delivered to customer
                             ucOrderFood.BackColor = Color.White;
@@ -229,17 +230,18 @@ namespace YemekPoşeti
                             ucOrderFood.btnPreparing.Enabled = true;
                             ucOrderFood.btnDelivered.Enabled = false;
                             ucOrderFood.btnCancelOrder.Enabled = true;
+                            ucOrderFood.lblStatus.Text = "Teslim edildi.";
                             break;
                         case 4:// order canceled by restaurant
                             ucOrderFood.BackColor = Color.FromArgb(240, 240, 240);
                             ucOrderFood.lblFoodPrice.ForeColor = Color.Gray;
+                            ucOrderFood.lblDate.ForeColor = Color.Gray;
                             ucOrderFood.lblStatus.ForeColor = Color.Red;
                             ucOrderFood.btnPreparing.Enabled = true;
                             ucOrderFood.btnDelivered.Enabled = true;
                             ucOrderFood.btnCancelOrder.Enabled = false;
                             ucOrderFood.lblStatus.Text = "İptal edildi !";
                             break;
-
                     }
                     pastOrderList.Add(ucOrderFood);
                 }

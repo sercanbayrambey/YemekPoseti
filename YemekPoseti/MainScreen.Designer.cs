@@ -119,7 +119,7 @@
             this.TabMain.Location = new System.Drawing.Point(27, 74);
             this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 3;
+            this.TabMain.SelectedIndex = 1;
             this.TabMain.Size = new System.Drawing.Size(1866, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
@@ -316,10 +316,14 @@
             // 
             // pBoxProfilePic
             // 
+            this.pBoxProfilePic.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pBoxProfilePic.ErrorImage")));
+            this.pBoxProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pBoxProfilePic.Image")));
+            this.pBoxProfilePic.InitialImage = null;
             this.pBoxProfilePic.Location = new System.Drawing.Point(4, 4);
             this.pBoxProfilePic.Margin = new System.Windows.Forms.Padding(4);
             this.pBoxProfilePic.Name = "pBoxProfilePic";
             this.pBoxProfilePic.Size = new System.Drawing.Size(267, 246);
+            this.pBoxProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pBoxProfilePic.TabIndex = 2;
             this.pBoxProfilePic.TabStop = false;
             // 
@@ -356,8 +360,7 @@
             // 
             // lblCompleteOrderDesc
             // 
-            this.lblCompleteOrderDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCompleteOrderDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompleteOrderDesc.AutoSize = true;
             this.lblCompleteOrderDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblCompleteOrderDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
@@ -370,8 +373,7 @@
             // 
             // lblCompleteOrder
             // 
-            this.lblCompleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCompleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompleteOrder.AutoSize = true;
             this.lblCompleteOrder.BackColor = System.Drawing.Color.Transparent;
             this.lblCompleteOrder.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
@@ -423,8 +425,7 @@
             // 
             // tboxAdress
             // 
-            this.tboxAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tboxAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -460,8 +461,7 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
@@ -474,8 +474,7 @@
             // 
             // lboxUrunler
             // 
-            this.lboxUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lboxUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lboxUrunler.FormattingEnabled = true;
             this.lboxUrunler.ItemHeight = 16;
             this.lboxUrunler.Location = new System.Drawing.Point(0, 0);
@@ -654,6 +653,7 @@
             this.lblOrderTopDesc.Size = new System.Drawing.Size(185, 21);
             this.lblOrderTopDesc.TabIndex = 7;
             this.lblOrderTopDesc.Text = "Siparişlerinizi seçiniz...";
+            this.lblOrderTopDesc.Click += new System.EventHandler(this.lblOrderTopDesc_Click);
             // 
             // lblOrderRestName
             // 
@@ -666,6 +666,7 @@
             this.lblOrderRestName.Size = new System.Drawing.Size(159, 28);
             this.lblOrderRestName.TabIndex = 6;
             this.lblOrderRestName.Text = "Restoran Adı";
+            this.lblOrderRestName.Click += new System.EventHandler(this.lblOrderRestName_Click);
             // 
             // panelFoodMenu
             // 
@@ -686,6 +687,7 @@
             this.panelFoodMenu.VerticalScrollbarBarColor = false;
             this.panelFoodMenu.VerticalScrollbarHighlightOnWheel = false;
             this.panelFoodMenu.VerticalScrollbarSize = 13;
+            this.panelFoodMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFoodMenu_Paint);
             // 
             // TabPageRestManagement
             // 
@@ -1108,6 +1110,7 @@
             // 
             // panelRMFoodMenu
             // 
+            this.panelRMFoodMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelRMFoodMenu.AutoScroll = true;
             this.panelRMFoodMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRMFoodMenu.HorizontalScrollbar = true;
@@ -1126,6 +1129,7 @@
             // 
             // lblRMEditMenu
             // 
+            this.lblRMEditMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblRMEditMenu.AutoSize = true;
             this.lblRMEditMenu.BackColor = System.Drawing.Color.Transparent;
             this.lblRMEditMenu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
@@ -1138,6 +1142,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);

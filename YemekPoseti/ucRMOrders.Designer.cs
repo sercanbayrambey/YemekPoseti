@@ -59,6 +59,7 @@
             this.lblDate.Size = new System.Drawing.Size(95, 44);
             this.lblDate.TabIndex = 12;
             this.lblDate.Text = "24/12/2019 19:10";
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblAdress
             // 
