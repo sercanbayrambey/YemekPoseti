@@ -45,7 +45,7 @@ namespace YemekPoşeti
             lblCity.Text = LoggedUser.Location;
             lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
             TabMain.TabPages.Remove(TabPageRestManagement);
-            if (LoggedUser.UserType == 1)
+            if (LoggedUser.IsUserRestaurantOwner())
                 TabMain.TabPages.Add(TabPageRestManagement);
 
         }
@@ -145,6 +145,7 @@ namespace YemekPoşeti
 
         private void ShowOwnedRestFoodList()
         {
+            panelRMFoodMenu.Controls.Clear();
             List<ucRM_MenuItem> tempFoodList = ownedRestaurant.GetOwnedRestFoodList();
             foreach (ucRM_MenuItem ucFood in tempFoodList)
             {
@@ -238,6 +239,7 @@ namespace YemekPoşeti
             tboxRMRestName.Text = ownedRestaurant.Name;
             tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
             cboxRMCity.DataSource = db.GetCities();
+            cboxRMCity.SelectedItem = LoggedUser.Location.ToUpper();
             ShowOwnedRestFoodList();
         }
 

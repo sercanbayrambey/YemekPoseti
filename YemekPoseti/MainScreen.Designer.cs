@@ -684,6 +684,7 @@
             // 
             // TabPageRestManagement
             // 
+            this.TabPageRestManagement.BackColor = System.Drawing.Color.White;
             this.TabPageRestManagement.Controls.Add(this.btnRMRefresh);
             this.TabPageRestManagement.Controls.Add(this.panelRMAddFood);
             this.TabPageRestManagement.Controls.Add(this.lblRMAddFoodDesc);
@@ -694,6 +695,8 @@
             this.TabPageRestManagement.Controls.Add(this.panelRMFoodMenu);
             this.TabPageRestManagement.Controls.Add(this.lblRMEditMenu);
             this.TabPageRestManagement.Controls.Add(this.label4);
+            this.TabPageRestManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.TabPageRestManagement.ForeColor = System.Drawing.Color.Black;
             this.TabPageRestManagement.HorizontalScrollbarBarColor = true;
             this.TabPageRestManagement.HorizontalScrollbarHighlightOnWheel = false;
             this.TabPageRestManagement.HorizontalScrollbarSize = 10;
@@ -702,6 +705,9 @@
             this.TabPageRestManagement.Size = new System.Drawing.Size(1858, 925);
             this.TabPageRestManagement.TabIndex = 3;
             this.TabPageRestManagement.Text = "Restoran Yönetimi";
+            this.TabPageRestManagement.UseCustomBackColor = true;
+            this.TabPageRestManagement.UseCustomForeColor = true;
+            this.TabPageRestManagement.UseStyleColors = true;
             this.TabPageRestManagement.VerticalScrollbarBarColor = true;
             this.TabPageRestManagement.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageRestManagement.VerticalScrollbarSize = 10;

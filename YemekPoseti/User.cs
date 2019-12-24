@@ -133,7 +133,21 @@ namespace YemekPoşeti
 
         }
 
+        public bool IsUserRestaurantOwner()
+        {
+            db.Connect();
+            string query = String.Format("SELECT * FROM Restaurants WHERE UserID = {0}", this.UserID);
+            MySqlDataReader dr = db.GetQuery(query);
 
+            //set
+            if (dr.Read())
+            {
+                db.Close();
+                return true;
+            }
+            db.Close();
+            return false;
+        }
 
 		private bool IsRegistered(string username,string email)
 		{
