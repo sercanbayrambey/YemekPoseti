@@ -10,11 +10,29 @@ using System.Windows.Forms;
 
 namespace YemekPoşeti
 {
-    public partial class ucRMOrders : UserControl
+    partial class ucRMOrders : UserControl
     {
-        public ucRMOrders()
+        private Restaurant ownedRestaurant;
+        public int orderID {get;set;}
+        public ucRMOrders(Restaurant rest)
         {
             InitializeComponent();
+            this.ownedRestaurant = rest;
+        }
+
+        private void btnPreparing_Click(object sender, EventArgs e)
+        {
+            ownedRestaurant.SetOrderState(orderID,2);
+        }
+
+        private void btnDelivered_Click(object sender, EventArgs e)
+        {
+            ownedRestaurant.SetOrderState(orderID, 3);
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            ownedRestaurant.SetOrderState(orderID, 4);
         }
     }
 }

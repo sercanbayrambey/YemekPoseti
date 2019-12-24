@@ -104,6 +104,7 @@
             this.btnCancelOrder.UseCustomBackColor = true;
             this.btnCancelOrder.UseCustomForeColor = true;
             this.btnCancelOrder.UseSelectable = true;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // btnDelivered
             // 
@@ -117,6 +118,7 @@
             this.btnDelivered.UseCustomBackColor = true;
             this.btnDelivered.UseCustomForeColor = true;
             this.btnDelivered.UseSelectable = true;
+            this.btnDelivered.Click += new System.EventHandler(this.btnDelivered_Click);
             // 
             // btnPreparing
             // 
@@ -130,6 +132,7 @@
             this.btnPreparing.UseCustomBackColor = true;
             this.btnPreparing.UseCustomForeColor = true;
             this.btnPreparing.UseSelectable = true;
+            this.btnPreparing.Click += new System.EventHandler(this.btnPreparing_Click);
             // 
             // lblStatus
             // 

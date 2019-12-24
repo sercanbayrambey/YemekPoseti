@@ -188,14 +188,15 @@ namespace YemekPoşeti
                                         " ORDER BY O.OrderID ASC", this.ID);
             db.Connect();
             dr = db.GetQuery(query);
-            ucRMOrders ucOrderFood = new ucRMOrders();
+            ucRMOrders ucOrderFood = new ucRMOrders(this);
             while (dr.Read())
             {
 
                 if (orderID != Convert.ToInt32(dr["OrderID"]))
                 {
                     orderID = Convert.ToInt32(dr["OrderID"]);
-                    ucOrderFood  = new ucRMOrders();
+                    ucOrderFood  = new ucRMOrders(this);
+                    ucOrderFood.orderID = Convert.ToInt32(dr["OrderID"]);
                     ucOrderFood.Dock = System.Windows.Forms.DockStyle.Top;
                     ucOrderFood.lblFoodPrice.Text = (Convert.ToSingle(dr["FinalPrice"])).ToString("0.00") + " TL";
                     ucOrderFood.lboxFoods.Items.Add(dr["FoodName"].ToString() + " (x" + dr["QTY"].ToString() + ")");
@@ -236,6 +237,7 @@ namespace YemekPoşeti
                             ucOrderFood.btnPreparing.Enabled = true;
                             ucOrderFood.btnDelivered.Enabled = true;
                             ucOrderFood.btnCancelOrder.Enabled = false;
+                            ucOrderFood.lblStatus.Text = "İptal edildi !";
                             break;
 
                     }
@@ -248,6 +250,16 @@ namespace YemekPoşeti
             }
             db.Close();
             return pastOrderList;
+        }
+
+        public void SetOrderState(int orderID,int state)
+        {
+            db = new DB();
+            db.Connect();
+            string query = String.Format("UPDATE Orders SET StatusID = {0} WHERE OrderID = {1}",state,orderID);
+            if (db.SetQuery(query) > 0)
+                ms.GetOwnedRestaurantInfo();
+
         }
 
     }

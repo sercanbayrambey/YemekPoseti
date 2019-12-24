@@ -37,15 +37,17 @@
             // 
             // lblFoodPrice
             // 
+            this.lblFoodPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(413, 40);
+            this.lblFoodPrice.Location = new System.Drawing.Point(410, 62);
             this.lblFoodPrice.Name = "lblFoodPrice";
-            this.lblFoodPrice.Size = new System.Drawing.Size(115, 26);
+            this.lblFoodPrice.Size = new System.Drawing.Size(121, 26);
             this.lblFoodPrice.TabIndex = 5;
             this.lblFoodPrice.Text = "2000,00 TL";
-            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFoodDesc
             // 
@@ -74,7 +76,7 @@
             // 
             this.btnEditFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditFood.BackColor = System.Drawing.Color.OldLace;
-            this.btnEditFood.Location = new System.Drawing.Point(12, 73);
+            this.btnEditFood.Location = new System.Drawing.Point(12, 113);
             this.btnEditFood.Name = "btnEditFood";
             this.btnEditFood.Size = new System.Drawing.Size(105, 23);
             this.btnEditFood.TabIndex = 6;
@@ -90,7 +92,7 @@
             this.btnRemoveFood.BackColor = System.Drawing.Color.Red;
             this.btnRemoveFood.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnRemoveFood.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveFood.Location = new System.Drawing.Point(123, 73);
+            this.btnRemoveFood.Location = new System.Drawing.Point(123, 113);
             this.btnRemoveFood.Name = "btnRemoveFood";
             this.btnRemoveFood.Size = new System.Drawing.Size(105, 23);
             this.btnRemoveFood.TabIndex = 6;
@@ -112,7 +114,7 @@
             this.Controls.Add(this.lblFoodDesc);
             this.Controls.Add(this.lblFoodName);
             this.Name = "ucRM_MenuItem";
-            this.Size = new System.Drawing.Size(531, 110);
+            this.Size = new System.Drawing.Size(534, 150);
             this.ResumeLayout(false);
             this.PerformLayout();
 
