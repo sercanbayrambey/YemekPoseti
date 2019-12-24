@@ -63,6 +63,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="DB.cs.example" />
     <Compile Include="DB.cs" />
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
