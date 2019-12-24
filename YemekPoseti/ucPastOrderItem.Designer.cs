@@ -50,11 +50,11 @@
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(425, 53);
+            this.lblFoodPrice.Location = new System.Drawing.Point(407, 53);
             this.lblFoodPrice.Name = "lblFoodPrice";
-            this.lblFoodPrice.Size = new System.Drawing.Size(120, 26);
+            this.lblFoodPrice.Size = new System.Drawing.Size(123, 26);
             this.lblFoodPrice.TabIndex = 6;
-            this.lblFoodPrice.Text = "200,00 TL";
+            this.lblFoodPrice.Text = "2000,00 TL";
             this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFoods
@@ -64,7 +64,7 @@
             this.lblFoods.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblFoods.Location = new System.Drawing.Point(12, 40);
             this.lblFoods.Name = "lblFoods";
-            this.lblFoods.Size = new System.Drawing.Size(407, 50);
+            this.lblFoods.Size = new System.Drawing.Size(399, 50);
             this.lblFoods.TabIndex = 7;
             this.lblFoods.Text = "Sipariş Verilen Yemekler..";
             // 

@@ -37,15 +37,14 @@
             // lblFoodPrice
             // 
             this.lblFoodPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFoodPrice.AutoSize = true;
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(416, 23);
+            this.lblFoodPrice.Location = new System.Drawing.Point(415, 24);
             this.lblFoodPrice.Name = "lblFoodPrice";
-            this.lblFoodPrice.Size = new System.Drawing.Size(91, 26);
+            this.lblFoodPrice.Size = new System.Drawing.Size(116, 26);
             this.lblFoodPrice.TabIndex = 5;
-            this.lblFoodPrice.Text = "20,00 TL";
+            this.lblFoodPrice.Text = "2000,00 TL";
             // 
             // lblFoodDesc
             // 
@@ -93,7 +92,7 @@
             this.Controls.Add(this.lblFoodPrice);
             this.Controls.Add(this.lblFoodDesc);
             this.Controls.Add(this.lblFoodName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucBasketItem";
             this.Size = new System.Drawing.Size(531, 75);
             this.ResumeLayout(false);
