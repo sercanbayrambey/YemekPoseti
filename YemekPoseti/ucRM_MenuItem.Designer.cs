@@ -37,12 +37,12 @@
             // 
             // lblFoodPrice
             // 
-            this.lblFoodPrice.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblFoodPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFoodPrice.AutoSize = true;
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(437, 42);
+            this.lblFoodPrice.Location = new System.Drawing.Point(423, 40);
             this.lblFoodPrice.Name = "lblFoodPrice";
             this.lblFoodPrice.Size = new System.Drawing.Size(91, 26);
             this.lblFoodPrice.TabIndex = 5;

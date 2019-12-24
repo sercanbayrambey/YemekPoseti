@@ -184,7 +184,7 @@ namespace YemekPoşeti
                                         " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
                                         " INNER JOIN Locations L ON L.LocationID = R.LocationID" +
                                         " INNER JOIN Users U ON O.UserID = U.UserID" +
-                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE R.UserID = '{0}'" +
+                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE R.RestaurantID = {0}" +
                                         " ORDER BY O.OrderID ASC", this.ID);
             db.Connect();
             dr = db.GetQuery(query);
