@@ -67,6 +67,9 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.TabPageRestManagement = new MetroFramework.Controls.MetroTabPage();
+            this.PanelRMOrders = new MetroFramework.Controls.MetroPanel();
+            this.lblRMShowOrdersDesc = new System.Windows.Forms.Label();
+            this.lblRMShowOrders = new System.Windows.Forms.Label();
             this.btnRMRefresh = new MetroFramework.Controls.MetroButton();
             this.panelRMAddFood = new MetroFramework.Controls.MetroPanel();
             this.tboxRMFoodPrice = new System.Windows.Forms.NumericUpDown();
@@ -92,9 +95,6 @@
             this.lblRMEditMenu = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.PanelRMOrders = new MetroFramework.Controls.MetroPanel();
-            this.lblRMShowOrdersDesc = new System.Windows.Forms.Label();
-            this.lblRMShowOrders = new System.Windows.Forms.Label();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -720,6 +720,51 @@
             this.TabPageRestManagement.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageRestManagement.VerticalScrollbarSize = 10;
             // 
+            // PanelRMOrders
+            // 
+            this.PanelRMOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelRMOrders.AutoScroll = true;
+            this.PanelRMOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelRMOrders.HorizontalScrollbar = true;
+            this.PanelRMOrders.HorizontalScrollbarBarColor = false;
+            this.PanelRMOrders.HorizontalScrollbarHighlightOnWheel = false;
+            this.PanelRMOrders.HorizontalScrollbarSize = 12;
+            this.PanelRMOrders.Location = new System.Drawing.Point(973, 63);
+            this.PanelRMOrders.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelRMOrders.Name = "PanelRMOrders";
+            this.PanelRMOrders.Size = new System.Drawing.Size(561, 663);
+            this.PanelRMOrders.TabIndex = 19;
+            this.PanelRMOrders.VerticalScrollbar = true;
+            this.PanelRMOrders.VerticalScrollbarBarColor = false;
+            this.PanelRMOrders.VerticalScrollbarHighlightOnWheel = false;
+            this.PanelRMOrders.VerticalScrollbarSize = 13;
+            // 
+            // lblRMShowOrdersDesc
+            // 
+            this.lblRMShowOrdersDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRMShowOrdersDesc.AutoSize = true;
+            this.lblRMShowOrdersDesc.BackColor = System.Drawing.Color.Transparent;
+            this.lblRMShowOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblRMShowOrdersDesc.Location = new System.Drawing.Point(969, 38);
+            this.lblRMShowOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRMShowOrdersDesc.Name = "lblRMShowOrdersDesc";
+            this.lblRMShowOrdersDesc.Size = new System.Drawing.Size(324, 21);
+            this.lblRMShowOrdersDesc.TabIndex = 21;
+            this.lblRMShowOrdersDesc.Text = "Buradan siparişlerinizi yönetebilirsiniz...";
+            // 
+            // lblRMShowOrders
+            // 
+            this.lblRMShowOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRMShowOrders.AutoSize = true;
+            this.lblRMShowOrders.BackColor = System.Drawing.Color.Transparent;
+            this.lblRMShowOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblRMShowOrders.Location = new System.Drawing.Point(968, 10);
+            this.lblRMShowOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRMShowOrders.Name = "lblRMShowOrders";
+            this.lblRMShowOrders.Size = new System.Drawing.Size(116, 28);
+            this.lblRMShowOrders.TabIndex = 20;
+            this.lblRMShowOrders.Text = "Siparişler";
+            // 
             // btnRMRefresh
             // 
             this.btnRMRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -765,6 +810,11 @@
             0,
             65536});
             this.tboxRMFoodPrice.Location = new System.Drawing.Point(173, 93);
+            this.tboxRMFoodPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.tboxRMFoodPrice.Name = "tboxRMFoodPrice";
             this.tboxRMFoodPrice.Size = new System.Drawing.Size(188, 22);
             this.tboxRMFoodPrice.TabIndex = 5;
@@ -932,6 +982,11 @@
             0,
             65536});
             this.tboxRMMinOrderPrice.Location = new System.Drawing.Point(173, 39);
+            this.tboxRMMinOrderPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.tboxRMMinOrderPrice.Name = "tboxRMMinOrderPrice";
             this.tboxRMMinOrderPrice.Size = new System.Drawing.Size(188, 22);
             this.tboxRMMinOrderPrice.TabIndex = 7;
@@ -1104,51 +1159,6 @@
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
-            // 
-            // PanelRMOrders
-            // 
-            this.PanelRMOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelRMOrders.AutoScroll = true;
-            this.PanelRMOrders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PanelRMOrders.HorizontalScrollbar = true;
-            this.PanelRMOrders.HorizontalScrollbarBarColor = false;
-            this.PanelRMOrders.HorizontalScrollbarHighlightOnWheel = false;
-            this.PanelRMOrders.HorizontalScrollbarSize = 12;
-            this.PanelRMOrders.Location = new System.Drawing.Point(973, 63);
-            this.PanelRMOrders.Margin = new System.Windows.Forms.Padding(4);
-            this.PanelRMOrders.Name = "PanelRMOrders";
-            this.PanelRMOrders.Size = new System.Drawing.Size(561, 663);
-            this.PanelRMOrders.TabIndex = 19;
-            this.PanelRMOrders.VerticalScrollbar = true;
-            this.PanelRMOrders.VerticalScrollbarBarColor = false;
-            this.PanelRMOrders.VerticalScrollbarHighlightOnWheel = false;
-            this.PanelRMOrders.VerticalScrollbarSize = 13;
-            // 
-            // lblRMShowOrdersDesc
-            // 
-            this.lblRMShowOrdersDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRMShowOrdersDesc.AutoSize = true;
-            this.lblRMShowOrdersDesc.BackColor = System.Drawing.Color.Transparent;
-            this.lblRMShowOrdersDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.lblRMShowOrdersDesc.Location = new System.Drawing.Point(969, 38);
-            this.lblRMShowOrdersDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRMShowOrdersDesc.Name = "lblRMShowOrdersDesc";
-            this.lblRMShowOrdersDesc.Size = new System.Drawing.Size(324, 21);
-            this.lblRMShowOrdersDesc.TabIndex = 21;
-            this.lblRMShowOrdersDesc.Text = "Buradan siparişlerinizi yönetebilirsiniz...";
-            // 
-            // lblRMShowOrders
-            // 
-            this.lblRMShowOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRMShowOrders.AutoSize = true;
-            this.lblRMShowOrders.BackColor = System.Drawing.Color.Transparent;
-            this.lblRMShowOrders.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblRMShowOrders.Location = new System.Drawing.Point(968, 10);
-            this.lblRMShowOrders.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRMShowOrders.Name = "lblRMShowOrders";
-            this.lblRMShowOrders.Size = new System.Drawing.Size(116, 28);
-            this.lblRMShowOrders.TabIndex = 20;
-            this.lblRMShowOrders.Text = "Siparişler";
             // 
             // MainScreen
             // 
