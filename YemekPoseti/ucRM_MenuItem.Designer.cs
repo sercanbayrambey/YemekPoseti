@@ -37,15 +37,15 @@
             // 
             // lblFoodPrice
             // 
-            this.lblFoodPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(416, 40);
+            this.lblFoodPrice.Location = new System.Drawing.Point(413, 40);
             this.lblFoodPrice.Name = "lblFoodPrice";
             this.lblFoodPrice.Size = new System.Drawing.Size(115, 26);
             this.lblFoodPrice.TabIndex = 5;
             this.lblFoodPrice.Text = "2000,00 TL";
+            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblFoodDesc
             // 
@@ -104,6 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnRemoveFood);
             this.Controls.Add(this.btnEditFood);

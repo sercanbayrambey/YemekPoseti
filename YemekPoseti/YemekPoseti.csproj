@@ -63,8 +63,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="EditFoodScreen.resx">
+      <DependentUpon>EditFoodScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ucRMOrders.resx">
       <DependentUpon>ucRMOrders.cs</DependentUpon>
@@ -74,11 +74,11 @@
     </EmbeddedResource>
     <None Include="DB.cs.example" />
     <Compile Include="DB.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="EditFoodScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="EditFoodScreen.Designer.cs">
+      <DependentUpon>EditFoodScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>

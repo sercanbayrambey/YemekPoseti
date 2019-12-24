@@ -50,7 +50,7 @@
             this.tboxRMFoodPrice.Location = new System.Drawing.Point(26, 248);
             this.tboxRMFoodPrice.Name = "tboxRMFoodPrice";
             this.tboxRMFoodPrice.Size = new System.Drawing.Size(188, 22);
-            this.tboxRMFoodPrice.TabIndex = 12;
+            this.tboxRMFoodPrice.TabIndex = 2;
             this.tboxRMFoodPrice.ThousandsSeparator = true;
             // 
             // btnRMAddFood
@@ -58,7 +58,7 @@
             this.btnRMAddFood.Location = new System.Drawing.Point(86, 417);
             this.btnRMAddFood.Name = "btnRMAddFood";
             this.btnRMAddFood.Size = new System.Drawing.Size(188, 40);
-            this.btnRMAddFood.TabIndex = 11;
+            this.btnRMAddFood.TabIndex = 3;
             this.btnRMAddFood.Text = "Yemeği Kaydet";
             this.btnRMAddFood.UseSelectable = true;
             this.btnRMAddFood.Click += new System.EventHandler(this.btnRMAddFood_Click);
@@ -88,7 +88,7 @@
             this.tboxRMFoodName.SelectionStart = 0;
             this.tboxRMFoodName.ShortcutsEnabled = true;
             this.tboxRMFoodName.Size = new System.Drawing.Size(188, 20);
-            this.tboxRMFoodName.TabIndex = 6;
+            this.tboxRMFoodName.TabIndex = 0;
             this.tboxRMFoodName.UseSelectable = true;
             this.tboxRMFoodName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tboxRMFoodName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -119,7 +119,7 @@
             this.tboxRMFoodDesc.SelectionStart = 0;
             this.tboxRMFoodDesc.ShortcutsEnabled = true;
             this.tboxRMFoodDesc.Size = new System.Drawing.Size(188, 52);
-            this.tboxRMFoodDesc.TabIndex = 7;
+            this.tboxRMFoodDesc.TabIndex = 1;
             this.tboxRMFoodDesc.UseSelectable = true;
             this.tboxRMFoodDesc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.tboxRMFoodDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -174,7 +174,7 @@
             this.Name = "EditFoodScreen";
             this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Purple;
-            this.Text = "Yemeği Düzenle";
+            this.Text = "*";
             ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

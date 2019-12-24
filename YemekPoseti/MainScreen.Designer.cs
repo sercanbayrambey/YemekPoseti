@@ -817,7 +817,7 @@
             0});
             this.tboxRMFoodPrice.Name = "tboxRMFoodPrice";
             this.tboxRMFoodPrice.Size = new System.Drawing.Size(188, 22);
-            this.tboxRMFoodPrice.TabIndex = 5;
+            this.tboxRMFoodPrice.TabIndex = 2;
             this.tboxRMFoodPrice.ThousandsSeparator = true;
             // 
             // btnRMAddFood
@@ -825,7 +825,7 @@
             this.btnRMAddFood.Location = new System.Drawing.Point(173, 121);
             this.btnRMAddFood.Name = "btnRMAddFood";
             this.btnRMAddFood.Size = new System.Drawing.Size(188, 40);
-            this.btnRMAddFood.TabIndex = 4;
+            this.btnRMAddFood.TabIndex = 3;
             this.btnRMAddFood.Text = "Yemeği Ekle";
             this.btnRMAddFood.UseSelectable = true;
             this.btnRMAddFood.Click += new System.EventHandler(this.btnRMAddFood_Click);
@@ -989,7 +989,7 @@
             0});
             this.tboxRMMinOrderPrice.Name = "tboxRMMinOrderPrice";
             this.tboxRMMinOrderPrice.Size = new System.Drawing.Size(188, 22);
-            this.tboxRMMinOrderPrice.TabIndex = 7;
+            this.tboxRMMinOrderPrice.TabIndex = 1;
             this.tboxRMMinOrderPrice.ThousandsSeparator = true;
             // 
             // cboxRMCity
@@ -1001,7 +1001,7 @@
             this.cboxRMCity.Margin = new System.Windows.Forms.Padding(4);
             this.cboxRMCity.Name = "cboxRMCity";
             this.cboxRMCity.Size = new System.Drawing.Size(188, 27);
-            this.cboxRMCity.TabIndex = 6;
+            this.cboxRMCity.TabIndex = 2;
             this.cboxRMCity.UseSelectable = true;
             // 
             // btnRMSaveRestInfo
@@ -1009,7 +1009,7 @@
             this.btnRMSaveRestInfo.Location = new System.Drawing.Point(173, 104);
             this.btnRMSaveRestInfo.Name = "btnRMSaveRestInfo";
             this.btnRMSaveRestInfo.Size = new System.Drawing.Size(188, 40);
-            this.btnRMSaveRestInfo.TabIndex = 4;
+            this.btnRMSaveRestInfo.TabIndex = 3;
             this.btnRMSaveRestInfo.Text = "Değişiklikleri Kaydet";
             this.btnRMSaveRestInfo.UseSelectable = true;
             this.btnRMSaveRestInfo.Click += new System.EventHandler(this.btnRMSaveRestInfo_Click);

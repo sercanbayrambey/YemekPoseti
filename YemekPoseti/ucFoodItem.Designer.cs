@@ -67,6 +67,7 @@
             this.lblFoodPrice.Size = new System.Drawing.Size(119, 26);
             this.lblFoodPrice.TabIndex = 2;
             this.lblFoodPrice.Text = "2000,00 TL";
+            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ucFoodItem
             // 
