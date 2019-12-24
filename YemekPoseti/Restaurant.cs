@@ -9,7 +9,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 namespace YemekPoşeti
 {
-    public class Restaurant
+    class Restaurant
     {
         public int ID{ get; set; }
 
@@ -21,15 +21,63 @@ namespace YemekPoşeti
         public string Description { get; set; }
         public float MinOrderPrice { get; set; }
         private DB db;
-        public ucFoodItem GetFoodList(MySqlDataReader dr,int j)
+        private MainScreen ms;
+
+
+        public Restaurant(MainScreen ms)
         {
-            
-            ucFoodItem ucTempFoodList = new ucFoodItem(dr);
-            /* Event Controls */
-            /* BG Color */
-            if (j % 2 == 0)
-                ucTempFoodList.BackColor = Color.FromArgb(255, 245, 255);
-            return ucTempFoodList;
+            this.ms = ms;
+        }
+
+
+
+
+        public List<ucFoodItem> GetFoodList()
+        {
+            db = new DB();
+            List<ucFoodItem> FoodList = new List<ucFoodItem>();
+            if (db.Connect())
+            {
+                int j = 0;
+                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", this.ID);
+                MySqlDataReader dr = db.GetQuery(query);
+                while (dr.Read())
+                {
+                    ucFoodItem ucTempFoodList = new ucFoodItem(dr);
+                    if (j % 2 == 0)
+                        ucTempFoodList.BackColor = Color.FromArgb(255, 245, 255);
+                    FoodList.Add(ucTempFoodList);
+                    j++;
+                }
+                db.Close();
+                return FoodList;
+            }
+            else
+                return FoodList;
+        }
+
+        public List<ucRM_MenuItem> GetOwnedRestFoodList()
+        {
+            db = new DB();
+            List<ucRM_MenuItem> FoodList = new List<ucRM_MenuItem>();
+            if (db.Connect())
+            {
+                int j = 0;
+                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", this.ID);
+                MySqlDataReader dr = db.GetQuery(query);
+                while (dr.Read())
+                {
+                    ucRM_MenuItem ucTempFoodList = new ucRM_MenuItem(dr,this);
+                    if (j % 2 == 0)
+                        ucTempFoodList.BackColor = Color.FromArgb(255, 245, 255);
+                    FoodList.Add(ucTempFoodList);
+                    j++;
+                }
+                db.Close();
+                return FoodList;
+            }
+            else
+                return FoodList;
         }
 
 
@@ -90,6 +138,38 @@ namespace YemekPoşeti
 
         }
 
+        public bool DeleteFood(int id)
+        {
+            db = new DB();
+            db.Connect();
+            string query = String.Format("DELETE FROM Foods WHERE FoodID = {0}",id);
+
+            if (db.SetQuery(query) > 0)
+            {
+                ms.GetOwnedRestaurantInfo();
+                db.Close();
+                return true;
+            }
+            db.Close();
+            return false;
+
+        }
+
+  /*      public bool EditFood(ucRM_MenuItem Food)
+        {
+            db = new DB();
+            db.Connect();
+            string query = String.Format("DELETE FROM Foods WHERE FoodID = {0}");
+
+            if (db.SetQuery(query) > 0)
+            {
+                ms.GetOwnedRestaurantInfo();
+                db.Close();
+                return true;
+            }
+            db.Close();
+            return false;
+        }*/
 
     }
 }

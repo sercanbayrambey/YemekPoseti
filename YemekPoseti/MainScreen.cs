@@ -88,7 +88,7 @@ namespace YemekPoşeti
 
         private void LoadSelectedRestaurant(ucRestList ucTemp)
         {
-            SelectedRestaurant = new Restaurant
+            SelectedRestaurant = new Restaurant(this)
             {
                 ID = ucTemp.RestID,
                 LocationID = ucTemp.LocationID,
@@ -103,7 +103,7 @@ namespace YemekPoşeti
         private void ShowPastOrders()
         {
             panelPastOrders.Controls.Clear();
-            List<ucPastOrderItem> pastOrderItems = new List<ucPastOrderItem>();
+            List<ucPastOrderItem> pastOrderItems;
             pastOrderItems = LoggedUser.GetPastOrders();
             foreach (ucPastOrderItem item in pastOrderItems)
             {
@@ -131,58 +131,31 @@ namespace YemekPoşeti
 
         private void ShowFoodList()
         {
-            if (db.Connect())
+            List<ucFoodItem> tempFoodList = SelectedRestaurant.GetFoodList();
+            foreach (ucFoodItem ucFood in tempFoodList)
             {
-                int j = 0;
-                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", SelectedRestaurant.ID);
-                MySqlDataReader dr = db.GetQuery(query);
-                while (dr.Read())
+                ucFood.Click += new EventHandler(Food_Click);
+                foreach (Control c in ucFood.Controls)
                 {
-                    ucFood = SelectedRestaurant.GetFoodList(dr, j);
-                    ucFood.Click += new EventHandler(Food_Click);
-                    foreach (Control c in ucFood.Controls)
-                    {
-                        c.Click += new EventHandler(Food_Click);
-                    }
-                    panelFoodMenu.Controls.Add(ucFood);
-                    j++;
+                    c.Click += new EventHandler(Food_Click);
                 }
-                db.Close();
-            }
-            else
-            {
-                MessageBox.Show("Uzak sunucuya bağlanılamadı.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                panelFoodMenu.Controls.Add(ucFood);
             }
         }
 
         private void ShowOwnedRestFoodList()
         {
-            if (db.Connect())
+            List<ucRM_MenuItem> tempFoodList = ownedRestaurant.GetOwnedRestFoodList();
+            foreach (ucRM_MenuItem ucFood in tempFoodList)
             {
-                int j = 0;
-                string query = string.Format("SELECT * FROM Foods WHERE RestaurantID = '{0}'", ownedRestaurant.ID);
-                MySqlDataReader dr = db.GetQuery(query);
-                while (dr.Read())
+                ucFood.Click += new EventHandler(Food_Click);
+                foreach (Control c in ucFood.Controls)
                 {
-                    ucFood = ownedRestaurant.GetFoodList(dr, j);
-                    ucFood.Click += new EventHandler(Food_Click);
-                    foreach (Control c in ucFood.Controls)
-                    {
-                        c.Click += new EventHandler(Food_Click);
-                    }
-                    panelRMFoodMenu.Controls.Add(ucFood);
-                    j++;
+                    c.Click += new EventHandler(Food_Click);
                 }
-                db.Close();
-            }
-            else
-            {
-                MessageBox.Show("Uzak sunucuya bağlanılamadı.", "Hata!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                panelRMFoodMenu.Controls.Add(ucFood);
+            }   
         }
-    
-
-
         private void AddRestaurantsToList()
 		{
             lblRestList.Text = "Restoran Listesi" + " (" + LoggedUser.Location + ")";
@@ -258,9 +231,9 @@ namespace YemekPoşeti
         }
 
 
-        private void GetOwnedRestaurantInfo()
+        public void GetOwnedRestaurantInfo()
         {
-            ownedRestaurant = new Restaurant();
+            ownedRestaurant = new Restaurant(this);
             ownedRestaurant.GetProperties(LoggedUser.UserID);
             tboxRMRestName.Text = ownedRestaurant.Name;
             tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
@@ -319,9 +292,7 @@ namespace YemekPoşeti
                 MessageBox.Show("Yemeğiniz menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
                 MessageBox.Show("Yemeğiniz menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
         private void tbox_Enter(object sender, EventArgs e)
@@ -329,6 +300,18 @@ namespace YemekPoşeti
             //MetroFramework.Controls.MetroTextBox tbox = (MetroFramework.Controls.MetroTextBox)sender;
             //tbox.Clear();
             
+        }
+
+        private void ShowEditFoodPanel()
+        {
+
+
+
+        }
+
+        private void btnRMRefresh_Click(object sender, EventArgs e)
+        {
+            GetOwnedRestaurantInfo();
         }
     }
 	

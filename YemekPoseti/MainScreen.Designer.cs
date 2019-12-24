@@ -67,6 +67,7 @@
             this.lblOrderRestName = new System.Windows.Forms.Label();
             this.panelFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.TabPageRestManagement = new MetroFramework.Controls.MetroTabPage();
+            this.btnRMRefresh = new MetroFramework.Controls.MetroButton();
             this.panelRMAddFood = new MetroFramework.Controls.MetroPanel();
             this.btnRMAddFood = new MetroFramework.Controls.MetroButton();
             this.tboxRMFoodName = new MetroFramework.Controls.MetroTextBox();
@@ -350,6 +351,8 @@
             // 
             // lblCompleteOrderDesc
             // 
+            this.lblCompleteOrderDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompleteOrderDesc.AutoSize = true;
             this.lblCompleteOrderDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblCompleteOrderDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
@@ -362,6 +365,8 @@
             // 
             // lblCompleteOrder
             // 
+            this.lblCompleteOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCompleteOrder.AutoSize = true;
             this.lblCompleteOrder.BackColor = System.Drawing.Color.Transparent;
             this.lblCompleteOrder.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
@@ -399,7 +404,7 @@
             // 
             // lblMinPriceWarn
             // 
-            this.lblMinPriceWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblMinPriceWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMinPriceWarn.BackColor = System.Drawing.Color.Transparent;
             this.lblMinPriceWarn.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblMinPriceWarn.ForeColor = System.Drawing.Color.DarkViolet;
@@ -413,6 +418,8 @@
             // 
             // tboxAdress
             // 
+            this.tboxAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
@@ -448,6 +455,8 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
@@ -460,7 +469,8 @@
             // 
             // lboxUrunler
             // 
-            this.lboxUrunler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lboxUrunler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lboxUrunler.FormattingEnabled = true;
             this.lboxUrunler.ItemHeight = 16;
             this.lboxUrunler.Location = new System.Drawing.Point(0, 0);
@@ -470,7 +480,7 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOrder.BackColor = System.Drawing.Color.Thistle;
             this.btnOrder.Enabled = false;
             this.btnOrder.FontSize = MetroFramework.MetroButtonSize.Tall;
@@ -488,8 +498,7 @@
             // 
             // lblMin
             // 
-            this.lblMin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMin.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMin.AutoSize = true;
             this.lblMin.BackColor = System.Drawing.Color.Transparent;
             this.lblMin.ForeColor = System.Drawing.Color.Red;
@@ -502,7 +511,7 @@
             // 
             // lblDiscount
             // 
-            this.lblDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDiscount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblDiscount.AutoSize = true;
             this.lblDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
@@ -516,7 +525,7 @@
             // 
             // lblFinalSumPrice
             // 
-            this.lblFinalSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFinalSumPrice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblFinalSumPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblFinalSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFinalSumPrice.ForeColor = System.Drawing.Color.DarkOrange;
@@ -530,7 +539,7 @@
             // 
             // lblFinalPrice
             // 
-            this.lblFinalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblFinalPrice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblFinalPrice.AutoSize = true;
             this.lblFinalPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblFinalPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
@@ -544,7 +553,7 @@
             // 
             // lblSumDiscount
             // 
-            this.lblSumDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSumDiscount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSumDiscount.BackColor = System.Drawing.Color.Transparent;
             this.lblSumDiscount.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblSumDiscount.ForeColor = System.Drawing.Color.DarkGray;
@@ -558,7 +567,7 @@
             // 
             // lblSumPrice
             // 
-            this.lblSumPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSumPrice.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSumPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblSumPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblSumPrice.ForeColor = System.Drawing.Color.DarkGray;
@@ -572,7 +581,7 @@
             // 
             // lblSum
             // 
-            this.lblSum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSum.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSum.AutoSize = true;
             this.lblSum.BackColor = System.Drawing.Color.Transparent;
             this.lblSum.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
@@ -586,6 +595,7 @@
             // 
             // lblBasketDesc
             // 
+            this.lblBasketDesc.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBasketDesc.AutoSize = true;
             this.lblBasketDesc.BackColor = System.Drawing.Color.Transparent;
             this.lblBasketDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
@@ -598,6 +608,7 @@
             // 
             // lblBasket
             // 
+            this.lblBasket.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBasket.AutoSize = true;
             this.lblBasket.BackColor = System.Drawing.Color.Transparent;
             this.lblBasket.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
@@ -610,8 +621,7 @@
             // 
             // panelBasket
             // 
-            this.panelBasket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelBasket.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panelBasket.AutoScroll = true;
             this.panelBasket.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelBasket.HorizontalScrollbar = true;
@@ -674,6 +684,7 @@
             // 
             // TabPageRestManagement
             // 
+            this.TabPageRestManagement.Controls.Add(this.btnRMRefresh);
             this.TabPageRestManagement.Controls.Add(this.panelRMAddFood);
             this.TabPageRestManagement.Controls.Add(this.lblRMAddFoodDesc);
             this.TabPageRestManagement.Controls.Add(this.lblRMAddFood);
@@ -695,10 +706,19 @@
             this.TabPageRestManagement.VerticalScrollbarHighlightOnWheel = false;
             this.TabPageRestManagement.VerticalScrollbarSize = 10;
             // 
+            // btnRMRefresh
+            // 
+            this.btnRMRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnRMRefresh.Location = new System.Drawing.Point(1241, 38);
+            this.btnRMRefresh.Name = "btnRMRefresh";
+            this.btnRMRefresh.Size = new System.Drawing.Size(98, 23);
+            this.btnRMRefresh.TabIndex = 18;
+            this.btnRMRefresh.Text = "Yenile";
+            this.btnRMRefresh.UseSelectable = true;
+            this.btnRMRefresh.Click += new System.EventHandler(this.btnRMRefresh_Click);
+            // 
             // panelRMAddFood
             // 
-            this.panelRMAddFood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelRMAddFood.AutoScroll = true;
             this.panelRMAddFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRMAddFood.Controls.Add(this.btnRMAddFood);
@@ -882,8 +902,6 @@
             // 
             // panelRMRestSettings
             // 
-            this.panelRMRestSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelRMRestSettings.AutoScroll = true;
             this.panelRMRestSettings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRMRestSettings.Controls.Add(this.cboxRMCity);
@@ -1055,8 +1073,7 @@
             // 
             // panelRMFoodMenu
             // 
-            this.panelRMFoodMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelRMFoodMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelRMFoodMenu.AutoScroll = true;
             this.panelRMFoodMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRMFoodMenu.HorizontalScrollbar = true;
@@ -1066,7 +1083,7 @@
             this.panelRMFoodMenu.Location = new System.Drawing.Point(778, 63);
             this.panelRMFoodMenu.Margin = new System.Windows.Forms.Padding(4);
             this.panelRMFoodMenu.Name = "panelRMFoodMenu";
-            this.panelRMFoodMenu.Size = new System.Drawing.Size(815, 663);
+            this.panelRMFoodMenu.Size = new System.Drawing.Size(561, 663);
             this.panelRMFoodMenu.TabIndex = 6;
             this.panelRMFoodMenu.VerticalScrollbar = true;
             this.panelRMFoodMenu.VerticalScrollbarBarColor = false;
@@ -1075,6 +1092,7 @@
             // 
             // lblRMEditMenu
             // 
+            this.lblRMEditMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblRMEditMenu.AutoSize = true;
             this.lblRMEditMenu.BackColor = System.Drawing.Color.Transparent;
             this.lblRMEditMenu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
@@ -1087,6 +1105,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
@@ -1211,6 +1230,7 @@
         private System.Windows.Forms.Label lblRMEditMenu;
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroComboBox cboxRMCity;
+        private MetroFramework.Controls.MetroButton btnRMRefresh;
     }
 }
 

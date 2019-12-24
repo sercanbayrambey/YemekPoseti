@@ -63,6 +63,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ucRM_MenuItem.resx">
+      <DependentUpon>ucRM_MenuItem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DB.cs.example" />
     <Compile Include="DB.cs" />
     <Compile Include="LoginScreen.cs">
@@ -111,6 +114,12 @@
     </Compile>
     <Compile Include="ucFoodItem.Designer.cs">
       <DependentUpon>ucFoodItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRM_MenuItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRM_MenuItem.Designer.cs">
+      <DependentUpon>ucRM_MenuItem.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="LoginScreen.resx">
