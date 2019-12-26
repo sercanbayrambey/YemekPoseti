@@ -158,7 +158,7 @@ namespace YemekPoşeti
             }   
         }
 
-        private void ShowOwnedRestOrders()
+        public void ShowOwnedRestOrders()
         {
             PanelRMOrders.Controls.Clear();
             List<ucRMOrders> restOrders;

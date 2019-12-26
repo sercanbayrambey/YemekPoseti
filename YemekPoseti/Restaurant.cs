@@ -259,8 +259,8 @@ namespace YemekPoşeti
             db = new DB();
             db.Connect();
             string query = String.Format("UPDATE Orders SET StatusID = {0} WHERE OrderID = {1}",state,orderID);
-            if (db.SetQuery(query) > 0)
-                ms.GetOwnedRestaurantInfo();
+			if (db.SetQuery(query) > 0)
+				ms.ShowOwnedRestOrders();
 
         }
 
