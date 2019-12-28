@@ -41,7 +41,7 @@
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(410, 62);
+            this.lblFoodPrice.Location = new System.Drawing.Point(410, 110);
             this.lblFoodPrice.Name = "lblFoodPrice";
             this.lblFoodPrice.Size = new System.Drawing.Size(115, 26);
             this.lblFoodPrice.TabIndex = 5;
@@ -55,9 +55,10 @@
             this.lblFoodDesc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblFoodDesc.Location = new System.Drawing.Point(30, 40);
             this.lblFoodDesc.Name = "lblFoodDesc";
-            this.lblFoodDesc.Size = new System.Drawing.Size(374, 59);
+            this.lblFoodDesc.Size = new System.Drawing.Size(419, 70);
             this.lblFoodDesc.TabIndex = 4;
-            this.lblFoodDesc.Text = "Yemek açıklaması...";
+            this.lblFoodDesc.Text = "EgyZbsykRsdleqpwFsNEwBdytisenpfuvftYxtioLNzrFqOkIBqGdWfwexcrohnJOHHlarcoGBhmuVYcZ" +
+    "RJENqCRNEKEnYnDhxOJqQzXUHLoeJSFAdjntnGJtTniRcLA";
             // 
             // lblFoodName
             // 

@@ -79,7 +79,7 @@
             this.tboxRMFoodName.CustomButton.Visible = false;
             this.tboxRMFoodName.Lines = new string[0];
             this.tboxRMFoodName.Location = new System.Drawing.Point(26, 90);
-            this.tboxRMFoodName.MaxLength = 32767;
+            this.tboxRMFoodName.MaxLength = 64;
             this.tboxRMFoodName.Name = "tboxRMFoodName";
             this.tboxRMFoodName.PasswordChar = '\0';
             this.tboxRMFoodName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -109,7 +109,7 @@
             this.tboxRMFoodDesc.CustomButton.Visible = false;
             this.tboxRMFoodDesc.Lines = new string[0];
             this.tboxRMFoodDesc.Location = new System.Drawing.Point(26, 151);
-            this.tboxRMFoodDesc.MaxLength = 32767;
+            this.tboxRMFoodDesc.MaxLength = 128;
             this.tboxRMFoodDesc.Multiline = true;
             this.tboxRMFoodDesc.Name = "tboxRMFoodDesc";
             this.tboxRMFoodDesc.PasswordChar = '\0';

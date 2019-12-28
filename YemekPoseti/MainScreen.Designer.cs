@@ -119,7 +119,7 @@
             this.TabMain.Location = new System.Drawing.Point(27, 74);
             this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 1;
+            this.TabMain.SelectedIndex = 3;
             this.TabMain.Size = new System.Drawing.Size(1866, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
@@ -848,7 +848,7 @@
             this.tboxRMFoodName.CustomButton.Visible = false;
             this.tboxRMFoodName.Lines = new string[0];
             this.tboxRMFoodName.Location = new System.Drawing.Point(173, 5);
-            this.tboxRMFoodName.MaxLength = 32767;
+            this.tboxRMFoodName.MaxLength = 64;
             this.tboxRMFoodName.Name = "tboxRMFoodName";
             this.tboxRMFoodName.PasswordChar = '\0';
             this.tboxRMFoodName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -878,7 +878,7 @@
             this.tboxRMFoodDesc.CustomButton.Visible = false;
             this.tboxRMFoodDesc.Lines = new string[0];
             this.tboxRMFoodDesc.Location = new System.Drawing.Point(173, 34);
-            this.tboxRMFoodDesc.MaxLength = 32767;
+            this.tboxRMFoodDesc.MaxLength = 128;
             this.tboxRMFoodDesc.Multiline = true;
             this.tboxRMFoodDesc.Name = "tboxRMFoodDesc";
             this.tboxRMFoodDesc.PasswordChar = '\0';
@@ -1033,7 +1033,7 @@
             this.tboxRMRestName.Lines = new string[] {
         "Restoran adı..."};
             this.tboxRMRestName.Location = new System.Drawing.Point(173, 5);
-            this.tboxRMRestName.MaxLength = 32767;
+            this.tboxRMRestName.MaxLength = 64;
             this.tboxRMRestName.Name = "tboxRMRestName";
             this.tboxRMRestName.PasswordChar = '\0';
             this.tboxRMRestName.ScrollBars = System.Windows.Forms.ScrollBars.None;

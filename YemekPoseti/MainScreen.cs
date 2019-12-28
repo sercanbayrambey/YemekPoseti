@@ -32,11 +32,11 @@ namespace YemekPoşeti
             this.Bounds = Screen.PrimaryScreen.WorkingArea;
             this.BringToFront();
             TabMain.TabPages.Remove(TabPageOrder);
+            TabMain.SelectedIndex = 0;
             LoadProfileData();
             this.Text = "HOŞGELDİN, " + LoggedUser.UserName.ToUpper() + "!";
             AddRestaurantsToList();
             ShowPastOrders();
-            TabMain.SelectedIndex = 0;
         }
 
         private void LoadProfileData()
@@ -46,7 +46,10 @@ namespace YemekPoşeti
             lblDate.Text = LoggedUser.RegisterDate.ToShortDateString();
             TabMain.TabPages.Remove(TabPageRestManagement);
             if (LoggedUser.IsUserRestaurantOwner())
+            {
                 TabMain.TabPages.Add(TabPageRestManagement);
+                TabMain.SelectTab(TabPageRestManagement);
+            }
 
         }
 
