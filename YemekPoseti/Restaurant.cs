@@ -97,19 +97,20 @@ namespace YemekPoşeti
                 this.LocationID = Convert.ToInt32(dr["LocationID"]);
                 this.Rating = Convert.ToSingle(dr["RestaurantRating"]);
                 this.MinOrderPrice = Convert.ToSingle(dr["MinOrderPrice"]);
+                this.Description = dr["RestaurantDesc"].ToString();
             }
             db.Close();
         }
-        public bool SaveProperties(string name, string minOrderPrice, int locationID)
+        public bool SaveProperties(string name, string desc,string minOrderPrice, int locationID)
         {
             db = new DB();
             db.Connect();
             this.Name = name;
             this.MinOrderPrice = Convert.ToSingle(minOrderPrice);
             this.LocationID = locationID;
-
+            this.Description = desc;
             string query = String.Format("UPDATE Restaurants SET RestaurantName = '{0}', LocationID = {1}," +
-                " MinOrderPrice = '{2}' WHERE RestaurantID = {3} ", this.Name, this.LocationID, minOrderPrice, this.ID);
+                " MinOrderPrice = '{2}', RestaurantDesc = '{3}' WHERE RestaurantID = {4} ", this.Name, this.LocationID, minOrderPrice, this.Description,this.ID);
 
             if(db.SetQuery(query)>0)
             {

@@ -85,9 +85,11 @@
             this.tboxRMMinOrderPrice = new System.Windows.Forms.NumericUpDown();
             this.cboxRMCity = new MetroFramework.Controls.MetroComboBox();
             this.btnRMSaveRestInfo = new MetroFramework.Controls.MetroButton();
+            this.tboxRMRestDesc = new MetroFramework.Controls.MetroTextBox();
             this.tboxRMRestName = new MetroFramework.Controls.MetroTextBox();
             this.lblRMRestName = new System.Windows.Forms.Label();
             this.lblRMCity = new System.Windows.Forms.Label();
+            this.lblRMRestDesc = new System.Windows.Forms.Label();
             this.lblRMMinOrderPrice = new System.Windows.Forms.Label();
             this.lblRMRestSettingsDesc = new System.Windows.Forms.Label();
             this.lblRMRestSettings = new System.Windows.Forms.Label();
@@ -957,9 +959,11 @@
             this.panelRMRestSettings.Controls.Add(this.tboxRMMinOrderPrice);
             this.panelRMRestSettings.Controls.Add(this.cboxRMCity);
             this.panelRMRestSettings.Controls.Add(this.btnRMSaveRestInfo);
+            this.panelRMRestSettings.Controls.Add(this.tboxRMRestDesc);
             this.panelRMRestSettings.Controls.Add(this.tboxRMRestName);
             this.panelRMRestSettings.Controls.Add(this.lblRMRestName);
             this.panelRMRestSettings.Controls.Add(this.lblRMCity);
+            this.panelRMRestSettings.Controls.Add(this.lblRMRestDesc);
             this.panelRMRestSettings.Controls.Add(this.lblRMMinOrderPrice);
             this.panelRMRestSettings.HorizontalScrollbar = true;
             this.panelRMRestSettings.HorizontalScrollbarBarColor = false;
@@ -983,7 +987,7 @@
             0,
             0,
             65536});
-            this.tboxRMMinOrderPrice.Location = new System.Drawing.Point(173, 39);
+            this.tboxRMMinOrderPrice.Location = new System.Drawing.Point(173, 92);
             this.tboxRMMinOrderPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -999,7 +1003,7 @@
             this.cboxRMCity.FontSize = MetroFramework.MetroComboBoxSize.Small;
             this.cboxRMCity.FormattingEnabled = true;
             this.cboxRMCity.ItemHeight = 21;
-            this.cboxRMCity.Location = new System.Drawing.Point(173, 64);
+            this.cboxRMCity.Location = new System.Drawing.Point(173, 120);
             this.cboxRMCity.Margin = new System.Windows.Forms.Padding(4);
             this.cboxRMCity.Name = "cboxRMCity";
             this.cboxRMCity.Size = new System.Drawing.Size(188, 27);
@@ -1008,13 +1012,44 @@
             // 
             // btnRMSaveRestInfo
             // 
-            this.btnRMSaveRestInfo.Location = new System.Drawing.Point(173, 104);
+            this.btnRMSaveRestInfo.Location = new System.Drawing.Point(173, 160);
             this.btnRMSaveRestInfo.Name = "btnRMSaveRestInfo";
             this.btnRMSaveRestInfo.Size = new System.Drawing.Size(188, 40);
             this.btnRMSaveRestInfo.TabIndex = 3;
             this.btnRMSaveRestInfo.Text = "Değişiklikleri Kaydet";
             this.btnRMSaveRestInfo.UseSelectable = true;
             this.btnRMSaveRestInfo.Click += new System.EventHandler(this.btnRMSaveRestInfo_Click);
+            // 
+            // tboxRMRestDesc
+            // 
+            // 
+            // 
+            // 
+            this.tboxRMRestDesc.CustomButton.Image = null;
+            this.tboxRMRestDesc.CustomButton.Location = new System.Drawing.Point(138, 2);
+            this.tboxRMRestDesc.CustomButton.Name = "";
+            this.tboxRMRestDesc.CustomButton.Size = new System.Drawing.Size(47, 47);
+            this.tboxRMRestDesc.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tboxRMRestDesc.CustomButton.TabIndex = 1;
+            this.tboxRMRestDesc.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.tboxRMRestDesc.CustomButton.UseSelectable = true;
+            this.tboxRMRestDesc.CustomButton.Visible = false;
+            this.tboxRMRestDesc.Lines = new string[0];
+            this.tboxRMRestDesc.Location = new System.Drawing.Point(173, 34);
+            this.tboxRMRestDesc.MaxLength = 64;
+            this.tboxRMRestDesc.Multiline = true;
+            this.tboxRMRestDesc.Name = "tboxRMRestDesc";
+            this.tboxRMRestDesc.PasswordChar = '\0';
+            this.tboxRMRestDesc.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tboxRMRestDesc.SelectedText = "";
+            this.tboxRMRestDesc.SelectionLength = 0;
+            this.tboxRMRestDesc.SelectionStart = 0;
+            this.tboxRMRestDesc.ShortcutsEnabled = true;
+            this.tboxRMRestDesc.Size = new System.Drawing.Size(188, 52);
+            this.tboxRMRestDesc.TabIndex = 1;
+            this.tboxRMRestDesc.UseSelectable = true;
+            this.tboxRMRestDesc.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.tboxRMRestDesc.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // tboxRMRestName
             // 
@@ -1065,19 +1100,30 @@
             this.lblRMCity.AutoSize = true;
             this.lblRMCity.BackColor = System.Drawing.Color.White;
             this.lblRMCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRMCity.Location = new System.Drawing.Point(81, 68);
+            this.lblRMCity.Location = new System.Drawing.Point(81, 129);
             this.lblRMCity.Name = "lblRMCity";
             this.lblRMCity.Size = new System.Drawing.Size(74, 18);
             this.lblRMCity.TabIndex = 1;
             this.lblRMCity.Text = "Şehriniz:";
             this.lblRMCity.Click += new System.EventHandler(this.lblRMName_Click);
             // 
+            // lblRMRestDesc
+            // 
+            this.lblRMRestDesc.AutoSize = true;
+            this.lblRMRestDesc.BackColor = System.Drawing.Color.White;
+            this.lblRMRestDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRMRestDesc.Location = new System.Drawing.Point(6, 48);
+            this.lblRMRestDesc.Name = "lblRMRestDesc";
+            this.lblRMRestDesc.Size = new System.Drawing.Size(168, 18);
+            this.lblRMRestDesc.TabIndex = 1;
+            this.lblRMRestDesc.Text = "Restoran Açıklaması:";
+            // 
             // lblRMMinOrderPrice
             // 
             this.lblRMMinOrderPrice.AutoSize = true;
             this.lblRMMinOrderPrice.BackColor = System.Drawing.Color.White;
             this.lblRMMinOrderPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.lblRMMinOrderPrice.Location = new System.Drawing.Point(6, 39);
+            this.lblRMMinOrderPrice.Location = new System.Drawing.Point(6, 92);
             this.lblRMMinOrderPrice.Name = "lblRMMinOrderPrice";
             this.lblRMMinOrderPrice.Size = new System.Drawing.Size(150, 18);
             this.lblRMMinOrderPrice.TabIndex = 1;
@@ -1255,10 +1301,8 @@
         private MetroFramework.Controls.MetroPanel panelRMAddFood;
         private MetroFramework.Controls.MetroButton btnRMAddFood;
         private MetroFramework.Controls.MetroTextBox tboxRMFoodName;
-        private MetroFramework.Controls.MetroTextBox tboxRMFoodDesc;
         private System.Windows.Forms.Label lblRMFoodName;
         private System.Windows.Forms.Label lblRMFoodPrice;
-        private System.Windows.Forms.Label lblRMFoodDesc;
         private System.Windows.Forms.Label lblRMAddFoodDesc;
         private System.Windows.Forms.Label lblRMAddFood;
         private MetroFramework.Controls.MetroPanel panelRMRestSettings;
@@ -1273,6 +1317,10 @@
         private MetroFramework.Controls.MetroPanel PanelRMOrders;
         private System.Windows.Forms.Label lblRMShowOrdersDesc;
         private System.Windows.Forms.Label lblRMShowOrders;
+        private MetroFramework.Controls.MetroTextBox tboxRMFoodDesc;
+        private System.Windows.Forms.Label lblRMFoodDesc;
+        private MetroFramework.Controls.MetroTextBox tboxRMRestDesc;
+        private System.Windows.Forms.Label lblRMRestDesc;
     }
 }
 

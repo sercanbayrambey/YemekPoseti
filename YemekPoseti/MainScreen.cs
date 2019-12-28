@@ -252,6 +252,7 @@ namespace YemekPoşeti
             ownedRestaurant.GetProperties(LoggedUser.UserID);
             tboxRMRestName.Text = ownedRestaurant.Name;
             tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
+            tboxRMRestDesc.Text = ownedRestaurant.Description;
             cboxRMCity.DataSource = db.GetCities();
             cboxRMCity.SelectedItem = LoggedUser.Location.ToUpper();
             ShowOwnedRestFoodList();
@@ -289,7 +290,7 @@ namespace YemekPoşeti
 
         private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
         {
-            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text.Replace('\'',' '),tboxRMRestDesc.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
             {
                MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
