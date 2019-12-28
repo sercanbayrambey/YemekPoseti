@@ -172,7 +172,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "EditFoodScreen";
-            this.ShowInTaskbar = false;
             this.Style = MetroFramework.MetroColorStyle.Purple;
             this.Text = "Ürün Düzenle";
             ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).EndInit();

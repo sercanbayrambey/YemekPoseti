@@ -39,5 +39,10 @@ namespace YemekPoşeti
 		{
             ms.CurrentOrder.Basket.RemoveFood(this);
 		}
-	}
+
+        private void lblFoodDesc_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

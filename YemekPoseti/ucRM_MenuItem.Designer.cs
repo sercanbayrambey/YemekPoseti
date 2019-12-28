@@ -50,13 +50,12 @@
             // 
             // lblFoodDesc
             // 
-            this.lblFoodDesc.AutoSize = true;
             this.lblFoodDesc.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblFoodDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic);
             this.lblFoodDesc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblFoodDesc.Location = new System.Drawing.Point(30, 40);
             this.lblFoodDesc.Name = "lblFoodDesc";
-            this.lblFoodDesc.Size = new System.Drawing.Size(155, 20);
+            this.lblFoodDesc.Size = new System.Drawing.Size(374, 59);
             this.lblFoodDesc.TabIndex = 4;
             this.lblFoodDesc.Text = "Yemek açıklaması...";
             // 

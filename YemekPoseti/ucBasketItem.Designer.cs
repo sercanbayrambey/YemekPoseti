@@ -49,15 +49,15 @@
             // 
             // lblFoodDesc
             // 
-            this.lblFoodDesc.AutoSize = true;
             this.lblFoodDesc.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic);
             this.lblFoodDesc.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblFoodDesc.Location = new System.Drawing.Point(25, 39);
             this.lblFoodDesc.Name = "lblFoodDesc";
-            this.lblFoodDesc.Size = new System.Drawing.Size(155, 20);
+            this.lblFoodDesc.Size = new System.Drawing.Size(384, 66);
             this.lblFoodDesc.TabIndex = 4;
             this.lblFoodDesc.Text = "Yemek açıklaması...";
+            this.lblFoodDesc.Click += new System.EventHandler(this.lblFoodDesc_Click);
             // 
             // lblFoodName
             // 
@@ -95,7 +95,7 @@
             this.Controls.Add(this.lblFoodName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucBasketItem";
-            this.Size = new System.Drawing.Size(553, 75);
+            this.Size = new System.Drawing.Size(553, 112);
             this.ResumeLayout(false);
             this.PerformLayout();
 
