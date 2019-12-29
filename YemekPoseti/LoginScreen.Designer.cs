@@ -172,6 +172,7 @@
             this.lblForgetPass.Size = new System.Drawing.Size(127, 20);
             this.lblForgetPass.TabIndex = 6;
             this.lblForgetPass.Text = "Şifremi unuttum";
+            this.lblForgetPass.Visible = false;
             // 
             // lblErrorMsg
             // 
