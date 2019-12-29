@@ -198,7 +198,7 @@ namespace YemekPoşeti
 
         private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
         {
-            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text.Replace('\'',' '),tboxRMRestDesc.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text.Replace('\'',' '),tboxRMRestDesc.Text.Replace('\'', ' '), tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
             {
                MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
