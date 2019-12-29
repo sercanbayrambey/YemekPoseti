@@ -18,6 +18,7 @@ namespace YemekPoşeti
 		public string Location { get; private set; }
 		public int UserType { get; private set; }
 		public DateTime RegisterDate { get; private set; }
+        public Order CurrentOrder { get; set; }
         private readonly DB db;
 
         public int LocationID { get; private set; }

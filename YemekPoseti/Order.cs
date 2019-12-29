@@ -15,7 +15,7 @@ namespace YemekPoşeti
         public User LoggedUser { get; private set; }
         public Restaurant SelectedRestaurant { get; private set; }
         private readonly DB db;
-        private MainScreen ms;
+        private readonly MainScreen ms;
         public float SumBasketPrice { get; set; }
         public float DiscountPrice { get; set; }
         public float FinalPrice { get; set; }
@@ -23,12 +23,12 @@ namespace YemekPoşeti
         public string Adress { get;  set; }
 
 
-        private float DiscountPercantage = 5;
+        private readonly float DiscountPercantage = 5;
         private int currentOrderID;
         private int uniqueKey;
         public Order(User loggedUser,Restaurant restaurant, MainScreen ms)
         {
-            this.Basket = new Basket();
+            this.Basket = new Basket(ms);
             this.LoggedUser = loggedUser;
             this.SelectedRestaurant = restaurant;
             this.ms = ms;
@@ -92,7 +92,6 @@ namespace YemekPoşeti
             string query = String.Format("INSERT INTO Orders(UserID, RestaurantID, OrderDate, StatusID, UniqueKey, Adress,FinalPrice) VALUES('{0}', '{1}', '{2}','{3}','{4}','{5}','{6}')", LoggedUser.UserID, SelectedRestaurant.ID, DateTime.Now.ToString("yyyy-MM-dd H:mm:ss"), 1, this.uniqueKey, this.Adress, this.FinalPrice.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)); 
             if (db.Connect())
             {
-        
                 if (db.SetQuery(query) > 0)
                 {
                     db.Close();

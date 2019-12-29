@@ -107,6 +107,6 @@
 		public System.Windows.Forms.Label lblFoodPrice;
 		public System.Windows.Forms.Label lblFoodDesc;
 		public System.Windows.Forms.Label lblFoodName;
-		private System.Windows.Forms.Label lblDeleteFood;
-	}
+        public System.Windows.Forms.Label lblDeleteFood;
+    }
 }

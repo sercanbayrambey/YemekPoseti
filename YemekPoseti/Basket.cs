@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +12,12 @@ namespace YemekPoşeti
 	{
 		public List<ucBasketItem> FoodsInBasket = new List<ucBasketItem>();
 		public List<int> foodIDListInBasket = new List<int>();
-        private MainScreen ms;
-        public ucBasketItem AddFood(ucFoodItem ucFoodItem, MainScreen ms)
+        private readonly MainScreen ms;
+        public Basket(MainScreen ms)
+        {
+            this.ms = ms;
+        }
+        public ucBasketItem AddFood(ucFoodItem ucFoodItem)
         {
             int id = CheckID(ucFoodItem.FoodID);
             if (id == -1)
@@ -24,13 +29,12 @@ namespace YemekPoşeti
                 basketItem.Price = ucFoodItem.Price;
                 basketItem.FoodName = ucFoodItem.lblFoodName.Text;
                 basketItem.FoodDesc = ucFoodItem.lblFoodDesc.Text;
-                basketItem.ms = ms;
-                basketItem.UpdateBasketItem();
-                this.ms = ms;
+                basketItem.ms = this.ms;
+                this.UpdateBasketItem(basketItem);
                 this.FoodsInBasket.Add(basketItem);
-                ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
-                ms.CurrentOrder.GetSumBasketPrice();
-                ms.CurrentOrder.CheckRestMinPriceStatus();
+                this.ms.CurrentOrder.PrintFoods(this.ms.lboxUrunler);
+                this.ms.CurrentOrder.GetSumBasketPrice();
+                this.ms.CurrentOrder.CheckRestMinPriceStatus();
                 return basketItem;
             }
             else
@@ -42,18 +46,16 @@ namespace YemekPoşeti
                         if (((ucBasketItem)c).FoodID == id)
                         {
                             ((ucBasketItem)c).QTY++;
-                            ((ucBasketItem)c).UpdateBasketItem();
+                            this.UpdateBasketItem(((ucBasketItem)c));
                         }
 
                     }
                 }
-
             }
             ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
             ms.CurrentOrder.GetSumBasketPrice();
             ms.CurrentOrder.CheckRestMinPriceStatus();
             return null;
-
         }
 
         private int CheckID(int id)
@@ -73,7 +75,7 @@ namespace YemekPoşeti
         public void RemoveFood(ucBasketItem basketItem)
         {
             basketItem.QTY--;
-            basketItem.UpdateBasketItem();
+            this.UpdateBasketItem(basketItem);
             if (basketItem.QTY == 0)
             {
                 this.foodIDListInBasket.Remove(basketItem.FoodID);
@@ -85,6 +87,17 @@ namespace YemekPoşeti
             ms.lblSumPrice.Text = ms.CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
             ms.lblSumDiscount.Text = ms.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
             ms.lblFinalSumPrice.Text = (ms.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+        }
+
+
+        public void UpdateBasketItem(ucBasketItem basketItem)
+        {
+            basketItem.SumPrice = basketItem.Price * basketItem.QTY;
+            basketItem.lblFoodPrice.Text = basketItem.SumPrice.ToString("0.00") + " TL";
+            basketItem.lblFoodName.Text = basketItem.FoodName + " x" + basketItem.QTY;
+            basketItem.lblDeleteFood.Location = new Point(basketItem.lblFoodName.Location.X + 5 + basketItem.lblFoodName.Width, basketItem.lblDeleteFood.Location.Y);
+            basketItem.lblFoodDesc.Text = basketItem.FoodDesc;
+            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
         }
 
     }

@@ -35,7 +35,7 @@
             this.panelPastOrders = new MetroFramework.Controls.MetroPanel();
             this.lblUserOrdersDesc = new System.Windows.Forms.Label();
             this.lblUserOrders = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMainDesc = new System.Windows.Forms.Label();
             this.lblRestList = new System.Windows.Forms.Label();
             this.panelRestourant = new MetroFramework.Controls.MetroPanel();
             this.TabPageProfile = new MetroFramework.Controls.MetroTabPage();
@@ -50,7 +50,7 @@
             this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
             this.lblMinPriceWarn = new System.Windows.Forms.Label();
             this.tboxAdress = new MetroFramework.Controls.MetroTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblOrderAdress = new System.Windows.Forms.Label();
             this.lboxUrunler = new System.Windows.Forms.ListBox();
             this.btnOrder = new MetroFramework.Controls.MetroButton();
             this.lblMin = new System.Windows.Forms.Label();
@@ -95,7 +95,7 @@
             this.lblRMRestSettings = new System.Windows.Forms.Label();
             this.panelRMFoodMenu = new MetroFramework.Controls.MetroPanel();
             this.lblRMEditMenu = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblEditMenu = new System.Windows.Forms.Label();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
@@ -135,7 +135,7 @@
             this.TabPageHome.Controls.Add(this.panelPastOrders);
             this.TabPageHome.Controls.Add(this.lblUserOrdersDesc);
             this.TabPageHome.Controls.Add(this.lblUserOrders);
-            this.TabPageHome.Controls.Add(this.label1);
+            this.TabPageHome.Controls.Add(this.lblMainDesc);
             this.TabPageHome.Controls.Add(this.lblRestList);
             this.TabPageHome.Controls.Add(this.panelRestourant);
             this.TabPageHome.HorizontalScrollbarBarColor = true;
@@ -205,16 +205,16 @@
             this.lblUserOrders.TabIndex = 5;
             this.lblUserOrders.Text = "Siparişlerim";
             // 
-            // label1
+            // lblMainDesc
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
-            this.label1.Location = new System.Drawing.Point(7, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(366, 21);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Sipariş vermek istediğiniz restoranı seçiniz...";
+            this.lblMainDesc.AutoSize = true;
+            this.lblMainDesc.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Italic);
+            this.lblMainDesc.Location = new System.Drawing.Point(7, 49);
+            this.lblMainDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMainDesc.Name = "lblMainDesc";
+            this.lblMainDesc.Size = new System.Drawing.Size(366, 21);
+            this.lblMainDesc.TabIndex = 4;
+            this.lblMainDesc.Text = "Sipariş vermek istediğiniz restoranı seçiniz...";
             // 
             // lblRestList
             // 
@@ -394,7 +394,7 @@
             this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCompleteOrder.Controls.Add(this.lblMinPriceWarn);
             this.panelCompleteOrder.Controls.Add(this.tboxAdress);
-            this.panelCompleteOrder.Controls.Add(this.label2);
+            this.panelCompleteOrder.Controls.Add(this.lblOrderAdress);
             this.panelCompleteOrder.Controls.Add(this.lboxUrunler);
             this.panelCompleteOrder.Controls.Add(this.btnOrder);
             this.panelCompleteOrder.HorizontalScrollbar = true;
@@ -461,18 +461,18 @@
             this.tboxAdress.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.tboxAdress.Enter += new System.EventHandler(this.tboxAdress_Enter);
             // 
-            // label2
+            // lblOrderAdress
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(-1, 210);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 23);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Sipariş Adresiniz:";
+            this.lblOrderAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOrderAdress.AutoSize = true;
+            this.lblOrderAdress.BackColor = System.Drawing.Color.Transparent;
+            this.lblOrderAdress.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblOrderAdress.Location = new System.Drawing.Point(-1, 210);
+            this.lblOrderAdress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOrderAdress.Name = "lblOrderAdress";
+            this.lblOrderAdress.Size = new System.Drawing.Size(170, 23);
+            this.lblOrderAdress.TabIndex = 19;
+            this.lblOrderAdress.Text = "Sipariş Adresiniz:";
             // 
             // lboxUrunler
             // 
@@ -655,7 +655,6 @@
             this.lblOrderTopDesc.Size = new System.Drawing.Size(185, 21);
             this.lblOrderTopDesc.TabIndex = 7;
             this.lblOrderTopDesc.Text = "Siparişlerinizi seçiniz...";
-            this.lblOrderTopDesc.Click += new System.EventHandler(this.lblOrderTopDesc_Click);
             // 
             // lblOrderRestName
             // 
@@ -668,7 +667,6 @@
             this.lblOrderRestName.Size = new System.Drawing.Size(159, 28);
             this.lblOrderRestName.TabIndex = 6;
             this.lblOrderRestName.Text = "Restoran Adı";
-            this.lblOrderRestName.Click += new System.EventHandler(this.lblOrderRestName_Click);
             // 
             // panelFoodMenu
             // 
@@ -689,7 +687,6 @@
             this.panelFoodMenu.VerticalScrollbarBarColor = false;
             this.panelFoodMenu.VerticalScrollbarHighlightOnWheel = false;
             this.panelFoodMenu.VerticalScrollbarSize = 13;
-            this.panelFoodMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelFoodMenu_Paint);
             // 
             // TabPageRestManagement
             // 
@@ -706,7 +703,7 @@
             this.TabPageRestManagement.Controls.Add(this.lblRMRestSettings);
             this.TabPageRestManagement.Controls.Add(this.panelRMFoodMenu);
             this.TabPageRestManagement.Controls.Add(this.lblRMEditMenu);
-            this.TabPageRestManagement.Controls.Add(this.label4);
+            this.TabPageRestManagement.Controls.Add(this.lblEditMenu);
             this.TabPageRestManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.TabPageRestManagement.ForeColor = System.Drawing.Color.Black;
             this.TabPageRestManagement.HorizontalScrollbarBarColor = true;
@@ -1093,7 +1090,6 @@
             this.lblRMRestName.Size = new System.Drawing.Size(149, 18);
             this.lblRMRestName.TabIndex = 1;
             this.lblRMRestName.Text = "Restoranınızın Adı:";
-            this.lblRMRestName.Click += new System.EventHandler(this.lblRMName_Click);
             // 
             // lblRMCity
             // 
@@ -1105,7 +1101,6 @@
             this.lblRMCity.Size = new System.Drawing.Size(74, 18);
             this.lblRMCity.TabIndex = 1;
             this.lblRMCity.Text = "Şehriniz:";
-            this.lblRMCity.Click += new System.EventHandler(this.lblRMName_Click);
             // 
             // lblRMRestDesc
             // 
@@ -1128,7 +1123,6 @@
             this.lblRMMinOrderPrice.Size = new System.Drawing.Size(150, 18);
             this.lblRMMinOrderPrice.TabIndex = 1;
             this.lblRMMinOrderPrice.Text = "Min. Sipariş Tutarı:";
-            this.lblRMMinOrderPrice.Click += new System.EventHandler(this.lblRMName_Click);
             // 
             // lblRMRestSettingsDesc
             // 
@@ -1186,18 +1180,18 @@
             this.lblRMEditMenu.TabIndex = 12;
             this.lblRMEditMenu.Text = "Buradan menünüzü düzenleyebilirsiniz...\r\n";
             // 
-            // label4
+            // lblEditMenu
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(395, 10);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(204, 28);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Menüyü Düzenle";
+            this.lblEditMenu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblEditMenu.AutoSize = true;
+            this.lblEditMenu.BackColor = System.Drawing.Color.Transparent;
+            this.lblEditMenu.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.lblEditMenu.Location = new System.Drawing.Point(395, 10);
+            this.lblEditMenu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEditMenu.Name = "lblEditMenu";
+            this.lblEditMenu.Size = new System.Drawing.Size(204, 28);
+            this.lblEditMenu.TabIndex = 11;
+            this.lblEditMenu.Text = "Menüyü Düzenle";
             // 
             // pboxLogo
             // 
@@ -1263,7 +1257,7 @@
 		private System.Windows.Forms.Label lblUsername;
 		private System.Windows.Forms.PictureBox pBoxProfilePic;
 		private MetroFramework.Controls.MetroPanel panelRestourant;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblMainDesc;
 		private System.Windows.Forms.Label lblRestList;
         private MetroFramework.Controls.MetroTabPage TabPageOrder;
         private System.Windows.Forms.Label lblOrderTopDesc;
@@ -1284,7 +1278,7 @@
         public MetroFramework.Controls.MetroPanel panelCompleteOrder;
         public System.Windows.Forms.ListBox lboxUrunler;
         private MetroFramework.Controls.MetroTextBox tboxAdress;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblOrderAdress;
         private System.Windows.Forms.Label lblUserOrdersDesc;
         private System.Windows.Forms.Label lblUserOrders;
         private MetroFramework.Controls.MetroPanel panelPastOrders;
@@ -1309,7 +1303,7 @@
         private System.Windows.Forms.Label lblRMRestSettingsDesc;
         private System.Windows.Forms.Label lblRMRestSettings;
         private System.Windows.Forms.Label lblRMEditMenu;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblEditMenu;
         private MetroFramework.Controls.MetroComboBox cboxRMCity;
         private MetroFramework.Controls.MetroButton btnRMRefresh;
         private System.Windows.Forms.NumericUpDown tboxRMFoodPrice;

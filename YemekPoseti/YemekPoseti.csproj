@@ -73,6 +73,9 @@
       <DependentUpon>ucRM_MenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DB.cs.example" />
+    <Compile Include="Cash.cs" />
+    <Compile Include="Check.cs" />
+    <Compile Include="Credit.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="EditFoodScreen.cs">
       <SubType>Form</SubType>
@@ -88,6 +91,7 @@
     </Compile>
     <Compile Include="Basket.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="RegisterScreen.cs">
       <SubType>Form</SubType>
     </Compile>

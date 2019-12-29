@@ -12,8 +12,8 @@ namespace YemekPoşeti
 {
     partial class EditFoodScreen :  MetroFramework.Forms.MetroForm
     {
-        private Restaurant ownedRestaurant;
-        private ucRM_MenuItem foodItem;
+        private readonly Restaurant ownedRestaurant;
+        private readonly ucRM_MenuItem foodItem;
         public EditFoodScreen(ucRM_MenuItem foodItem,Restaurant ownedRestaurant)
         {
             InitializeComponent();

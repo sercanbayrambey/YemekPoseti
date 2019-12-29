@@ -75,6 +75,7 @@
             // 
             this.btnEditFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditFood.BackColor = System.Drawing.Color.OldLace;
+            this.btnEditFood.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditFood.Location = new System.Drawing.Point(12, 113);
             this.btnEditFood.Name = "btnEditFood";
             this.btnEditFood.Size = new System.Drawing.Size(105, 23);
@@ -89,6 +90,7 @@
             // 
             this.btnRemoveFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemoveFood.BackColor = System.Drawing.Color.Red;
+            this.btnRemoveFood.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveFood.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnRemoveFood.ForeColor = System.Drawing.Color.White;
             this.btnRemoveFood.Location = new System.Drawing.Point(123, 113);

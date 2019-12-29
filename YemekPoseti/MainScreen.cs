@@ -20,6 +20,7 @@ namespace YemekPoşeti
         private Restaurant ownedRestaurant;
         public ucFoodItem ucFood;
         public Order CurrentOrder;
+
         public MainScreen(User user)
         {
             LoggedUser = user;
@@ -51,42 +52,6 @@ namespace YemekPoşeti
                 TabMain.SelectTab(TabPageRestManagement);
             }
 
-        }
-
-        private void Restaurant_Click(object sender, EventArgs e)
-        {
-            ucRestList ucTempRestourantItem;
-            if (sender is ucRestList)
-            {
-                ucTempRestourantItem = (ucRestList)sender;
-            }
-            else
-            {
-                Control control = (Control)sender;
-                ucTempRestourantItem = (ucRestList)control.Parent;
-            }
-
-            LoadSelectedRestaurant(ucTempRestourantItem);
-            ShowOrderScreen();
-        }
-
-
-
-        private void Food_Click(object sender, EventArgs e)
-        {
-
-            if ((!(sender is ucFoodItem)) && TabMain.SelectedTab == TabPageOrder) // geçiçi TODO
-            {
-                Control control = (Control)sender;
-                ucFood = (ucFoodItem)control.Parent;
-                var x = CurrentOrder.Basket.AddFood(ucFood, this);
-                if (x != null)
-                    panelBasket.Controls.Add(x);
-
-                lblSumPrice.Text = CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
-                lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
-                lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
-            }
         }
 
         private void LoadSelectedRestaurant(ucRestList ucTemp)
@@ -152,11 +117,6 @@ namespace YemekPoşeti
             List<ucRM_MenuItem> tempFoodList = ownedRestaurant.GetOwnedRestFoodList();
             foreach (ucRM_MenuItem ucFood in tempFoodList)
             {
-                ucFood.Click += new EventHandler(Food_Click);
-                foreach (Control c in ucFood.Controls)
-                {
-                    c.Click += new EventHandler(Food_Click);
-                }
                 panelRMFoodMenu.Controls.Add(ucFood);
             }   
         }
@@ -197,10 +157,79 @@ namespace YemekPoşeti
             db.Close();
 		}
 
-		private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			Application.Exit();
-		}
+		
+        public void GetOwnedRestaurantInfo()
+        {
+            ownedRestaurant = new Restaurant(this);
+            ownedRestaurant.GetProperties(LoggedUser.UserID);
+            tboxRMRestName.Text = ownedRestaurant.Name;
+            tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
+            tboxRMRestDesc.Text = ownedRestaurant.Description;
+            cboxRMCity.DataSource = db.GetCities();
+            cboxRMCity.SelectedItem = LoggedUser.Location.ToUpper();
+            ShowOwnedRestFoodList();
+            ShowOwnedRestOrders();
+        }
+
+        //
+        ////////////  EVENTS  ////////////        
+        //
+
+        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabMain.SelectedIndex == 0)
+            {
+                TabPageHome.Controls.Add(panelPastOrders);
+                TabPageHome.Controls.Add(lblUserOrders);
+                TabPageHome.Controls.Add(lblUserOrdersDesc);
+                TabPageHome.Controls.Add(btnRefresh);
+            }
+            else if (TabMain.SelectedIndex == 1)
+            {
+                TabPageProfile.Controls.Add(panelPastOrders);
+                TabPageProfile.Controls.Add(panelPastOrders);
+                TabPageProfile.Controls.Add(lblUserOrders);
+                TabPageProfile.Controls.Add(lblUserOrdersDesc);
+                TabPageProfile.Controls.Add(btnRefresh);
+            }
+            else if(TabMain.SelectedTab == TabPageRestManagement)
+            {
+                GetOwnedRestaurantInfo();
+            }
+        }
+
+        private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
+        {
+            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text.Replace('\'',' '),tboxRMRestDesc.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            {
+               MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Restoran bilgileriniz kaydedilirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnRMAddFood_Click(object sender, EventArgs e)
+        {
+            if (ownedRestaurant.AddFoodToMenu(tboxRMFoodName.Text, tboxRMFoodDesc.Text, tboxRMFoodPrice.Text.Replace(',', '.')))
+            {
+                ShowOwnedRestFoodList();
+                MessageBox.Show("Ürün menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Ürün menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnRMRefresh_Click(object sender, EventArgs e)
+        {
+            GetOwnedRestaurantInfo();
+        }
+
+        private void MainScreen_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void tboxAdress_Enter(object sender, EventArgs e)
         {
@@ -235,8 +264,6 @@ namespace YemekPoşeti
                 btnOrder.Enabled = true;
                 MessageBox.Show("Siparişiniz sırasında bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-                    
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -245,107 +272,38 @@ namespace YemekPoşeti
             AddRestaurantsToList();
         }
 
-
-        public void GetOwnedRestaurantInfo()
+        private void Food_Click(object sender, EventArgs e)
         {
-            ownedRestaurant = new Restaurant(this);
-            ownedRestaurant.GetProperties(LoggedUser.UserID);
-            tboxRMRestName.Text = ownedRestaurant.Name;
-            tboxRMMinOrderPrice.Text= ownedRestaurant.MinOrderPrice.ToString("0.00");
-            tboxRMRestDesc.Text = ownedRestaurant.Description;
-            cboxRMCity.DataSource = db.GetCities();
-            cboxRMCity.SelectedItem = LoggedUser.Location.ToUpper();
-            ShowOwnedRestFoodList();
-            ShowOwnedRestOrders();
-        }
 
+            if ((!(sender is ucFoodItem)))
+            {
+                Control control = (Control)sender;
+                ucFood = (ucFoodItem)control.Parent;
+                var x = CurrentOrder.Basket.AddFood(ucFood);
+                if (x != null)
+                    panelBasket.Controls.Add(x);
 
-        private void TabMain_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (TabMain.SelectedIndex == 0)
-            {
-                TabPageHome.Controls.Add(panelPastOrders);
-                TabPageHome.Controls.Add(lblUserOrders);
-                TabPageHome.Controls.Add(lblUserOrdersDesc);
-                TabPageHome.Controls.Add(btnRefresh);
-            }
-            else if (TabMain.SelectedIndex == 1)
-            {
-                TabPageProfile.Controls.Add(panelPastOrders);
-                TabPageProfile.Controls.Add(panelPastOrders);
-                TabPageProfile.Controls.Add(lblUserOrders);
-                TabPageProfile.Controls.Add(lblUserOrdersDesc);
-                TabPageProfile.Controls.Add(btnRefresh);
-            }
-            else if(TabMain.SelectedTab == TabPageRestManagement)
-            {
-                GetOwnedRestaurantInfo();
+                lblSumPrice.Text = CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
+                lblSumDiscount.Text = CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+                lblFinalSumPrice.Text = (CurrentOrder.FinalPrice).ToString("0.00") + " TL";
             }
         }
-
-        private void lblRMName_Click(object sender, EventArgs e)
+        private void Restaurant_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnRMSaveRestInfo_Click(object sender, EventArgs e)
-        {
-            if (ownedRestaurant.SaveProperties(tboxRMRestName.Text.Replace('\'',' '),tboxRMRestDesc.Text, tboxRMMinOrderPrice.Text.Replace(',','.'), db.CityToLocationID(cboxRMCity.SelectedItem.ToString())))
+            ucRestList ucTempRestourantItem;
+            if (sender is ucRestList)
             {
-               MessageBox.Show("Restoran bilgileriniz başarıyla kaydedilmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ucTempRestourantItem = (ucRestList)sender;
             }
             else
             {
-                MessageBox.Show("Restoran bilgileriniz kaydedilirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Control control = (Control)sender;
+                ucTempRestourantItem = (ucRestList)control.Parent;
             }
 
-
-        }
-
-        private void btnRMAddFood_Click(object sender, EventArgs e)
-        {
-            if (ownedRestaurant.AddFoodToMenu(tboxRMFoodName.Text, tboxRMFoodDesc.Text, tboxRMFoodPrice.Text.Replace(',', '.')))
-            {
-                ShowOwnedRestFoodList();
-                MessageBox.Show("Ürün menüye başarıyla eklenmiştir.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-                MessageBox.Show("Ürün menüye eklenirken bir hata meydana geldi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void tbox_Enter(object sender, EventArgs e)
-        {
-            //MetroFramework.Controls.MetroTextBox tbox = (MetroFramework.Controls.MetroTextBox)sender;
-            //tbox.Clear();
-            
-        }
-
-        private void ShowEditFoodPanel()
-        {
-
-
-
-        }
-
-        private void btnRMRefresh_Click(object sender, EventArgs e)
-        {
-            GetOwnedRestaurantInfo();
-        }
-
-        private void panelFoodMenu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblOrderTopDesc_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblOrderRestName_Click(object sender, EventArgs e)
-        {
-
+            LoadSelectedRestaurant(ucTempRestourantItem);
+            ShowOrderScreen();
         }
     }
-	
+
 }
