@@ -48,6 +48,20 @@
             this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
             this.lblCompleteOrder = new System.Windows.Forms.Label();
             this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
+            this.gboxCheck = new System.Windows.Forms.GroupBox();
+            this.lblBankID = new MetroFramework.Controls.MetroLabel();
+            this.mtboxBankID = new System.Windows.Forms.MaskedTextBox();
+            this.lblCheckCode = new MetroFramework.Controls.MetroLabel();
+            this.mtboxCheckCode = new System.Windows.Forms.MaskedTextBox();
+            this.lblCashInfo = new System.Windows.Forms.Label();
+            this.gboxCreditCard = new System.Windows.Forms.GroupBox();
+            this.dtpExpDate = new System.Windows.Forms.DateTimePicker();
+            this.lblExpDate = new MetroFramework.Controls.MetroLabel();
+            this.lblCreditNumber = new MetroFramework.Controls.MetroLabel();
+            this.mtboxCreditNumber = new System.Windows.Forms.MaskedTextBox();
+            this.rdbtnCheck = new MetroFramework.Controls.MetroRadioButton();
+            this.rdbtnCredit = new MetroFramework.Controls.MetroRadioButton();
+            this.rdbtnCash = new MetroFramework.Controls.MetroRadioButton();
             this.lblPayment = new System.Windows.Forms.Label();
             this.lblMinPriceWarn = new System.Windows.Forms.Label();
             this.tboxAdress = new MetroFramework.Controls.MetroTextBox();
@@ -104,6 +118,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pBoxProfilePic)).BeginInit();
             this.TabPageOrder.SuspendLayout();
             this.panelCompleteOrder.SuspendLayout();
+            this.gboxCheck.SuspendLayout();
+            this.gboxCreditCard.SuspendLayout();
             this.TabPageRestManagement.SuspendLayout();
             this.panelRMAddFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tboxRMFoodPrice)).BeginInit();
@@ -393,6 +409,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCompleteOrder.AutoScroll = true;
             this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCompleteOrder.Controls.Add(this.gboxCheck);
+            this.panelCompleteOrder.Controls.Add(this.lblCashInfo);
+            this.panelCompleteOrder.Controls.Add(this.gboxCreditCard);
+            this.panelCompleteOrder.Controls.Add(this.rdbtnCheck);
+            this.panelCompleteOrder.Controls.Add(this.rdbtnCredit);
+            this.panelCompleteOrder.Controls.Add(this.rdbtnCash);
             this.panelCompleteOrder.Controls.Add(this.lblPayment);
             this.panelCompleteOrder.Controls.Add(this.lblMinPriceWarn);
             this.panelCompleteOrder.Controls.Add(this.tboxAdress);
@@ -412,6 +434,154 @@
             this.panelCompleteOrder.VerticalScrollbarBarColor = false;
             this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
             this.panelCompleteOrder.VerticalScrollbarSize = 13;
+            this.panelCompleteOrder.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCompleteOrder_Paint);
+            // 
+            // gboxCheck
+            // 
+            this.gboxCheck.BackColor = System.Drawing.Color.Transparent;
+            this.gboxCheck.Controls.Add(this.lblBankID);
+            this.gboxCheck.Controls.Add(this.mtboxBankID);
+            this.gboxCheck.Controls.Add(this.lblCheckCode);
+            this.gboxCheck.Controls.Add(this.mtboxCheckCode);
+            this.gboxCheck.Location = new System.Drawing.Point(8, 440);
+            this.gboxCheck.Name = "gboxCheck";
+            this.gboxCheck.Size = new System.Drawing.Size(455, 98);
+            this.gboxCheck.TabIndex = 31;
+            this.gboxCheck.TabStop = false;
+            this.gboxCheck.Text = "Çekle Ödeme";
+            this.gboxCheck.Visible = false;
+            // 
+            // lblBankID
+            // 
+            this.lblBankID.AutoSize = true;
+            this.lblBankID.Location = new System.Drawing.Point(13, 54);
+            this.lblBankID.Name = "lblBankID";
+            this.lblBankID.Size = new System.Drawing.Size(66, 20);
+            this.lblBankID.TabIndex = 30;
+            this.lblBankID.Text = "Banka ID:";
+            // 
+            // mtboxBankID
+            // 
+            this.mtboxBankID.Location = new System.Drawing.Point(143, 54);
+            this.mtboxBankID.Mask = "0000";
+            this.mtboxBankID.Name = "mtboxBankID";
+            this.mtboxBankID.Size = new System.Drawing.Size(208, 22);
+            this.mtboxBankID.TabIndex = 29;
+            // 
+            // lblCheckCode
+            // 
+            this.lblCheckCode.AutoSize = true;
+            this.lblCheckCode.Location = new System.Drawing.Point(13, 28);
+            this.lblCheckCode.Name = "lblCheckCode";
+            this.lblCheckCode.Size = new System.Drawing.Size(72, 20);
+            this.lblCheckCode.TabIndex = 28;
+            this.lblCheckCode.Text = "Çek Kodu:";
+            // 
+            // mtboxCheckCode
+            // 
+            this.mtboxCheckCode.Location = new System.Drawing.Point(143, 26);
+            this.mtboxCheckCode.Mask = "0000-0000-0000-0000";
+            this.mtboxCheckCode.Name = "mtboxCheckCode";
+            this.mtboxCheckCode.Size = new System.Drawing.Size(208, 22);
+            this.mtboxCheckCode.TabIndex = 27;
+            // 
+            // lblCashInfo
+            // 
+            this.lblCashInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCashInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblCashInfo.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+            this.lblCashInfo.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblCashInfo.Location = new System.Drawing.Point(2, 714);
+            this.lblCashInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCashInfo.Name = "lblCashInfo";
+            this.lblCashInfo.Size = new System.Drawing.Size(463, 26);
+            this.lblCashInfo.TabIndex = 30;
+            this.lblCashInfo.Text = "Ödemeniz kapıda alınacaktır.";
+            this.lblCashInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCashInfo.Visible = false;
+            // 
+            // gboxCreditCard
+            // 
+            this.gboxCreditCard.BackColor = System.Drawing.Color.Transparent;
+            this.gboxCreditCard.Controls.Add(this.dtpExpDate);
+            this.gboxCreditCard.Controls.Add(this.lblExpDate);
+            this.gboxCreditCard.Controls.Add(this.lblCreditNumber);
+            this.gboxCreditCard.Controls.Add(this.mtboxCreditNumber);
+            this.gboxCreditCard.Location = new System.Drawing.Point(8, 440);
+            this.gboxCreditCard.Name = "gboxCreditCard";
+            this.gboxCreditCard.Size = new System.Drawing.Size(455, 98);
+            this.gboxCreditCard.TabIndex = 29;
+            this.gboxCreditCard.TabStop = false;
+            this.gboxCreditCard.Text = "Kartla Ödeme";
+            this.gboxCreditCard.Visible = false;
+            // 
+            // dtpExpDate
+            // 
+            this.dtpExpDate.CustomFormat = "MM / yy";
+            this.dtpExpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpExpDate.Location = new System.Drawing.Point(143, 60);
+            this.dtpExpDate.Name = "dtpExpDate";
+            this.dtpExpDate.Size = new System.Drawing.Size(208, 22);
+            this.dtpExpDate.TabIndex = 31;
+            // 
+            // lblExpDate
+            // 
+            this.lblExpDate.AutoSize = true;
+            this.lblExpDate.Location = new System.Drawing.Point(6, 62);
+            this.lblExpDate.Name = "lblExpDate";
+            this.lblExpDate.Size = new System.Drawing.Size(131, 20);
+            this.lblExpDate.TabIndex = 30;
+            this.lblExpDate.Text = "Son Kullanma Tarihi:";
+            // 
+            // lblCreditNumber
+            // 
+            this.lblCreditNumber.AutoSize = true;
+            this.lblCreditNumber.Location = new System.Drawing.Point(6, 28);
+            this.lblCreditNumber.Name = "lblCreditNumber";
+            this.lblCreditNumber.Size = new System.Drawing.Size(100, 20);
+            this.lblCreditNumber.TabIndex = 28;
+            this.lblCreditNumber.Text = "Kart Numarası:";
+            // 
+            // mtboxCreditNumber
+            // 
+            this.mtboxCreditNumber.Location = new System.Drawing.Point(143, 26);
+            this.mtboxCreditNumber.Mask = "0000-0000-0000-0000";
+            this.mtboxCreditNumber.Name = "mtboxCreditNumber";
+            this.mtboxCreditNumber.Size = new System.Drawing.Size(208, 22);
+            this.mtboxCreditNumber.TabIndex = 27;
+            // 
+            // rdbtnCheck
+            // 
+            this.rdbtnCheck.AutoSize = true;
+            this.rdbtnCheck.Location = new System.Drawing.Point(405, 406);
+            this.rdbtnCheck.Name = "rdbtnCheck";
+            this.rdbtnCheck.Size = new System.Drawing.Size(45, 17);
+            this.rdbtnCheck.TabIndex = 25;
+            this.rdbtnCheck.Text = "Çek";
+            this.rdbtnCheck.UseSelectable = true;
+            this.rdbtnCheck.CheckedChanged += new System.EventHandler(this.rdbtnCheck_CheckedChanged);
+            // 
+            // rdbtnCredit
+            // 
+            this.rdbtnCredit.AutoSize = true;
+            this.rdbtnCredit.Location = new System.Drawing.Point(214, 406);
+            this.rdbtnCredit.Name = "rdbtnCredit";
+            this.rdbtnCredit.Size = new System.Drawing.Size(86, 17);
+            this.rdbtnCredit.TabIndex = 24;
+            this.rdbtnCredit.Text = "Kredi Kartı";
+            this.rdbtnCredit.UseSelectable = true;
+            this.rdbtnCredit.CheckedChanged += new System.EventHandler(this.rdbtnCredit_CheckedChanged);
+            // 
+            // rdbtnCash
+            // 
+            this.rdbtnCash.AutoSize = true;
+            this.rdbtnCash.Location = new System.Drawing.Point(8, 406);
+            this.rdbtnCash.Name = "rdbtnCash";
+            this.rdbtnCash.Size = new System.Drawing.Size(101, 17);
+            this.rdbtnCash.TabIndex = 23;
+            this.rdbtnCash.Text = "Nakit Ödeme";
+            this.rdbtnCash.UseSelectable = true;
+            this.rdbtnCash.CheckedChanged += new System.EventHandler(this.rdbtnCash_CheckedChanged);
             // 
             // lblPayment
             // 
@@ -1247,6 +1417,10 @@
             this.TabPageOrder.PerformLayout();
             this.panelCompleteOrder.ResumeLayout(false);
             this.panelCompleteOrder.PerformLayout();
+            this.gboxCheck.ResumeLayout(false);
+            this.gboxCheck.PerformLayout();
+            this.gboxCreditCard.ResumeLayout(false);
+            this.gboxCreditCard.PerformLayout();
             this.TabPageRestManagement.ResumeLayout(false);
             this.TabPageRestManagement.PerformLayout();
             this.panelRMAddFood.ResumeLayout(false);
@@ -1331,6 +1505,20 @@
         private MetroFramework.Controls.MetroTextBox tboxRMRestDesc;
         private System.Windows.Forms.Label lblRMRestDesc;
         private System.Windows.Forms.Label lblPayment;
+        private MetroFramework.Controls.MetroRadioButton rdbtnCheck;
+        private MetroFramework.Controls.MetroRadioButton rdbtnCredit;
+        private MetroFramework.Controls.MetroRadioButton rdbtnCash;
+        private System.Windows.Forms.MaskedTextBox mtboxCreditNumber;
+        private System.Windows.Forms.GroupBox gboxCreditCard;
+        private System.Windows.Forms.DateTimePicker dtpExpDate;
+        private MetroFramework.Controls.MetroLabel lblExpDate;
+        private MetroFramework.Controls.MetroLabel lblCreditNumber;
+        public System.Windows.Forms.Label lblCashInfo;
+        private System.Windows.Forms.GroupBox gboxCheck;
+        private MetroFramework.Controls.MetroLabel lblBankID;
+        private System.Windows.Forms.MaskedTextBox mtboxBankID;
+        private MetroFramework.Controls.MetroLabel lblCheckCode;
+        private System.Windows.Forms.MaskedTextBox mtboxCheckCode;
     }
 }
 

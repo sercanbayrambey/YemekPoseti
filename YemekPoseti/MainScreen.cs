@@ -238,6 +238,7 @@ namespace YemekPoşeti
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
+            int paymentMethod = 0;
             string defaultAdressText = "Adresinizi giriniz...";
             btnOrder.Enabled = false;
             LoggedUser.CurrentOrder.Adress = tboxAdress.Text.ToLower();
@@ -247,6 +248,39 @@ namespace YemekPoşeti
                 MessageBox.Show("Adres bölümü bu kadar kısa olamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tboxAdress.Select();
                 return;
+            }
+
+            //  Payment
+            if (rdbtnCash.Checked)
+                paymentMethod = 1;
+            else if (rdbtnCredit.Checked && mtboxCreditNumber.MaskFull && dtpExpDate.Text != string.Empty)
+                paymentMethod = 2;
+            else if (rdbtnCheck.Checked && mtboxBankID.MaskFull && mtboxCheckCode.MaskFull)
+                paymentMethod = 3;
+            else
+            {
+                MessageBox.Show("Lütfen bir ödeme yöntemi seçiniz veya boşlukları doldurunuz !", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            switch (paymentMethod)
+            {
+                case 1: // Cash
+                    LoggedUser.CurrentOrder.PaymentMethod = new Cash();
+                    LoggedUser.CurrentOrder.PaymentMethod.Amount = LoggedUser.CurrentOrder.FinalPrice;
+                    break;
+                case 2: // Credit 
+                    LoggedUser.CurrentOrder.PaymentMethod = new Credit();
+                    LoggedUser.CurrentOrder.PaymentMethod.Amount = LoggedUser.CurrentOrder.FinalPrice;
+                    ((Credit)LoggedUser.CurrentOrder.PaymentMethod).ExpDate = dtpExpDate.Value;
+                    ((Credit)LoggedUser.CurrentOrder.PaymentMethod).Number = mtboxCreditNumber.Text;
+                    break;
+                case 3: // Check
+                    LoggedUser.CurrentOrder.PaymentMethod = new Check();
+                    LoggedUser.CurrentOrder.PaymentMethod.Amount = LoggedUser.CurrentOrder.FinalPrice;
+                    ((Check)LoggedUser.CurrentOrder.PaymentMethod).BankID = Convert.ToInt32(mtboxBankID.Text);
+                    ((Check)LoggedUser.CurrentOrder.PaymentMethod).Code = mtboxCheckCode.Text;
+                    break;
             }
 
             if (LoggedUser.CurrentOrder.SendOrderToServer() && LoggedUser.CurrentOrder.SendBasketToServer())
@@ -299,6 +333,51 @@ namespace YemekPoşeti
 
             LoadSelectedRestaurant(ucTempRestourantItem);
             ShowOrderScreen();
+        }
+
+        private void panelCompleteOrder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void rdbtnCash_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbtnCash.Checked)
+                ChangePaymentMethod(1);
+        }
+
+        private void rdbtnCredit_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbtnCredit.Checked)
+                ChangePaymentMethod(2);
+        }
+
+        private void rdbtnCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdbtnCheck.Checked)
+                ChangePaymentMethod(3);
+        }
+
+        private void ChangePaymentMethod(int methodID)
+        {
+
+            switch(methodID)
+            {
+                case 1: // Cash
+                    lblCashInfo.Visible = true;
+                    gboxCreditCard.Visible = false;
+                    gboxCheck.Visible = false;
+                    break;
+                case 2: // Credit 
+                    gboxCreditCard.Visible = true;
+                    lblCashInfo.Visible = false;
+                    gboxCheck.Visible = false;
+                    break;
+                case 3: // Check
+                    gboxCreditCard.Visible = false;
+                    lblCashInfo.Visible = false;
+                    gboxCheck.Visible = true;
+                    break;
+            }
         }
     }
 

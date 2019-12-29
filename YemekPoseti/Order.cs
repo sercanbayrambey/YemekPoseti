@@ -14,6 +14,10 @@ namespace YemekPoşeti
         public Basket Basket { get; private set; }
         public User LoggedUser { get; private set; }
         public Restaurant SelectedRestaurant { get; private set; }
+
+        public Payment PaymentMethod { get; set; }
+
+
         private readonly DB db;
         private readonly MainScreen ms;
         public float SumBasketPrice { get; set; }
