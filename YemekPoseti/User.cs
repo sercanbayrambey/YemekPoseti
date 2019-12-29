@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace YemekPoşeti
 {
-	public class User
+    class User
 	{
 		public int UserID { get; private set; }
 		public string UserName { get; private set; }
@@ -17,13 +17,14 @@ namespace YemekPoşeti
 		public string Mail { get; private set; }
 		public string Location { get; private set; }
 		public int UserType { get; private set; }
+        public int LocationID { get; private set; }
 		public DateTime RegisterDate { get; private set; }
+        
+        
         public Order CurrentOrder { get; set; }
         private readonly DB db;
-
-        public int LocationID { get; private set; }
 		
-		public User() // Login
+		public User() 
 		{
 			this.db = new DB();
 		}
@@ -35,10 +36,8 @@ namespace YemekPoşeti
 			if(db.Connect())
 			{
 				MySqlDataReader dr = db.GetQuery(query);
-
 				if (dr.Read())
 				{
-					//LOGIN TRUE
 					this.UserID = Convert.ToInt32(dr["UserID"]);
 					GetUserInfo();
 					db.Close();
@@ -89,7 +88,6 @@ namespace YemekPoşeti
             ucPastOrderItem ucPastOrder = new ucPastOrderItem();
             while(dr.Read())
             {
-                
                 if (orderID != Convert.ToInt32(dr["OrderID"]))
                 {
                     orderID = Convert.ToInt32(dr["OrderID"]);
@@ -131,7 +129,6 @@ namespace YemekPoşeti
             }
             db.Close();
             return pastOrderList;
-
         }
 
         public bool IsUserRestaurantOwner()
@@ -181,12 +178,6 @@ namespace YemekPoşeti
 				db.Close();
 			}
 			db.Close();
-		}
-
-
-		public override string ToString()
-		{
-			return this.Mail + " " + this.Location + " " + this.UserName + " " + this.UserType + " " + this.UserID;
 		}
 	}
 }

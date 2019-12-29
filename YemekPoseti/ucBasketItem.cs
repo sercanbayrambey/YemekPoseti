@@ -28,7 +28,7 @@ namespace YemekPoşeti
 
 		private void lblDeleteFood_Click(object sender, EventArgs e)
 		{
-            ms.CurrentOrder.Basket.RemoveFood(this);
+            ms.LoggedUser.CurrentOrder.Basket.RemoveFood(this);
 		}
 
         private void lblFoodDesc_Click(object sender, EventArgs e)

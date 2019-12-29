@@ -32,9 +32,9 @@ namespace YemekPoşeti
                 basketItem.ms = this.ms;
                 this.UpdateBasketItem(basketItem);
                 this.FoodsInBasket.Add(basketItem);
-                this.ms.CurrentOrder.PrintFoods(this.ms.lboxUrunler);
-                this.ms.CurrentOrder.GetSumBasketPrice();
-                this.ms.CurrentOrder.CheckRestMinPriceStatus();
+                this.ms.LoggedUser.CurrentOrder.PrintFoods(this.ms.lboxUrunler);
+                this.ms.LoggedUser.CurrentOrder.GetSumBasketPrice();
+                this.ms.LoggedUser.CurrentOrder.CheckRestMinPriceStatus();
                 return basketItem;
             }
             else
@@ -52,9 +52,9 @@ namespace YemekPoşeti
                     }
                 }
             }
-            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
-            ms.CurrentOrder.GetSumBasketPrice();
-            ms.CurrentOrder.CheckRestMinPriceStatus();
+            ms.LoggedUser.CurrentOrder.PrintFoods(ms.lboxUrunler);
+            ms.LoggedUser.CurrentOrder.GetSumBasketPrice();
+            ms.LoggedUser.CurrentOrder.CheckRestMinPriceStatus();
             return null;
         }
 
@@ -82,11 +82,11 @@ namespace YemekPoşeti
                 this.FoodsInBasket.Remove(basketItem);
                 ms.panelBasket.Controls.Remove(basketItem);
             }
-            this.ms.CurrentOrder.GetSumBasketPrice();
-            ms.CurrentOrder.CheckRestMinPriceStatus();
-            ms.lblSumPrice.Text = ms.CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
-            ms.lblSumDiscount.Text = ms.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
-            ms.lblFinalSumPrice.Text = (ms.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
+            this.ms.LoggedUser.CurrentOrder.GetSumBasketPrice();
+            ms.LoggedUser.CurrentOrder.CheckRestMinPriceStatus();
+            ms.lblSumPrice.Text = ms.LoggedUser.CurrentOrder.SumBasketPrice.ToString("0.00") + " TL";
+            ms.lblSumDiscount.Text = ms.LoggedUser.CurrentOrder.DiscountPrice.ToString("0.00") + " TL"; ;
+            ms.lblFinalSumPrice.Text = (ms.LoggedUser.CurrentOrder.FinalPrice).ToString("0.00") + " TL";
         }
 
 
@@ -97,7 +97,7 @@ namespace YemekPoşeti
             basketItem.lblFoodName.Text = basketItem.FoodName + " x" + basketItem.QTY;
             basketItem.lblDeleteFood.Location = new Point(basketItem.lblFoodName.Location.X + 5 + basketItem.lblFoodName.Width, basketItem.lblDeleteFood.Location.Y);
             basketItem.lblFoodDesc.Text = basketItem.FoodDesc;
-            ms.CurrentOrder.PrintFoods(ms.lboxUrunler);
+            ms.LoggedUser.CurrentOrder.PrintFoods(ms.lboxUrunler);
         }
 
     }

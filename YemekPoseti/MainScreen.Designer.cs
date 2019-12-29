@@ -97,6 +97,7 @@
             this.lblRMEditMenu = new System.Windows.Forms.Label();
             this.lblEditMenu = new System.Windows.Forms.Label();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
+            this.lblPayment = new System.Windows.Forms.Label();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -121,7 +122,7 @@
             this.TabMain.Location = new System.Drawing.Point(27, 74);
             this.TabMain.Margin = new System.Windows.Forms.Padding(4);
             this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 3;
+            this.TabMain.SelectedIndex = 2;
             this.TabMain.Size = new System.Drawing.Size(1866, 967);
             this.TabMain.Style = MetroFramework.MetroColorStyle.Purple;
             this.TabMain.TabIndex = 0;
@@ -318,7 +319,7 @@
             // 
             // pBoxProfilePic
             // 
-            this.pBoxProfilePic.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pBoxProfilePic.ErrorImage")));
+            this.pBoxProfilePic.ErrorImage = null;
             this.pBoxProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("pBoxProfilePic.Image")));
             this.pBoxProfilePic.InitialImage = null;
             this.pBoxProfilePic.Location = new System.Drawing.Point(4, 4);
@@ -392,6 +393,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelCompleteOrder.AutoScroll = true;
             this.panelCompleteOrder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelCompleteOrder.Controls.Add(this.lblPayment);
             this.panelCompleteOrder.Controls.Add(this.lblMinPriceWarn);
             this.panelCompleteOrder.Controls.Add(this.tboxAdress);
             this.panelCompleteOrder.Controls.Add(this.lblOrderAdress);
@@ -443,7 +445,7 @@
             this.tboxAdress.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.tboxAdress.Lines = new string[] {
         "Adresinizi giriniz..."};
-            this.tboxAdress.Location = new System.Drawing.Point(3, 236);
+            this.tboxAdress.Location = new System.Drawing.Point(3, 227);
             this.tboxAdress.MaxLength = 32767;
             this.tboxAdress.Multiline = true;
             this.tboxAdress.Name = "tboxAdress";
@@ -467,7 +469,7 @@
             this.lblOrderAdress.AutoSize = true;
             this.lblOrderAdress.BackColor = System.Drawing.Color.Transparent;
             this.lblOrderAdress.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblOrderAdress.Location = new System.Drawing.Point(-1, 210);
+            this.lblOrderAdress.Location = new System.Drawing.Point(4, 201);
             this.lblOrderAdress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOrderAdress.Name = "lblOrderAdress";
             this.lblOrderAdress.Size = new System.Drawing.Size(170, 23);
@@ -1205,6 +1207,19 @@
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
             // 
+            // lblPayment
+            // 
+            this.lblPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPayment.AutoSize = true;
+            this.lblPayment.BackColor = System.Drawing.Color.Transparent;
+            this.lblPayment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPayment.Location = new System.Drawing.Point(4, 381);
+            this.lblPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPayment.Name = "lblPayment";
+            this.lblPayment.Size = new System.Drawing.Size(177, 23);
+            this.lblPayment.TabIndex = 22;
+            this.lblPayment.Text = "Ödeme Yöntemi:";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1315,6 +1330,7 @@
         private System.Windows.Forms.Label lblRMFoodDesc;
         private MetroFramework.Controls.MetroTextBox tboxRMRestDesc;
         private System.Windows.Forms.Label lblRMRestDesc;
+        private System.Windows.Forms.Label lblPayment;
     }
 }
 
