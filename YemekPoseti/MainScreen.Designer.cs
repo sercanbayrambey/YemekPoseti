@@ -48,6 +48,7 @@
             this.lblCompleteOrderDesc = new System.Windows.Forms.Label();
             this.lblCompleteOrder = new System.Windows.Forms.Label();
             this.panelCompleteOrder = new MetroFramework.Controls.MetroPanel();
+            this.lblPayment = new System.Windows.Forms.Label();
             this.lblMinPriceWarn = new System.Windows.Forms.Label();
             this.tboxAdress = new MetroFramework.Controls.MetroTextBox();
             this.lblOrderAdress = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.lblRMEditMenu = new System.Windows.Forms.Label();
             this.lblEditMenu = new System.Windows.Forms.Label();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.lblPayment = new System.Windows.Forms.Label();
             this.TabMain.SuspendLayout();
             this.TabPageHome.SuspendLayout();
             this.TabPageProfile.SuspendLayout();
@@ -413,6 +413,19 @@
             this.panelCompleteOrder.VerticalScrollbarHighlightOnWheel = false;
             this.panelCompleteOrder.VerticalScrollbarSize = 13;
             // 
+            // lblPayment
+            // 
+            this.lblPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPayment.AutoSize = true;
+            this.lblPayment.BackColor = System.Drawing.Color.Transparent;
+            this.lblPayment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPayment.Location = new System.Drawing.Point(4, 381);
+            this.lblPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPayment.Name = "lblPayment";
+            this.lblPayment.Size = new System.Drawing.Size(177, 23);
+            this.lblPayment.TabIndex = 22;
+            this.lblPayment.Text = "Ödeme Yöntemi:";
+            // 
             // lblMinPriceWarn
             // 
             this.lblMinPriceWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -446,7 +459,7 @@
             this.tboxAdress.Lines = new string[] {
         "Adresinizi giriniz..."};
             this.tboxAdress.Location = new System.Drawing.Point(3, 227);
-            this.tboxAdress.MaxLength = 32767;
+            this.tboxAdress.MaxLength = 128;
             this.tboxAdress.Multiline = true;
             this.tboxAdress.Name = "tboxAdress";
             this.tboxAdress.PasswordChar = '\0';
@@ -849,7 +862,7 @@
             this.tboxRMFoodName.CustomButton.Visible = false;
             this.tboxRMFoodName.Lines = new string[0];
             this.tboxRMFoodName.Location = new System.Drawing.Point(173, 5);
-            this.tboxRMFoodName.MaxLength = 64;
+            this.tboxRMFoodName.MaxLength = 42;
             this.tboxRMFoodName.Name = "tboxRMFoodName";
             this.tboxRMFoodName.PasswordChar = '\0';
             this.tboxRMFoodName.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -1206,19 +1219,6 @@
             this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pboxLogo.TabIndex = 3;
             this.pboxLogo.TabStop = false;
-            // 
-            // lblPayment
-            // 
-            this.lblPayment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPayment.AutoSize = true;
-            this.lblPayment.BackColor = System.Drawing.Color.Transparent;
-            this.lblPayment.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.lblPayment.Location = new System.Drawing.Point(4, 381);
-            this.lblPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPayment.Name = "lblPayment";
-            this.lblPayment.Size = new System.Drawing.Size(177, 23);
-            this.lblPayment.TabIndex = 22;
-            this.lblPayment.Text = "Ödeme Yöntemi:";
             // 
             // MainScreen
             // 

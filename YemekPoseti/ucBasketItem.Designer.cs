@@ -40,9 +40,9 @@
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(412, 13);
+            this.lblFoodPrice.Location = new System.Drawing.Point(457, 39);
             this.lblFoodPrice.Name = "lblFoodPrice";
-            this.lblFoodPrice.Size = new System.Drawing.Size(141, 26);
+            this.lblFoodPrice.Size = new System.Drawing.Size(119, 26);
             this.lblFoodPrice.TabIndex = 5;
             this.lblFoodPrice.Text = "2000,00 TL";
             this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -64,12 +64,12 @@
             // 
             this.lblFoodName.AutoSize = true;
             this.lblFoodName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblFoodName.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
+            this.lblFoodName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.lblFoodName.Location = new System.Drawing.Point(11, 14);
             this.lblFoodName.Name = "lblFoodName";
-            this.lblFoodName.Size = new System.Drawing.Size(166, 26);
+            this.lblFoodName.Size = new System.Drawing.Size(505, 23);
             this.lblFoodName.TabIndex = 3;
-            this.lblFoodName.Text = "Yemek Adı x 1";
+            this.lblFoodName.Text = "King Deluxe Coca-Cola Şekersiz KampanyasıD x10";
             // 
             // lblDeleteFood
             // 
@@ -77,7 +77,7 @@
             this.lblDeleteFood.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblDeleteFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeleteFood.ForeColor = System.Drawing.Color.Red;
-            this.lblDeleteFood.Location = new System.Drawing.Point(184, 17);
+            this.lblDeleteFood.Location = new System.Drawing.Point(511, 14);
             this.lblDeleteFood.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeleteFood.Name = "lblDeleteFood";
             this.lblDeleteFood.Size = new System.Drawing.Size(42, 20);
@@ -96,7 +96,7 @@
             this.Controls.Add(this.lblFoodName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucBasketItem";
-            this.Size = new System.Drawing.Size(553, 112);
+            this.Size = new System.Drawing.Size(576, 112);
             this.ResumeLayout(false);
             this.PerformLayout();
 

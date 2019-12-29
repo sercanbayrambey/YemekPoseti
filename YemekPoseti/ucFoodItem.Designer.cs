@@ -38,11 +38,11 @@
             this.lblFoodName.AutoSize = true;
             this.lblFoodName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodName.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
-            this.lblFoodName.Location = new System.Drawing.Point(15, 10);
+            this.lblFoodName.Location = new System.Drawing.Point(28, 10);
             this.lblFoodName.Name = "lblFoodName";
-            this.lblFoodName.Size = new System.Drawing.Size(130, 26);
+            this.lblFoodName.Size = new System.Drawing.Size(526, 52);
             this.lblFoodName.TabIndex = 0;
-            this.lblFoodName.Text = "Yemek Adı";
+            this.lblFoodName.Text = "epQRCZiNfuWcHGUCntDNlRwauCSdOxAASSxxFF\r\n\r\n";
             // 
             // lblFoodDesc
             // 
@@ -62,12 +62,12 @@
             this.lblFoodPrice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblFoodPrice.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold);
             this.lblFoodPrice.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFoodPrice.Location = new System.Drawing.Point(452, 24);
+            this.lblFoodPrice.Location = new System.Drawing.Point(453, 46);
             this.lblFoodPrice.Name = "lblFoodPrice";
             this.lblFoodPrice.Size = new System.Drawing.Size(122, 26);
             this.lblFoodPrice.TabIndex = 2;
             this.lblFoodPrice.Text = "2000,00 TL";
-            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblFoodPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ucFoodItem
             // 
