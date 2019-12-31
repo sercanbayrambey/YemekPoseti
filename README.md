@@ -1,6 +1,11 @@
 # a desktop clone of the YemekSepeti
 
 
+github.com/mertdurum
+github.com/baho908
+
+
+
 ![login](https://user-images.githubusercontent.com/45638332/71543132-c8d24e80-2980-11ea-9617-ed5dc5f6875a.png)
 
 ![mainscreen](https://user-images.githubusercontent.com/45638332/71543133-c96ae500-2980-11ea-987a-82c9ba0be9d7.png)
