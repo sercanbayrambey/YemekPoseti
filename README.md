@@ -1,7 +1,7 @@
 # a desktop clone of the YemekSepeti
 
 
-github.com/mertdurum
+github.com/mertdurum <br>
 github.com/baho908
 
 
