@@ -1,9 +1,7 @@
 # a desktop clone of the YemekSepeti
 
-
-github.com/mertdurum <br>
-github.com/baho908
-
+##### [github.com/mertdurum](https://github.com/mertdurum)
+##### [github.com/baha908](https://github.com/baha908)
 
 
 ![login](https://user-images.githubusercontent.com/45638332/71543132-c8d24e80-2980-11ea-9617-ed5dc5f6875a.png)
