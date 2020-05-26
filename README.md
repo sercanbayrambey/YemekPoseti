@@ -20,4 +20,5 @@
 ## Run
 
 [TR]
+
 Programı çalıştırmak için öncelikle "Example_DB" klasöründeki veritabanını MySQL (programda varsayılan kullanılan) veya başka bir veritabanına (değiştirdiğiniz veritabanına göre kodları değiştirmek zorundasınız MySQL değilse) import etmelisiniz. İmport ettikten sonra YemekPoseti klasorundeki "DB.cs" classına veritabanı bilgilerinizi girdikten sonra programı çalıştırabilirsiniz. 
