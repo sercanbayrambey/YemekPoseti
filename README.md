@@ -16,3 +16,8 @@
 ## Database Diagram
 
 ![db](https://user-images.githubusercontent.com/45638332/82922716-a15ccd80-9f82-11ea-86e2-9052c5322332.jpg)
+
+## Run
+
+[TR]
+Programı çalıştırmak için öncelikle "Example_DB" klasöründeki veritabanını MySQL (programda varsayılan kullanılan) veya başka bir veritabanına (değiştirdiğiniz veritabanına göre kodları değiştirmek zorundasınız MySQL değilse) import etmelisiniz. İmport ettikten sonra YemekPoseti klasorundeki "DB.cs" classına veritabanı bilgilerinizi girdikten sonra programı çalıştırabilirsiniz. 
