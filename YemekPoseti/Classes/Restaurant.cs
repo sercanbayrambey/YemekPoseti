@@ -179,14 +179,7 @@ namespace YemekPoşeti
             int orderID = -1;
             int status;
             List<ucRMOrders> pastOrderList = new List<ucRMOrders>();
-            string query = string.Format("SELECT U.UserName,O.Adress,O.OrderID,O.OrderDate,F.FoodName,R.RestaurantName,O.StatusID,OS.Status,L.LocationName,O.FinalPrice, B.QTY FROM Orders O" +
-                                        " INNER JOIN Basket B ON B.OrderID = O.OrderID" +
-                                        " INNER JOIN Restaurants R ON R.RestaurantID = O.RestaurantID" +
-                                        " INNER JOIN Foods F ON F.FoodID = B.FoodID" +
-                                        " INNER JOIN Locations L ON L.LocationID = R.LocationID" +
-                                        " INNER JOIN Users U ON O.UserID = U.UserID" +
-                                        " INNER JOIN OrderStatus OS ON O.StatusID = OS.StatusID WHERE R.RestaurantID = {0}" +
-                                        " ORDER BY O.OrderID ASC", this.ID);
+            string query = string.Format("SELECT * FROM `siparisleriGoster` WHERE RestaurantID = {0}", this.ID);
             db.Connect();
             dr = db.GetQuery(query);
             ucRMOrders ucOrderFood = new ucRMOrders(this);

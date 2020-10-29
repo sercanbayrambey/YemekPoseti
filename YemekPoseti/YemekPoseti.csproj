@@ -63,94 +63,94 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EditFoodScreen.resx">
+    <EmbeddedResource Include="Views\EditFoodScreen.resx">
       <DependentUpon>EditFoodScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucRMOrders.resx">
+    <EmbeddedResource Include="UserControls\ucRMOrders.resx">
       <DependentUpon>ucRMOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucRM_MenuItem.resx">
+    <EmbeddedResource Include="UserControls\ucRM_MenuItem.resx">
       <DependentUpon>ucRM_MenuItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DB.cs.example" />
-    <Compile Include="Cash.cs" />
-    <Compile Include="Check.cs" />
-    <Compile Include="Credit.cs" />
-    <Compile Include="DB.cs" />
-    <Compile Include="EditFoodScreen.cs">
+    <Compile Include="Classes\Cash.cs" />
+    <Compile Include="Classes\Check.cs" />
+    <Compile Include="Classes\Credit.cs" />
+    <Compile Include="Classes\DB.cs" />
+    <Compile Include="Views\EditFoodScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditFoodScreen.Designer.cs">
+    <Compile Include="Views\EditFoodScreen.Designer.cs">
       <DependentUpon>EditFoodScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginScreen.cs">
+    <Compile Include="Views\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginScreen.Designer.cs">
+    <Compile Include="Views\LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Basket.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Payment.cs" />
-    <Compile Include="RegisterScreen.cs">
+    <Compile Include="Classes\Basket.cs" />
+    <Compile Include="Classes\Order.cs" />
+    <Compile Include="Classes\Payment.cs" />
+    <Compile Include="Views\RegisterScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegisterScreen.Designer.cs">
+    <Compile Include="Views\RegisterScreen.Designer.cs">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainScreen.cs">
+    <Compile Include="Views\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainScreen.Designer.cs">
+    <Compile Include="Views\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Restaurant.cs" />
-    <Compile Include="ucPastOrderItem.cs">
+    <Compile Include="Classes\Restaurant.cs" />
+    <Compile Include="UserControls\ucPastOrderItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucPastOrderItem.Designer.cs">
+    <Compile Include="UserControls\ucPastOrderItem.Designer.cs">
       <DependentUpon>ucPastOrderItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucRestourantItem.cs">
+    <Compile Include="UserControls\ucRestourantItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucRestourantItem.Designer.cs">
+    <Compile Include="UserControls\ucRestourantItem.Designer.cs">
       <DependentUpon>ucRestourantItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucBasketItem.cs">
+    <Compile Include="UserControls\ucBasketItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucBasketItem.Designer.cs">
+    <Compile Include="UserControls\ucBasketItem.Designer.cs">
       <DependentUpon>ucBasketItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucFoodItem.cs">
+    <Compile Include="UserControls\ucFoodItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucFoodItem.Designer.cs">
+    <Compile Include="UserControls\ucFoodItem.Designer.cs">
       <DependentUpon>ucFoodItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucRMOrders.cs">
+    <Compile Include="UserControls\ucRMOrders.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucRMOrders.Designer.cs">
+    <Compile Include="UserControls\ucRMOrders.Designer.cs">
       <DependentUpon>ucRMOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucRM_MenuItem.cs">
+    <Compile Include="UserControls\ucRM_MenuItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucRM_MenuItem.Designer.cs">
+    <Compile Include="UserControls\ucRM_MenuItem.Designer.cs">
       <DependentUpon>ucRM_MenuItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="LoginScreen.resx">
+    <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Views\LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RegisterScreen.resx">
+    <EmbeddedResource Include="Views\RegisterScreen.resx">
       <DependentUpon>RegisterScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainScreen.resx">
+    <EmbeddedResource Include="Views\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -163,16 +163,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucPastOrderItem.resx">
+    <EmbeddedResource Include="UserControls\ucPastOrderItem.resx">
       <DependentUpon>ucPastOrderItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucRestourantItem.resx">
+    <EmbeddedResource Include="UserControls\ucRestourantItem.resx">
       <DependentUpon>ucRestourantItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucBasketItem.resx">
+    <EmbeddedResource Include="UserControls\ucBasketItem.resx">
       <DependentUpon>ucBasketItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucFoodItem.resx">
+    <EmbeddedResource Include="UserControls\ucFoodItem.resx">
       <DependentUpon>ucFoodItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
